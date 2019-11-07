@@ -19,4 +19,5 @@ public class Movie {
     private String rating;
     private String cast;
     private LocalDate date;
+    private static String[] genres={"accion", "romance"};
 }
