@@ -16,6 +16,7 @@ private boolean blockGA [][]; //matrix that contains the availlability of genera
 private boolean blockVIP[][]; //matrix that contains the availlability of VIP seats. Default is FALSE
 private boolean block4DX[][]; //matrix that contains the availlability of 4DX seats. Default is FALSE
 private boolean is3D;         //Specifies if the movie is projected in 3D or not
+private String name;
 
     public Screen(boolean[][] blockGA, boolean[][] blockVIP, boolean[][] block4DX, boolean is3D) {
         this.blockGA = blockGA;
@@ -56,7 +57,15 @@ private boolean is3D;         //Specifies if the movie is projected in 3D or not
         this.block4DX = block4DX;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    
 
 
 
