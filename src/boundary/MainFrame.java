@@ -27,21 +27,95 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToolBar1 = new javax.swing.JToolBar();
+        screensBTN = new javax.swing.JButton();
+        moviesBTN = new javax.swing.JButton();
+        screeningsBTN = new javax.swing.JButton();
+        clientsBTN = new javax.swing.JButton();
+        statsBTN = new javax.swing.JButton();
+        ContentPNL = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CinemApp");
+
+        jToolBar1.setRollover(true);
+
+        screensBTN.setText("Screens");
+        screensBTN.setFocusable(false);
+        screensBTN.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        screensBTN.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        screensBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                screensBTNActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(screensBTN);
+
+        moviesBTN.setText("Movies");
+        moviesBTN.setFocusable(false);
+        moviesBTN.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        moviesBTN.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        moviesBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moviesBTNActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(moviesBTN);
+
+        screeningsBTN.setText("Screenings");
+        screeningsBTN.setFocusable(false);
+        screeningsBTN.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        screeningsBTN.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(screeningsBTN);
+
+        clientsBTN.setText("Clients");
+        clientsBTN.setFocusable(false);
+        clientsBTN.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        clientsBTN.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(clientsBTN);
+
+        statsBTN.setText("Statistics");
+        statsBTN.setFocusable(false);
+        statsBTN.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        statsBTN.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(statsBTN);
+
+        javax.swing.GroupLayout ContentPNLLayout = new javax.swing.GroupLayout(ContentPNL);
+        ContentPNL.setLayout(ContentPNLLayout);
+        ContentPNLLayout.setHorizontalGroup(
+            ContentPNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        ContentPNLLayout.setVerticalGroup(
+            ContentPNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 269, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(ContentPNL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ContentPNL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void screensBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_screensBTNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_screensBTNActionPerformed
+
+    private void moviesBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moviesBTNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_moviesBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +153,12 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel ContentPNL;
+    private javax.swing.JButton clientsBTN;
+    private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JButton moviesBTN;
+    private javax.swing.JButton screeningsBTN;
+    private javax.swing.JButton screensBTN;
+    private javax.swing.JButton statsBTN;
     // End of variables declaration//GEN-END:variables
 }
