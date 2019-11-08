@@ -7,15 +7,25 @@ package entity;
 
 /**
  *
- * @author Estudiante
+ * @author juanc
  */
 public class CinemApp {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    private Theater cinema;
+
+    public CinemApp(Theater cinema) {
+        this.cinema = cinema;
     }
-    
+
+    public Theater getCinema() {
+        return cinema;
+    }
+
+    public void setCinema(Theater cinema) {
+        this.cinema = cinema;
+    }
+
 }
