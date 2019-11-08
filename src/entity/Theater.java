@@ -5,37 +5,39 @@
  */
 package entity;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author juanc
  */
 public class Theater {
 
-    private Screen[] screens;
+    private ArrayList<Screen> screens;
     private int[] prices2D;
     private int[] prices3D;
-    private Projection[] projections;
+    private ArrayList<Projection> projections;
 
-    public Theater(Screen[] screens, int[] cost2D, int[] cost3D, Projection[] projections) {
-        this.screens = screens;
+    public Theater(int[] cost2D, int[] cost3D) {
+        this.screens = new ArrayList<Screen>();
         this.prices2D = cost2D;
         this.prices3D = cost3D;
-        this.projections = projections;
+        this.projections = new ArrayList<Projection>();
     }
 
-    public Projection[] getProjections() {
+    public ArrayList<Projection> getProjections() {
         return projections;
     }
 
-    public void setProjections(Projection[] projections) {
+    public void setProjections(ArrayList<Projection> projections) {
         this.projections = projections;
     }
 
-    public Screen[] getScreens() {
+    public ArrayList<Screen> getScreens() {
         return screens;
     }
 
-    public void setScreens(Screen[] screens) {
+    public void setScreens(ArrayList<Screen> screens) {
         this.screens = screens;
     }
 
