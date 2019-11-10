@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package entity;
-
+//
 import java.time.LocalDate;
+import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,12 +17,12 @@ import javax.persistence.Table;
  *
  * @author user
  */
-@Entity
-@Table(name="Movies")
+//@Entity
+//@Table(name="Movies")
 public class Movie {
 
     private String title;
-    private String[] genre;
+    private ArrayList genre;
     private String[] languages;
     private String rating;
     private String cast; // Not really necessary
@@ -29,7 +30,7 @@ public class Movie {
     private boolean is3D;
     private boolean is4D;
     // Static Fields
-    private final static String[] MOVIE_GENRE = {"accion", "romance"}; // Add movie genres in ENGLISH
+    private final static String[] MOVIE_GENRE = {" ","Documentary", "Historical","Musical","Comedy","Children's","Adventure/Action","Science Fiction"}; // Add movie genres in ENGLISH
     private final static String[] MOVIE_RATING = {"TP", "A7", "A12", "A15", "A18"};
     private final static String[] MOVIE_LANGS = {"English", "Spanish", "French", "Portuguese", "German"};
     @Id
@@ -43,8 +44,8 @@ public class Movie {
     public void setId(int id) {
         this.id = id;
     }
-    
-    public Movie(String title, String[] genre, String[] languages, String rating, String cast, LocalDate releaseDate, boolean is3D, boolean is4D) {
+
+    public Movie(String title, ArrayList genre, String[] languages, String rating, String cast, LocalDate releaseDate, boolean is3D, boolean is4D, int id) {
         this.title = title;
         this.genre = genre;
         this.languages = languages;
@@ -53,7 +54,14 @@ public class Movie {
         this.releaseDate = releaseDate;
         this.is3D = is3D;
         this.is4D = is4D;
+        this.id = id;
     }
+    
+
+
+    public Movie() {
+    }
+    
 
     public String getTitle() {
         return title;
@@ -63,13 +71,15 @@ public class Movie {
         this.title = title;
     }
 
-    public String[] getGenre() {
+    public ArrayList getGenre() {
         return genre;
     }
 
-    public void setGenre(String[] genre) {
+    public void setGenre(ArrayList genre) {
         this.genre = genre;
     }
+
+    
 
     public String[] getLanguages() {
         return languages;
@@ -118,4 +128,18 @@ public class Movie {
     public void setIs4D(boolean is4D) {
         this.is4D = is4D;
     }
+
+    public static String[] getMOVIE_GENRE() {
+        return MOVIE_GENRE;
+    }
+
+    public static String[] getMOVIE_RATING() {
+        return MOVIE_RATING;
+    }
+
+    public static String[] getMOVIE_LANGS() {
+        return MOVIE_LANGS;
+    }
+    
+    
 }
