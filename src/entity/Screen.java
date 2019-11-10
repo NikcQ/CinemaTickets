@@ -5,11 +5,20 @@
  */
 package entity;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author NikcQ
  */
-public class Screen {
+@Entity
+@Table(name="Screens")
+public class Screen implements Serializable {
 
 //seat block order is GA - VIP - 4DX(if availlable)
 private boolean blockGA [][]; //matrix that contains the availlability of general seats. Default is FALSE
@@ -17,6 +26,18 @@ private boolean blockVIP[][]; //matrix that contains the availlability of VIP se
 private boolean block4DX[][]; //matrix that contains the availlability of 4DX seats. Default is FALSE
 private boolean is3D;         //Specifies if the movie is projected in 3D or not
 private String name;
+
+@Id
+@GeneratedValue (strategy = GenerationType.IDENTITY)
+private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Screen(boolean[][] blockGA, boolean[][] blockVIP, boolean[][] block4DX, boolean is3D) {
         this.blockGA = blockGA;

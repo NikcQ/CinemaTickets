@@ -6,11 +6,18 @@
 package entity;
 
 import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author user
  */
+@Entity
+@Table(name="Movies")
 public class Movie {
 
     private String title;
@@ -25,7 +32,18 @@ public class Movie {
     private final static String[] MOVIE_GENRE = {"accion", "romance"}; // Add movie genres in ENGLISH
     private final static String[] MOVIE_RATING = {"TP", "A7", "A12", "A15", "A18"};
     private final static String[] MOVIE_LANGS = {"English", "Spanish", "French", "Portuguese", "German"};
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private int id;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public Movie(String title, String[] genre, String[] languages, String rating, String cast, LocalDate releaseDate, boolean is3D, boolean is4D) {
         this.title = title;
         this.genre = genre;

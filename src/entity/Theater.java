@@ -5,18 +5,39 @@
  */
 package entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author juanc
  */
-public class Theater {
+@Entity
+@Table(name="Theatres")
+public class Theater implements Serializable {
 
     private ArrayList<Screen> screens;
     private int[] prices2D;
     private int[] prices3D;
     private ArrayList<Projection> projections;
+    
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Theater(int[] cost2D, int[] cost3D) {
         this.screens = new ArrayList<Screen>();

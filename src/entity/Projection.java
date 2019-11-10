@@ -5,19 +5,40 @@
  */
 package entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author juanc
  */
-public class Projection {
+@Entity
+@Table(name="Projections")
+public class Projection implements Serializable {
 
     private Movie movie;
     private Screen screen;
     private LocalDateTime dateTime;
     private boolean is3D;
     private boolean is4D;
+    
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 
     public Projection(Movie movie, Screen screen, LocalDateTime dateTime, boolean is3D, boolean is4D) {
         this.movie = movie;
