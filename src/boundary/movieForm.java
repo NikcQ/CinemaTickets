@@ -4,28 +4,44 @@
  * and open the template in the editor.
  */
 package boundary;
+
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import entity.Movie;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author user
  */
 public class movieForm extends javax.swing.JFrame {
-    Movie mov= new Movie();
-    ArrayList arr= new ArrayList();
-    
+
+    Movie mov = new Movie();
+    ArrayList genero = new ArrayList();
+    ArrayList lenguajes = new ArrayList();
+
     /**
      * Creates new form registerMovie
      */
     public movieForm() {
         initComponents();
-        
-        String[] arr=mov.getMOVIE_GENRE();
+        setLocationRelativeTo(null);
+
+        String[] arr = mov.getMOVIE_GENRE();
         for (int i = 0; i < arr.length; i++) {
             listGeneros.addItem(arr[i]);
-            
+
+        }
+        String[] arr1 = mov.getMOVIE_LANGS();
+        for (int i = 0; i < arr1.length; i++) {
+            lenguajesList.addItem(arr1[i]);
+
+        }
+        String[] arr3 = mov.getMOVIE_RATING();
+        for (int i = 0; i < arr3.length; i++) {
+            ratingList.addItem(arr3[i]);
+
         }
     }
 
@@ -49,6 +65,19 @@ public class movieForm extends javax.swing.JFrame {
         Cerrar = new javax.swing.JButton();
         generos = new javax.swing.JTextField();
         añadir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        lenguajesList = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        ratingList = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        fecha = new javax.swing.JTextField();
+        is3d = new javax.swing.JCheckBox();
+        is4d = new javax.swing.JCheckBox();
+        crear = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -112,10 +141,82 @@ public class movieForm extends javax.swing.JFrame {
             }
         });
 
+        generos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generosActionPerformed(evt);
+            }
+        });
+
         añadir.setText("+");
         añadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 añadirActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("DURACION");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("LENGUAJE");
+
+        lenguajesList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lenguajesListActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("+");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("RATING");
+
+        ratingList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ratingListActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("DATE");
+
+        fecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaActionPerformed(evt);
+            }
+        });
+
+        is3d.setText("IS 3D");
+        is3d.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                is3dActionPerformed(evt);
+            }
+        });
+
+        is4d.setText("IS 4D");
+        is4d.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                is4dActionPerformed(evt);
+            }
+        });
+
+        crear.setText("Crear");
+        crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearActionPerformed(evt);
             }
         });
 
@@ -127,16 +228,38 @@ public class movieForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(title)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Cerrar, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(titulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lenguajesList, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addComponent(jTextField3)
+                    .addComponent(titulo, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(generos, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(listGeneros, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(74, 74, 74)
-                        .addComponent(añadir)))
+                        .addComponent(añadir))
+                    .addComponent(jTextField1)
+                    .addComponent(ratingList, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fecha)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(is3d)
+                                .addGap(94, 94, 94))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(crear)
+                                .addGap(18, 18, 18)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(is4d)
+                            .addComponent(Cerrar))))
                 .addGap(38, 38, 38))
         );
         jPanel1Layout.setVerticalGroup(
@@ -146,19 +269,42 @@ public class movieForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(title)
                     .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(generos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(listGeneros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(añadir))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(generos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(añadir)
-                            .addComponent(listGeneros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 366, Short.MAX_VALUE)
-                .addComponent(Cerrar)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lenguajesList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(ratingList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(is3d)
+                    .addComponent(is4d))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Cerrar)
+                    .addComponent(crear))
                 .addGap(24, 24, 24))
         );
 
@@ -168,15 +314,11 @@ public class movieForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -188,7 +330,7 @@ public class movieForm extends javax.swing.JFrame {
 
     private void listGenerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listGenerosActionPerformed
 
-        
+
     }//GEN-LAST:event_listGenerosActionPerformed
 
     private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
@@ -196,18 +338,147 @@ public class movieForm extends javax.swing.JFrame {
     }//GEN-LAST:event_CerrarActionPerformed
 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
-        
-        arr.add(listGeneros.getSelectedItem());
-        mov.setGenre(arr);
-        String[] array = (String[]) mov.getGenre().toArray(new String[mov.getGenre().size()]);
+
+        genero.add(listGeneros.getSelectedItem());
+
+        String[] array = (String[]) genero.toArray(new String[genero.size()]);
+        mov.setGenre(array);
+        StringBuffer cadena = new StringBuffer();
+        for (int x = 0; x < array.length; x++) {
+            cadena = cadena.append(array[x] + " & ");
+        }
+        String cad = cadena.toString();
+        generos.setText(cad);
+        System.out.println(cadena);
+    }//GEN-LAST:event_añadirActionPerformed
+
+    private void generosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_generosActionPerformed
+
+    private void lenguajesListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lenguajesListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lenguajesListActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        lenguajes.add(lenguajesList.getSelectedItem());
+        String[] array = (String[]) lenguajes.toArray(new String[lenguajes.size()]);
+        mov.setLanguages(array);
+        String[] array3 = mov.getLanguages();
 
         StringBuffer cadena = new StringBuffer();
         for (int x = 0; x < array.length; x++) {
-            cadena = cadena.append(array[x]+"&");
+            cadena = cadena.append(array[x] + " & ");
         }
-        String cad=cadena.toString();
-        generos.setText(cad);
-    }//GEN-LAST:event_añadirActionPerformed
+        String cad = cadena.toString();
+        jTextField3.setText(cad);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ratingListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ratingListActionPerformed
+        String arr = (String) ratingList.getSelectedItem();
+        mov.setRating(arr);
+    }//GEN-LAST:event_ratingListActionPerformed
+
+    private void fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActionPerformed
+        String f = fecha.getText();
+        mov.setReleaseDate(LocalDate.parse(f));
+        System.out.println(mov.getReleaseDate());
+    }//GEN-LAST:event_fechaActionPerformed
+
+    private void is3dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_is3dActionPerformed
+        mov.setIs3D(is3d.isSelected());
+        if (is3d.isSelected() == true) {
+            is4d.setSelected(false);
+        }
+    }//GEN-LAST:event_is3dActionPerformed
+
+    private void is4dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_is4dActionPerformed
+        mov.setIs4D(is4d.isSelected());
+        if (is4d.isSelected() == true) {
+            is3d.setSelected(false);
+        }
+    }//GEN-LAST:event_is4dActionPerformed
+
+    private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
+        Movie movie1 = new Movie();
+
+        movie1.setTitle(titulo.getText());
+
+
+        String[] gene = (String[]) genero.toArray(new String[genero.size()]);
+        movie1.setGenre(gene);
+
+
+        int runtime = Integer.parseInt(jTextField1.getText());
+        movie1.setRuntime(runtime);
+
+
+        String[] lenguaje = (String[]) lenguajes.toArray(new String[lenguajes.size()]);
+        movie1.setLanguages(lenguaje);
+
+        movie1.setRating((String) ratingList.getSelectedItem());
+        
+        String f = fecha.getText();
+        movie1.setReleaseDate(LocalDate.parse(f));
+        
+        movie1.setIs3D(is3d.isSelected());
+        
+        movie1.setIs4D(is4d.isSelected());
+        
+        System.out.println(movie1.getTitle()+"\n");
+        
+        String[] geneross=movie1.getGenre();
+        for (int i = 0; i < geneross.length; i++) {
+            System.out.println(geneross[i]);
+        }
+        System.out.println("\n"+movie1.getRuntime()+"\n");
+        
+        for (int i = 0; i < movie1.getLanguages().length; i++) {
+            System.out.println(movie1.getLanguages()[i]);
+        }
+        System.out.println(movie1.getRating());
+        
+        System.out.println(movie1.getReleaseDate());
+        
+        System.out.println(movie1.isIs3D());
+        System.out.println(movie1.isIs4D());
+        
+        JOptionPane.showMessageDialog(null, "Ok", "Usuario creado correctamente", JOptionPane.INFORMATION_MESSAGE);
+        movie1.setGenre(null);
+        titulo.setText(null);
+        
+        genero=null;
+        generos.setText(null);
+        movie1.setGenre(null);
+        
+        jTextField1.setText(null);
+        movie1.setRuntime(0);
+
+
+        lenguajes=null;
+        jTextField3.setText(null);
+        movie1.setLanguages(null);
+
+        movie1.setRating(null);
+        
+        fecha.setText(null);
+        movie1.setReleaseDate(null);
+        
+        movie1.setIs3D(false);
+        
+        movie1.setIs4D(false);
+        
+
+
+    }//GEN-LAST:event_crearActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,7 +518,7 @@ public class movieForm extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new movieForm().setVisible(true);
-                
+
             }
         });
     }
@@ -255,13 +526,26 @@ public class movieForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cerrar;
     private javax.swing.JButton añadir;
+    private javax.swing.JButton crear;
+    private javax.swing.JTextField fecha;
     private javax.swing.JTextField generos;
+    private javax.swing.JCheckBox is3d;
+    private javax.swing.JCheckBox is4d;
+    private javax.swing.JButton jButton1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JComboBox<String> lenguajesList;
     private javax.swing.JComboBox<String> listGeneros;
+    private javax.swing.JComboBox<String> ratingList;
     private javax.swing.JLabel title;
     private javax.swing.JTextField titulo;
     // End of variables declaration//GEN-END:variables

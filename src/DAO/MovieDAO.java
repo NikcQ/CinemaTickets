@@ -78,7 +78,6 @@ public class MovieDAO {
             movie.setGenre(neomovie.getGenre());
             movie.setLanguages(neomovie.getLanguages());
             movie.setRating(neomovie.getRating());
-            movie.setCast(neomovie.getCast());
             movie.setReleaseDate(neomovie.getReleaseDate());
             movie.setIs3D(neomovie.isIs3D());
             movie.setIs4D(neomovie.isIs4D());

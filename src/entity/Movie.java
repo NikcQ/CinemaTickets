@@ -23,17 +23,18 @@ import javax.persistence.Table;
 public class Movie {
 
     private String title;
-    private ArrayList genre;
+    private String[] genre;
+    private int runtime;
     private String[] languages;
     private String rating;
-    private String cast; // Not really necessary
+//    private String cast; // Not really necessary
     private LocalDate releaseDate;
     private boolean is3D;
     private boolean is4D;
     // Static Fields
-    private final static String[] MOVIE_GENRE = {" ","Documentary", "Historical","Musical","Comedy","Children's","Adventure/Action","Science Fiction"}; // Add movie genres in ENGLISH
-    private final static String[] MOVIE_RATING = {"TP", "A7", "A12", "A15", "A18"};
-    private final static String[] MOVIE_LANGS = {"English", "Spanish", "French", "Portuguese", "German"};
+    private final static String[] MOVIE_GENRE = {" ","Documentary", "Historical","Musical","Comedy","Children's","Adventure/Action","Science Fiction","Thriller"}; // Add movie genres in ENGLISH
+    private final static String[] MOVIE_RATING = {" ","TP", "A7", "A12", "A15", "A18"};
+    private final static String[] MOVIE_LANGS = {" ","English", "Spanish", "French", "Portuguese", "German","Doblada"};
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
@@ -46,17 +47,18 @@ public class Movie {
         this.id = id;
     }
 
-    public Movie(String title, ArrayList genre, String[] languages, String rating, String cast, LocalDate releaseDate, boolean is3D, boolean is4D, int id) {
+    public Movie(String title, String[] genre, int runtime, String[] languages, String rating, LocalDate releaseDate, boolean is3D, boolean is4D) {
         this.title = title;
         this.genre = genre;
+        this.runtime = runtime;
         this.languages = languages;
         this.rating = rating;
-        this.cast = cast;
         this.releaseDate = releaseDate;
         this.is3D = is3D;
         this.is4D = is4D;
-        this.id = id;
     }
+    
+
     
 
 
@@ -72,13 +74,14 @@ public class Movie {
         this.title = title;
     }
 
-    public ArrayList getGenre() {
+    public String[] getGenre() {
         return genre;
     }
 
-    public void setGenre(ArrayList genre) {
+    public void setGenre(String[] genre) {
         this.genre = genre;
     }
+
 
     
 
@@ -97,14 +100,15 @@ public class Movie {
     public void setRating(String rating) {
         this.rating = rating;
     }
-
-    public String getCast() {
-        return cast;
-    }
-
-    public void setCast(String cast) {
-        this.cast = cast;
-    }
+    
+//
+//    public String getCast() {
+//        return cast;
+//    }
+//
+//    public void setCast(String cast) {
+//        this.cast = cast;
+//    }
 
     public LocalDate getReleaseDate() {
         return releaseDate;
@@ -129,6 +133,15 @@ public class Movie {
     public void setIs4D(boolean is4D) {
         this.is4D = is4D;
     }
+
+    public int getRuntime() {
+        return runtime;
+    }
+
+    public void setRuntime(int runtime) {
+        this.runtime = runtime;
+    }
+    
 
     public static String[] getMOVIE_GENRE() {
         return MOVIE_GENRE;
