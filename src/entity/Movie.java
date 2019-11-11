@@ -13,12 +13,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 /**
  *
  * @author user
  */
-//@Entity
-//@Table(name="Movies")
+@Entity
+@Table(name="Movies")
 public class Movie {
 
     private String title;
