@@ -5,11 +5,9 @@
  */
 package boundary;
 import entity.Movie;
-import entity.Movie;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author user
@@ -18,12 +16,27 @@ public class movieForm1 extends javax.swing.JPanel {
         Movie mov = new Movie();
     ArrayList genero = new ArrayList();
     ArrayList lenguajes = new ArrayList();
-
     /**
      * Creates new form movieForm1
      */
     public movieForm1() {
-        initComponents();
+            initComponents();
+
+        String[] arr = mov.getMOVIE_GENRE();
+        for (int i = 0; i < arr.length; i++) {
+            listGeneros.addItem(arr[i]);
+
+        }
+        String[] arr1 = mov.getMOVIE_LANGS();
+        for (int i = 0; i < arr1.length; i++) {
+            lenguajesList.addItem(arr1[i]);
+
+        }
+        String[] arr3 = mov.getMOVIE_RATING();
+        for (int i = 0; i < arr3.length; i++) {
+            ratingList.addItem(arr3[i]);
+
+        }
     }
 
     /**
