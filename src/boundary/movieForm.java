@@ -5,7 +5,6 @@
  */
 package boundary;
 
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import entity.Movie;
 import java.time.LocalDate;
 import java.util.ArrayList;

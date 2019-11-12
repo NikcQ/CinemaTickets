@@ -12,7 +12,7 @@ package boundary;
 public class managePanel extends javax.swing.JPanel {
     
     private movieForm movieFRM = new movieForm();
-    private projectionForm projFRM = new projectionForm();
+    private projectionForm1 projFRM = new projectionForm1();
     private screenForm screenFRM = new screenForm();
     /**
      * Creates new form managePanel
