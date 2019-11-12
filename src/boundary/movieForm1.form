@@ -134,7 +134,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="DURACION"/>
+        <Property name="text" type="java.lang.String" value="LENGTH"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="is4d">
@@ -160,7 +160,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="LENGUAJE"/>
+        <Property name="text" type="java.lang.String" value="LANGUAGE"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="lenguajesList">
@@ -178,7 +178,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="title">
       <Properties>
-        <Property name="text" type="java.lang.String" value="TITULO"/>
+        <Property name="text" type="java.lang.String" value="TITLE"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
@@ -191,7 +191,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="GENERO"/>
+        <Property name="text" type="java.lang.String" value="GENRE"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField3">

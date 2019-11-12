@@ -23,7 +23,25 @@ public class movieForm1 extends javax.swing.JPanel {
      * Creates new form movieForm1
      */
     public movieForm1() {
-        initComponents();
+         initComponents();
+
+        
+
+        String[] arr = Movie.getMOVIE_GENRE();
+        for (int i = 0; i < arr.length; i++) {
+            listGeneros.addItem(arr[i]);
+
+        }
+        String[] arr1 = Movie.getMOVIE_LANGS();
+        for (int i = 0; i < arr1.length; i++) {
+            lenguajesList.addItem(arr1[i]);
+
+        }
+        String[] arr3 = Movie.getMOVIE_RATING();
+        for (int i = 0; i < arr3.length; i++) {
+            ratingList.addItem(arr3[i]);
+
+        }
     }
 
     /**
@@ -63,7 +81,7 @@ public class movieForm1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("DURACION");
+        jLabel1.setText("LENGTH");
 
         is4d.setText("IS 4D");
         is4d.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +103,7 @@ public class movieForm1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setText("LENGUAJE");
+        jLabel3.setText("LANGUAGE");
 
         lenguajesList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +111,7 @@ public class movieForm1 extends javax.swing.JPanel {
             }
         });
 
-        title.setText("TITULO");
+        title.setText("TITLE");
 
         jButton1.setText("+");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +120,7 @@ public class movieForm1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setText("GENERO");
+        jLabel2.setText("GENRE");
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
