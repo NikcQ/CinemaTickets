@@ -55,7 +55,7 @@ public class MovieDAO {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         Movie film = null;
-        Query q = mo.createQuery("SELECT m FROM Movie m "+"WHERE u.title LIKE :title").setParameter("title", movie.getTitle());
+        Query q = mo.createQuery("SELECT m FROM Movie m "+"WHERE m.title LIKE :title").setParameter("title", movie.getTitle());
         try{
             film = (Movie) q.getSingleResult();
         }catch(NonUniqueResultException e){
