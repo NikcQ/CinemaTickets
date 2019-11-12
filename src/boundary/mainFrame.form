@@ -36,7 +36,7 @@
           <Group type="102" alignment="1" attributes="0">
               <Component id="jToolBar1" min="-2" pref="22" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="containerMain" min="-2" pref="257" max="-2" attributes="0"/>
+              <Component id="containerMain" pref="389" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
