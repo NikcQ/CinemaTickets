@@ -38,14 +38,14 @@ private int id;
     public void setId(int id) {
         this.id = id;
     }
-
+/*
     public Screen(boolean[][] blockGA, boolean[][] blockVIP, boolean[][] block4DX, boolean is3D) {
         this.blockGA = blockGA;
         this.blockVIP = blockVIP;
         this.block4DX = block4DX;
         this.is3D = is3D;
     }
-
+*/
     public boolean isIs3D() {
         return is3D;
     }

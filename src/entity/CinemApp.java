@@ -19,9 +19,11 @@ public class CinemApp {
     private Theater cinema;
     private ArrayList<Movie> listings;
 
+    /*
     public CinemApp(Theater cinema) {
         this.cinema = cinema;
     }
+    */
 
     public Theater getCinema() {
         return cinema;

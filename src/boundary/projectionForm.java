@@ -6,7 +6,7 @@
 package boundary;
 
 import DAO.MovieDAO;
-import control.registerProjection1;
+import control.registerProjection;
 import entity.Movie;
 import entity.Projection;
 import entity.Screen;
@@ -186,7 +186,7 @@ public class projectionForm extends javax.swing.JFrame {
 
     private void aButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aButtonActionPerformed
        
-        registerProjection1 newP = new registerProjection1();
+        registerProjection newP = new registerProjection();
         Screen screen = new Screen();
         screen.setId(screenList.getSelectedIndex());
         Movie movie = new Movie();
@@ -205,7 +205,7 @@ public class projectionForm extends javax.swing.JFrame {
         System.out.println(newProjection.getDateTime());
         System.out.println(newProjection.isIs3D());
         System.out.println(newProjection.isIs4D());
-         newP.reg(newProjection);
+        //newP.reg(newProjection);
         
         JOptionPane.showMessageDialog(null, "Well Done", "Projection Booked", JOptionPane.INFORMATION_MESSAGE);
         

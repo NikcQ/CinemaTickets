@@ -39,7 +39,7 @@ public class Projection implements Serializable {
         this.id = id;
     }
     
-
+/*
     public Projection(Movie movie, Screen screen, LocalDateTime dateTime, boolean is3D, boolean is4D) {
         this.movie = movie;
         this.screen = screen;
@@ -47,7 +47,7 @@ public class Projection implements Serializable {
         this.is3D = is3D;
         this.is4D = is4D;
     }
-
+*/
     public Movie getMovie() {
         return movie;
     }
