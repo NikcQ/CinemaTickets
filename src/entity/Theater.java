@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
@@ -25,6 +20,7 @@ public class Theater implements Serializable {
     private int[] prices2D;
     private int[] prices3D;
     private ArrayList<Projection> projections;
+    private String theatreName;
     
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

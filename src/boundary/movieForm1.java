@@ -76,7 +76,7 @@ public class movieForm1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("DURACION");
+        jLabel1.setText("LENGTH");
 
         is4d.setText("IS 4D");
         is4d.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +98,7 @@ public class movieForm1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setText("LENGUAJE");
+        jLabel3.setText("LANGUAGE");
 
         lenguajesList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +106,7 @@ public class movieForm1 extends javax.swing.JPanel {
             }
         });
 
-        title.setText("TITULO");
+        title.setText("TITLE");
 
         jButton1.setText("+");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +115,7 @@ public class movieForm1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setText("GENERO");
+        jLabel2.setText("GENRE");
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

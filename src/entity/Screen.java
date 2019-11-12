@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
@@ -21,11 +16,11 @@ import javax.persistence.Table;
 public class Screen implements Serializable {
 
 //seat block order is GA - VIP - 4DX(if availlable)
-private boolean blockGA [][]; //matrix that contains the availlability of general seats. Default is FALSE
-private boolean blockVIP[][]; //matrix that contains the availlability of VIP seats. Default is FALSE
+private boolean blockGA [][];   //matrix that contains the availlability of general seats. Default is FALSE
+private boolean blockVIP[][];   //matrix that contains the availlability of VIP seats. Default is FALSE
 private boolean block4DX[][]; //matrix that contains the availlability of 4DX seats. Default is FALSE
-private boolean is3D;         //Specifies if the movie is projected in 3D or not
-private String name;
+private boolean is3D;             //Specifies if the movie is projected in 3D or not. Default is FALSE
+private String name;              //names the screen as in "1", "2", "3", etc...
 
 @Id
 @GeneratedValue (strategy = GenerationType.IDENTITY)

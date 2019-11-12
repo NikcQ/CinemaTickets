@@ -116,9 +116,9 @@ public class movieForm extends javax.swing.JFrame {
 
         jPanel1.setAutoscrolls(true);
 
-        title.setText("TITULO");
+        title.setText("TITLE");
 
-        jLabel2.setText("GENERO");
+        jLabel2.setText("GENRE");
 
         titulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +153,7 @@ public class movieForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("DURACION");
+        jLabel1.setText("LENGTH");
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +161,7 @@ public class movieForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("LENGUAJE");
+        jLabel3.setText("LANGUAGE");
 
         lenguajesList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
