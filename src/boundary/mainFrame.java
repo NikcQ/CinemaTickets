@@ -43,24 +43,10 @@ public class mainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CinemApp");
 
-        jLabel1.setText("This is a label main");
+        containerMain.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout containerMainLayout = new javax.swing.GroupLayout(containerMain);
-        containerMain.setLayout(containerMainLayout);
-        containerMainLayout.setHorizontalGroup(
-            containerMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(containerMainLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(185, 185, 185))
-        );
-        containerMainLayout.setVerticalGroup(
-            containerMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, containerMainLayout.createSequentialGroup()
-                .addContainerGap(158, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(77, 77, 77))
-        );
+        jLabel1.setText("This is a label main");
+        containerMain.add(jLabel1, java.awt.BorderLayout.CENTER);
 
         jToolBar1.setRollover(true);
 

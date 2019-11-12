@@ -38,8 +38,6 @@ public class managePanel extends javax.swing.JPanel {
         containerManage = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
-        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
-
         jToolBar1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jToolBar1.setRollover(true);
 
@@ -77,28 +75,25 @@ public class managePanel extends javax.swing.JPanel {
         });
         jToolBar1.add(screensBTN);
 
-        add(jToolBar1);
+        containerManage.setLayout(new java.awt.BorderLayout());
 
         jLabel1.setText("This is a label");
+        containerManage.add(jLabel1, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout containerManageLayout = new javax.swing.GroupLayout(containerManage);
-        containerManage.setLayout(containerManageLayout);
-        containerManageLayout.setHorizontalGroup(
-            containerManageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(containerManageLayout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addComponent(jLabel1)
-                .addContainerGap(50, Short.MAX_VALUE))
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(containerManage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        containerManageLayout.setVerticalGroup(
-            containerManageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(containerManageLayout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(jLabel1)
-                .addContainerGap(89, Short.MAX_VALUE))
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(containerManage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-
-        add(containerManage);
     }// </editor-fold>//GEN-END:initComponents
 
     private void projBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projBTNActionPerformed
