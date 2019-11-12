@@ -50,11 +50,11 @@ public class ScreenDAO {
         }
     }
     
-    /*public Screen read(Screen screen){
+    public Screen read(Screen screen){
         EntityManager sc = efm.createEntityManager();
         sc.getTransaction().begin();
         Screen secondsc = null;
-        Query q = sc.createQuery(----FALTA----);            //falta parametro indicador de la busqueda
+        Query q = sc.createQuery("SELECT s FROM Screen s "+"WHERE s.title LIKE :name").setParameter("name", screen.getName());            //falta parametro indicador de la busqueda
         try{
             secondsc = (Screen) q.getSingleResult();
         }catch(NonUniqueResultException e){
@@ -88,6 +88,6 @@ public class ScreenDAO {
             sc.close();
             return ret;
         }
-    }*/
+    }
     
 }
