@@ -25,6 +25,7 @@ public class Theater implements Serializable {
     private int[] prices2D;
     private int[] prices3D;
     private ArrayList<Projection> projections;
+    private String theatreName;
     
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
