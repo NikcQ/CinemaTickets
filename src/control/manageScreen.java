@@ -9,12 +9,11 @@ import entity.*;
 
 
 public class manageScreen {
-       
-    
+
     public manageScreen() {
         
         
     }
     
-  
+
 }
