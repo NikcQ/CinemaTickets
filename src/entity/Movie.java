@@ -18,15 +18,15 @@ import javax.persistence.Table;
 public class Movie {
 
     private String title;
-    private String[] genre;
     private int runtime;
-    private String[] languages;
     private String rating;
-//    private String cast; // Not really necessary
     private LocalDate releaseDate;
     private boolean is3D;
     private boolean is4D;
+    private String[] genre;
+    private String[] languages;
     // Static Fields
+    
     private final static String[] MOVIE_GENRE = {" ","Documentary", "Historical","Musical","Comedy","Children's","Adventure/Action","Science Fiction","Thriller"}; // Add movie genres in ENGLISH
     private final static String[] MOVIE_RATING = {" ","TP", "A7", "A12", "A15", "A18"};
     private final static String[] MOVIE_LANGS = {" ","English", "Spanish", "French", "Portuguese", "German","Doblada"};
@@ -42,25 +42,14 @@ public class Movie {
         this.id = id;
     }
 
-    public Movie(String title, String[] genre, int runtime, String[] languages, String rating, LocalDate releaseDate, boolean is3D, boolean is4D) {
+    public Movie(String title, int runtime, String rating, boolean is3D, boolean is4D) {
         this.title = title;
-        this.genre = genre;
         this.runtime = runtime;
-        this.languages = languages;
         this.rating = rating;
-        this.releaseDate = releaseDate;
         this.is3D = is3D;
         this.is4D = is4D;
     }
     
-
-    
-
-
-    public Movie() {
-    }
-    
-
     public String getTitle() {
         return title;
     }
