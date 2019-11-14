@@ -16,9 +16,12 @@ import javax.persistence.Table;
 public class Screen implements Serializable {
 
 //seat block order is GA - VIP - 4DX(if availlable)
-private boolean blockGA [][];   //matrix that contains the availlability of general seats. Default is FALSE
-private boolean blockVIP[][];   //matrix that contains the availlability of VIP seats. Default is FALSE
-private boolean block4DX[][]; //matrix that contains the availlability of 4DX seats. Default is FALSE
+private int rowGA;
+private int colGA;
+private int rowVIP;
+private int colVIP;
+private int row4DX;
+private int col4DX;
 private boolean is3D;             //Specifies if the movie is projected in 3D or not. Default is FALSE
 private String name;              //names the screen as in "1", "2", "3", etc...
 
@@ -33,14 +36,19 @@ private int id;
     public void setId(int id) {
         this.id = id;
     }
-/*
-    public Screen(boolean[][] blockGA, boolean[][] blockVIP, boolean[][] block4DX, boolean is3D) {
-        this.blockGA = blockGA;
-        this.blockVIP = blockVIP;
-        this.block4DX = block4DX;
+
+    public Screen(int rowGA, int colGA, int rowVIP, int colVIP, int row4DX, int col4DX, boolean is3D, String name) {
+        this.rowGA = rowGA;
+        this.colGA = colGA;
+        this.rowVIP = rowVIP;
+        this.colVIP = colVIP;
+        this.row4DX = row4DX;
+        this.col4DX = col4DX;
         this.is3D = is3D;
+        this.name = name;
     }
-*/
+    
+
     public boolean isIs3D() {
         return is3D;
     }
@@ -49,28 +57,52 @@ private int id;
         this.is3D = is3D;
     }
 
-    public boolean[][] getBlockGA() {
-        return blockGA;
+    public int getRowGA() {
+        return rowGA;
     }
 
-    public void setBlockGA(boolean[][] blockGA) {
-        this.blockGA = blockGA;
+    public void setRowGA(int rowGA) {
+        this.rowGA = rowGA;
     }
 
-    public boolean[][] getBlockVIP() {
-        return blockVIP;
+    public int getColGA() {
+        return colGA;
     }
 
-    public void setBlockVIP(boolean[][] blockVIP) {
-        this.blockVIP = blockVIP;
+    public void setColGA(int colGA) {
+        this.colGA = colGA;
     }
 
-    public boolean[][] getBlock4DX() {
-        return block4DX;
+    public int getRowVIP() {
+        return rowVIP;
     }
 
-    public void setBlock4DX(boolean[][] block4DX) {
-        this.block4DX = block4DX;
+    public void setRowVIP(int rowVIP) {
+        this.rowVIP = rowVIP;
+    }
+
+    public int getColVIP() {
+        return colVIP;
+    }
+
+    public void setColVIP(int colVIP) {
+        this.colVIP = colVIP;
+    }
+
+    public int getRow4DX() {
+        return row4DX;
+    }
+
+    public void setRow4DX(int row4DX) {
+        this.row4DX = row4DX;
+    }
+
+    public int getCol4DX() {
+        return col4DX;
+    }
+
+    public void setCol4DX(int col4DX) {
+        this.col4DX = col4DX;
     }
 
     public String getName() {

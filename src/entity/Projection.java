@@ -21,6 +21,9 @@ public class Projection implements Serializable {
     private LocalDateTime dateTime;
     private boolean is3D;
     private boolean is4D;
+    private boolean blockGA [][];   //matrix that contains the availlability of general seats. Default is FALSE
+    private boolean blockVIP[][];   //matrix that contains the availlability of VIP seats. Default is FALSE
+    private boolean block4DX[][]; //matrix that contains the availlability of 4DX seats. Default is FALSE
     
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
