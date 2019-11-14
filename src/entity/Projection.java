@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class Projection implements Serializable {
 
     private Movie movie;
-    private Screen screen;
+    //private Screen screen;
     private LocalDateTime dateTime;
     private boolean is3D;
     private boolean is4D;

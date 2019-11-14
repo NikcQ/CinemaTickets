@@ -189,18 +189,18 @@ public class projectionForm extends javax.swing.JFrame {
     private void aButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aButtonActionPerformed
        
         registerProjection newP = new registerProjection();
-        Screen screen = new Screen();
-        screen.setId(screenList.getSelectedIndex());
+        //Screen screen = new Screen();
+        //screen.setId(screenList.getSelectedIndex());
         Movie movie = new Movie();
         movie.setTitle(movieName.getText());
         newProjection.setMovie(movie);
         
 
 
-        newProjection.setScreen(screen);
+        //newProjection.setScreen(screen);
         newProjection.setIs3D(is3D.isSelected());
         newProjection.setIs4D(is4D.isSelected());
-        newProjection.setScreen(screen);
+        //newProjection.setScreen(screen);
         System.out.println(newProjection.getId());
         System.out.println(newProjection.getMovie().getTitle());
         System.out.println(newProjection.getScreen());

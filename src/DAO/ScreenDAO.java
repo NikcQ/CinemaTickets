@@ -73,9 +73,15 @@ public class ScreenDAO {
         boolean ret = false;
         try{
             screen = read(screen);
-            screen.setBlockGA(neoscreen.getBlockGA());
-            screen.setBlockVIP(neoscreen.getBlockVIP());
-            screen.setBlock4DX(neoscreen.getBlock4DX());
+            screen.setRowGA(neoscreen.getRowGA());
+            screen.setColGA(neoscreen.getColGA());
+            
+            screen.setRowVIP(neoscreen.getRowVIP());
+            screen.setColVIP(neoscreen.getColVIP());
+            
+            screen.setRow4DX(neoscreen.getRow4DX());
+            screen.setCol4DX(neoscreen.getCol4DX());
+            
             screen.setIs3D(neoscreen.isIs3D());
             screen.setId(neoscreen.getId());
             sc.merge(screen);
