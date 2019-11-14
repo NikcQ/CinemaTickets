@@ -17,15 +17,15 @@ import javax.swing.JOptionPane;
  *
  * @author Estudiante
  */
-public class projectionForm1 extends javax.swing.JPanel {
+public class ProjectionForm extends javax.swing.JPanel {
 
     /**
-     * Creates new form projectionForm1
+     * Creates new form ProjectionForm
      */
     
     Projection newProjection = new Projection ();
     
-    public projectionForm1() {
+    public ProjectionForm() {
         initComponents();
     }
 
@@ -48,7 +48,7 @@ public class projectionForm1 extends javax.swing.JPanel {
         aButton = new javax.swing.JButton();
         is3D = new javax.swing.JRadioButton();
         is4D = new javax.swing.JRadioButton();
-        screenList = new javax.swing.JComboBox<String>();
+        screenList = new javax.swing.JComboBox<>();
         movieName = new javax.swing.JTextField();
 
         cButton2.setText("Cancel");
@@ -91,7 +91,7 @@ public class projectionForm1 extends javax.swing.JPanel {
             }
         });
 
-        screenList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        screenList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
         screenList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 screenListActionPerformed(evt);
