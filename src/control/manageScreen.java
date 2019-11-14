@@ -10,10 +10,17 @@ import entity.*;
 
 public class manageScreen {
 
-    public manageScreen() {
-        
-        
-    }
-    
+ //   private CinemApp cinemap = mainFrame.cinemapp;
+            
 
+
+    
+   
+    
+          
+    
+    
+    
+    
+    
 }
