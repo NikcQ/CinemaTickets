@@ -9,6 +9,6 @@ package control;
  *
  * @author Estudiante
  */
-public class registerProjection {
+public class ManageProjection {
     
 }
