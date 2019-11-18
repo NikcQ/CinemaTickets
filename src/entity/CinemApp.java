@@ -14,18 +14,20 @@ public class CinemApp {
     private Theater cinema;
     private ArrayList<Movie> listings;
 
-    /*
-    public CinemApp(Theater cinema) {
-        this.cinema = cinema;
-    }
-    */
-
     public Theater getCinema() {
         return cinema;
     }
 
     public void setCinema(Theater cinema) {
         this.cinema = cinema;
+    }
+
+    public ArrayList<Movie> getListings() {
+        return listings;
+    }
+
+    public void setListings(ArrayList<Movie> listings) {
+        this.listings = listings;
     }
 
 }

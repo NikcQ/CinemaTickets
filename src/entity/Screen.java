@@ -12,22 +12,22 @@ import javax.persistence.Table;
  * @author NikcQ
  */
 @Entity
-@Table(name="Screens")
+@Table(name = "Screens")
 public class Screen implements Serializable {
 
 //seat block order is GA - VIP - 4DX(if availlable)
-private int rowGA;
-private int colGA;
-private int rowVIP;
-private int colVIP;
-private int row4DX;
-private int col4DX;
-private boolean is3D;             //Specifies if the movie is projected in 3D or not. Default is FALSE
-private String name;              //names the screen as in "1", "2", "3", etc...
+    private int rowGA;
+    private int colGA;
+    private int rowVIP;
+    private int colVIP;
+    private int row4DX;
+    private int col4DX;
+    private boolean is3D;             //Specifies if the movie is projected in 3D or not. Default is FALSE
+    private String name;              //names the screen as in "1", "2", "3", etc...
 
-@Id
-@GeneratedValue (strategy = GenerationType.IDENTITY)
-private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     public int getId() {
         return id;
@@ -44,10 +44,10 @@ private int id;
         this.colVIP = colVIP;
         this.row4DX = row4DX;
         this.col4DX = col4DX;
+
         this.is3D = is3D;
         this.name = name;
     }
-    
 
     public boolean isIs3D() {
         return is3D;
@@ -113,9 +113,4 @@ private int id;
         this.name = name;
     }
 
-    
-
-
-
-    
 }

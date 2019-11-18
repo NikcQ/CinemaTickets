@@ -1,5 +1,6 @@
 package entity;
 //
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.persistence.Entity;
@@ -8,31 +9,38 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 /**
  *
  * @author user
  */
 @Entity
-@Table(name="Movies")
+@Table(name = "Movies")
 public class Movie {
 
     private String title;
     private int runtime;
     private String rating;
-    private LocalDate releaseDate;
     private boolean is3D;
     private boolean is4D;
+    // NOT IN CONSTRUCTOR
+    private LocalDate releaseDate;
     private String[] genre;
     private String[] languages;
     // Static Fields
-    
-    private final static String[] MOVIE_GENRE = {" ","Documentary", "Historical","Musical","Comedy","Children's","Adventure/Action","Science Fiction","Thriller"}; // Add movie genres in ENGLISH
-    private final static String[] MOVIE_RATING = {" ","TP", "A7", "A12", "A15", "A18"};
-    private final static String[] MOVIE_LANGS = {" ","English", "Spanish", "French", "Portuguese", "German","Doblada"};
+    private final static String[] MOVIE_GENRE = {" ", "Documentary", "Historical", "Musical", "Comedy", "Children's", "Adventure/Action", "Science Fiction", "Thriller"}; // Add movie genres in ENGLISH
+    private final static String[] MOVIE_RATING = {"TP", "A7", "A12", "A15", "A18"};
+    private final static String[] MOVIE_LANGS = {" ", "English", "Spanish", "French", "Portuguese", "German", "Doblada"};
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    public Movie(String title, int runtime, String rating, boolean is3D, boolean is4D) {
+        this.title = title;
+        this.runtime = runtime;
+        this.rating = rating;
+        this.is3D = is3D;
+        this.is4D = is4D;
+    }
 
     public int getId() {
         return id;
@@ -42,14 +50,6 @@ public class Movie {
         this.id = id;
     }
 
-    public Movie(String title, int runtime, String rating, boolean is3D, boolean is4D) {
-        this.title = title;
-        this.runtime = runtime;
-        this.rating = rating;
-        this.is3D = is3D;
-        this.is4D = is4D;
-    }
-    
     public String getTitle() {
         return title;
     }
@@ -66,9 +66,6 @@ public class Movie {
         this.genre = genre;
     }
 
-
-    
-
     public String[] getLanguages() {
         return languages;
     }
@@ -84,15 +81,6 @@ public class Movie {
     public void setRating(String rating) {
         this.rating = rating;
     }
-    
-//
-//    public String getCast() {
-//        return cast;
-//    }
-//
-//    public void setCast(String cast) {
-//        this.cast = cast;
-//    }
 
     public LocalDate getReleaseDate() {
         return releaseDate;
@@ -125,7 +113,6 @@ public class Movie {
     public void setRuntime(int runtime) {
         this.runtime = runtime;
     }
-    
 
     public static String[] getMOVIE_GENRE() {
         return MOVIE_GENRE;
@@ -138,6 +125,5 @@ public class Movie {
     public static String[] getMOVIE_LANGS() {
         return MOVIE_LANGS;
     }
-    
-    
+
 }

@@ -8,7 +8,7 @@ import boundary.MainFrame;
 import entity.*;
 
 
-public class ManageScreen {
+public class manageScreen {
 
  //   private CinemApp cinemap = MainFrame.cinemapp;
             

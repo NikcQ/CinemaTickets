@@ -13,18 +13,18 @@ import javax.persistence.Table;
  * @author juanc
  */
 @Entity
-@Table(name="Theatres")
+@Table(name = "Theatres")
 public class Theater implements Serializable {
 
     private ArrayList<Screen> screens;
-    private int[] prices2D;
-    private int[] prices3D;
     private ArrayList<Projection> projections;
+
+    private int[] prices2D; // {PRICE_GA, PRICE_VIP, PRICE_4DX}
+    private int[] prices3D; // {PRICE_GA, PRICE_VIP, PRICE_4DX}
     private String theatreName;
-    
+
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     public int getId() {
@@ -37,9 +37,10 @@ public class Theater implements Serializable {
 
     public Theater(int[] cost2D, int[] cost3D) {
         this.screens = new ArrayList<Screen>();
+        this.projections = new ArrayList<Projection>();
+        
         this.prices2D = cost2D;
         this.prices3D = cost3D;
-        this.projections = new ArrayList<Projection>();
     }
 
     public ArrayList<Projection> getProjections() {
