@@ -81,8 +81,6 @@ public class screenForm extends javax.swing.JPanel {
 
         jLabel9.setText("Screen name:");
 
-        nameTextField.setText("jTextField1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(

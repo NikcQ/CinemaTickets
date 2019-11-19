@@ -4,11 +4,11 @@ package control;
  *
  * @author NikcQ
  */
-import boundary.MainFrame;
+import boundary.mainFrame;
 import entity.*;
 
 
-public class manageScreen {
+public class ManageScreen {
 
  //   private CinemApp cinemap = MainFrame.cinemapp;
             

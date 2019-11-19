@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author user
  */
 public class movieForm1 extends javax.swing.JPanel {
-        Movie mov = new Movie();
+        Movie mov;
     ArrayList genero = new ArrayList();
     ArrayList lenguajes = new ArrayList();
     /**
@@ -21,6 +21,7 @@ public class movieForm1 extends javax.swing.JPanel {
      */
     public movieForm1() {
             initComponents();
+            mov = new Movie(null,0,null,false,false);
 
         String[] arr = mov.getMOVIE_GENRE();
         for (int i = 0; i < arr.length; i++) {
@@ -280,7 +281,7 @@ public class movieForm1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
-        Movie movie1 = new Movie();
+        Movie movie1 = null;
 
         movie1.setTitle(titulo.getText());
 
