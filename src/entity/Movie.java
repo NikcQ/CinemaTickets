@@ -34,14 +34,6 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    public Movie(String title, int runtime, String rating, boolean is3D, boolean is4D) {
-        this.title = title;
-        this.runtime = runtime;
-        this.rating = rating;
-        this.is3D = is3D;
-        this.is4D = is4D;
-    }
-
     public int getId() {
         return id;
     }
@@ -50,6 +42,16 @@ public class Movie {
         this.id = id;
     }
 
+    public Movie() {
+    }
+    
+    public Movie(String title, int runtime, String rating, boolean is3D, boolean is4D) {
+        this.title = title;
+        this.runtime = runtime;
+        this.rating = rating;
+        this.is3D = is3D;
+        this.is4D = is4D;
+    }
     public String getTitle() {
         return title;
     }

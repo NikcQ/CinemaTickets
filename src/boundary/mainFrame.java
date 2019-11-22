@@ -5,7 +5,11 @@
  */
 package boundary;
 
+import DAO.MovieDAO;
 import entity.CinemApp;
+import entity.Movie;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,6 +19,7 @@ public class mainFrame extends javax.swing.JFrame {
     
     public static CinemApp cinemapp = new CinemApp();
     private managePanel managePNL = new managePanel();
+    public static MovieDAO pelicula = new MovieDAO();
     
     /**
      * Creates new form MainFrame
@@ -146,6 +151,49 @@ public class mainFrame extends javax.swing.JFrame {
         });
     }
 
+    public void Inicializacion(){
+        ArrayList<Movie> peliculas = new ArrayList<Movie>();
+        String ms = "2007-12-03";
+        String[] asx = {" ", "Documentary", "Historical", "Musical", "Comedy", "Children's", "Adventure/Action", "Science Fiction", "Thriller"};
+        String[] len = {" ", "English", "Spanish", "French", "Portuguese", "German", "Doblada"};
+        Movie a = new Movie();
+        Movie b = new Movie();
+        Movie c = new Movie();
+        
+        a.setTitle("el bromas");
+        a.setRuntime(2);
+        a.setRating("TP");
+        a.setIs3D(true);
+        a.setIs4D(false);
+        a.setReleaseDate(LocalDate.parse(ms));
+        a.setGenre(asx);
+        a.setLanguages(len);
+        
+        b.setTitle("asd");
+        b.setRuntime(2);
+        b.setRating("TP");
+        b.setIs3D(true);
+        b.setIs4D(false);
+        b.setReleaseDate(LocalDate.parse(ms));
+        b.setGenre(asx);
+        c.setLanguages(len);
+        
+        c.setTitle("ghj");
+        c.setRuntime(2);
+        c.setRating("TP");
+        c.setIs3D(true);
+        c.setIs4D(false);
+        c.setReleaseDate(LocalDate.parse(ms));
+        c.setGenre(asx);
+        c.setLanguages(len);
+        
+        peliculas.add(a);
+        peliculas.add(b);
+        peliculas.add(c);
+        for (Movie i:peliculas) {
+            pelicula.create(i);
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel containerMain;
     private javax.swing.Box.Filler filler1;

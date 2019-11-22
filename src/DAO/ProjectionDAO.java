@@ -17,7 +17,7 @@ import javax.persistence.Query;
  * @author Home
  */
 public class ProjectionDAO {
-    private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("TheaterPersistenceJPAPU");
+    private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
     
     public void create (Projection projection){
         EntityManager pr = efm.createEntityManager();

@@ -1,8 +1,8 @@
-Thu Nov 14 15:05:58 COT 2019 : Servidor de red Apache Derby: Se ha iniciado 10.11.1.2 - (1629631) y está listo para aceptar las conexiones en el puerto 1527
+Thu Nov 21 23:05:55 COT 2019 : Servidor de red Apache Derby: Se ha iniciado 10.11.1.2 - (1629631) y está listo para aceptar las conexiones en el puerto 1527
 ----------------------------------------------------------------
-Thu Nov 14 15:05:58 COT 2019:
- Iniciando instancia a816c00e-016e-6b85-c082-00007e3ee7d4 de Derby, versión The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): 
-en el directorio de base de datos C:\Users\Estudiante\Documents\NetBeansProjects\app\CinemaTickets\cinemAppDB_JPA con el cargador de clases sun.misc.Launcher$AppClassLoader@6f94fa3e
+Thu Nov 21 23:05:55 COT 2019:
+ Iniciando instancia a816c00e-016e-9149-ac4c-00004b511a15 de Derby, versión The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): 
+en el directorio de base de datos C:\Users\Coordinacion\Documents\NetBeansProjects\CinemaTickets\cinemAppDB_JPA con el cargador de clases sun.misc.Launcher$AppClassLoader@6f94fa3e
 Cargado desde file:/C:/Program%20Files/Java/jdk1.8.0_111/db/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_111-b14
@@ -10,5 +10,5 @@ user.dir=C:\Program Files\Java\jdk1.8.0_111\db
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
-derby.system.home=C:\Users\Estudiante\Documents\NetBeansProjects\app\CinemaTickets
+derby.system.home=C:\Users\Coordinacion\Documents\NetBeansProjects\CinemaTickets
 Cargador de clases de base de datos iniciado - derby.database.classpath=''
