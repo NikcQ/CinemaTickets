@@ -26,6 +26,7 @@ public class mainFrame extends javax.swing.JFrame {
      */
     public mainFrame() {
         initComponents();
+        Inicializacion();
     }
 
     /**
@@ -159,6 +160,16 @@ public class mainFrame extends javax.swing.JFrame {
         Movie a = new Movie();
         Movie b = new Movie();
         Movie c = new Movie();
+        Movie d = new Movie();
+        
+        c.setTitle("loco");
+        c.setRuntime(3);
+        c.setRating("ASD");
+        c.setIs3D(true);
+        c.setIs4D(true);
+        c.setReleaseDate(LocalDate.parse(ms));
+        c.setGenre(asx);
+        c.setLanguages(len);
         
         a.setTitle("el bromas");
         a.setRuntime(2);

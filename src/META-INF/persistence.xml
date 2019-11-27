@@ -3,6 +3,8 @@
   <persistence-unit name="CinemAppPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entity.Movie</class>
+    <class>entity.Screen</class>
+    <class>entity.Projection</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/cinemAppDB_JPA"/>
       <property name="javax.persistence.jdbc.user" value="admin_CinemApp"/>

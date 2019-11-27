@@ -37,6 +37,9 @@ public class Screen implements Serializable {
         this.id = id;
     }
 
+    public Screen() {
+    }
+    
     public Screen(int rowGA, int colGA, int rowVIP, int colVIP, int row4DX, int col4DX, boolean is3D, String name) {
         this.rowGA = rowGA;
         this.colGA = colGA;

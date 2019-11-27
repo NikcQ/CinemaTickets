@@ -29,6 +29,17 @@ public class Projection implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Projection() {
+    }
+    
     public Projection(Movie movie, Screen screen, LocalDateTime dateTime, boolean is3D, boolean is4D,
             int rowGA, int colGA, int rowVIP, int colVIP, int row4DX, int col4DX) {
         this.movie = movie;
@@ -40,14 +51,6 @@ public class Projection implements Serializable {
         this.blockGA = new boolean[rowGA][colGA];
         this.blockVIP = new boolean[rowVIP][colVIP];
         this.block4DX = new boolean[row4DX][col4DX];
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Movie getMovie() {
