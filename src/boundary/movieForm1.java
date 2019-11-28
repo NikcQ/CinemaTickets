@@ -5,6 +5,7 @@
  */
 package boundary;
 
+import control.ManageMovie;
 import entity.Movie;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -274,35 +275,57 @@ public class movieForm1 extends javax.swing.JPanel {
 
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
 
-        movie1.setTitle(titulo.getText());
-        movie1.setRuntime(Integer.parseInt(jTextField1.getText()));
-        movie1.setRating((String) ratingList.getSelectedItem());
-        movie1.setIs3D(is3d.isSelected());
-        movie1.setIs4D(is4d.isSelected());
+//        movie1.setTitle(titulo.getText());
+        
+        String tituloo=titulo.getText();
+        
+//        movie1.setRuntime(Integer.parseInt(jTextField1.getText()));
+        
+        int runtimee=Integer.parseInt(jTextField1.getText());
+        
+//        movie1.setRating((String) ratingList.getSelectedItem());
+        
+        String rating=(String) ratingList.getSelectedItem();
+        
+//        movie1.setIs3D(is3d.isSelected());
+        
+        boolean iS3d=is3d.isSelected();
+        
+//        movie1.setIs4D(is4d.isSelected());
+        
         String f = fecha.getText();
-        movie1.setReleaseDate(LocalDate.parse(f));
+        
+        LocalDate dat=LocalDate.parse(f);
+        
+        ManageMovie Mov = new ManageMovie();
+        System.out.println("-----------");
+        String resultadoReg = Mov.verificarMovie(tituloo, runtimee, rating, iS3d, iS3d);
+        
+        
+        System.out.println(resultadoReg);
+        
+//        movie1.setReleaseDate(LocalDate.parse(f));
 
-        System.out.println(movie1.getTitle() + "\n");
+//        System.out.println(movie1.getTitle() + "\n");
 
-        String[] geneross = movie1.getGenre();
-        for (int i = 0; i < geneross.length; i++) {
-            System.out.println(geneross[i]);
-        }
-        System.out.println("\n" + movie1.getRuntime() + "\n");
+//        String[] geneross = movie1.getGenre();
+//        for (int i = 0; i < geneross.length; i++) {
+//            System.out.println(geneross[i]);
+//        }
+//        System.out.println("\n" + movie1.getRuntime() + "\n");
+//
+//        for (int i = 0; i < movie1.getLanguages().length; i++) {
+//            System.out.println(movie1.getLanguages()[i]);
+//        }
+//        System.out.println(movie1.getRating());
 
-        for (int i = 0; i < movie1.getLanguages().length; i++) {
-            System.out.println(movie1.getLanguages()[i]);
-        }
-        System.out.println(movie1.getRating());
+//        System.out.println(movie1.getReleaseDate());
 
-        System.out.println(movie1.getReleaseDate());
+//        System.out.println(movie1.isIs3D());
+//        System.out.println(movie1.isIs4D());
 
-        System.out.println(movie1.isIs3D());
-        System.out.println(movie1.isIs4D());
+//        JOptionPane.showMessageDialog(null, "Ok", "Usuario creado correctamente", JOptionPane.INFORMATION_MESSAGE);
 
-        JOptionPane.showMessageDialog(null, "Ok", "Usuario creado correctamente", JOptionPane.INFORMATION_MESSAGE);
-
-        mainFrame.cinemapp.addMovie(movie1);
         titulo.setText(null);
 
         genero.clear();
@@ -319,9 +342,7 @@ public class movieForm1 extends javax.swing.JPanel {
         fecha.setText(null);
         is3d.setSelected(false);
         is4d.setSelected(false);
-        for (Movie listing : mainFrame.cinemapp.getListings()) {
-            System.out.println(listing.getTitle());
-        }
+
 
     }//GEN-LAST:event_crearActionPerformed
 

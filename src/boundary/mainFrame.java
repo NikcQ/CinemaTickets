@@ -201,6 +201,7 @@ public class mainFrame extends javax.swing.JFrame {
         peliculas.add(a);
         peliculas.add(b);
         peliculas.add(c);
+        cinemapp.setListings(peliculas);
         for (Movie i:peliculas) {
             pelicula.create(i);
         }
