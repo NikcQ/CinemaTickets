@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package boundary;
 
 //import control.registerProjection;
+import DAO.MovieDAO;
+import control.ManageProjection;
 import entity.Movie;
 import entity.Projection;
 import entity.Screen;
@@ -18,15 +19,15 @@ import javax.swing.JOptionPane;
  * @author Estudiante
  */
 public class projectionForm extends javax.swing.JPanel {
-
+        MovieDAO pel= mainFrame.pelicula;
     /**
      * Creates new form ProjectionForm
      */
-    
     Projection newProjection;
-    
+
     public projectionForm() {
         initComponents();
+
     }
 
     /**
@@ -199,8 +200,15 @@ public class projectionForm extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cButton2ActionPerformed
-        // TODO add your handling code here:
-       // this.dispose();
+        ManageProjection pro =new ManageProjection();
+        Movie mov= pro.traer("el bromas");
+        Movie mov2 =pel.read(mov);
+        
+        System.out.println(mov2.getTitle());
+        for (int i = 0; i < mov2.getLanguages().length; i++) {
+            System.out.println(mov2.getLanguages()[i]);
+        }
+        
     }//GEN-LAST:event_cButton2ActionPerformed
 
     private void dateTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateTimeActionPerformed
@@ -211,9 +219,9 @@ public class projectionForm extends javax.swing.JPanel {
     private void aButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aButtonActionPerformed
 
         //registerProjection newP = new registerProjection();
-        Screen screen = new Screen(0,0,0,0,0,0,false, null);
+        Screen screen = new Screen(0, 0, 0, 0, 0, 0, false, null);
         screen.setId(screenList.getSelectedIndex());
-        Movie movie = new Movie(null,0,null,false,false);
+        Movie movie = new Movie(null, 0, null, false, false);
         movie.setTitle(movieName.getText());
         newProjection.setMovie(movie);
 

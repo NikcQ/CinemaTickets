@@ -5,10 +5,30 @@
  */
 package control;
 
+import DAO.MovieDAO;
+import boundary.mainFrame;
+import entity.CinemApp;
+import entity.Movie;
+
 /**
  *
  * @author Estudiante
  */
 public class ManageProjection {
+
+    MovieDAO movdao = mainFrame.pelicula;
+    CinemApp cinemapp = mainFrame.cinemapp;
+
+    public Movie traer(String titulo) {
+        Movie peli = new Movie();
+        for (Movie mov : cinemapp.getListings()) {
+            if (mov.getTitle().equals(titulo)) {
+                peli=mov;
+            }
+        }
+        return peli;
+    }
+    
+
     
 }
