@@ -75,7 +75,8 @@ public class ProjectionDAO {
             projection = read(projection);
             projection.setMovie(neoprojection.getMovie());
             projection.setScreen(neoprojection.getScreen());
-            projection.setDateTime(neoprojection.getDateTime());
+            projection.setDate(neoprojection.getDate());
+            projection.setTime(neoprojection.getTime());
             projection.setIs3D(neoprojection.isIs3D());
             projection.setIs4D(neoprojection.isIs4D());
             projection.setId(neoprojection.getId());

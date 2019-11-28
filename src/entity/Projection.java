@@ -1,7 +1,9 @@
 package entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +20,8 @@ public class Projection implements Serializable {
 
     private Movie movie;
     private Screen screen;
-    private LocalDateTime dateTime;
+    private LocalDate date;
+    private LocalTime time;
     private boolean is3D;
     private boolean is4D;
     private boolean blockGA[][];   //matrix that contains the availlability of general seats. Default is FALSE
@@ -40,11 +43,13 @@ public class Projection implements Serializable {
     public Projection() {
     }
     
-    public Projection(Movie movie, Screen screen, LocalDateTime dateTime, boolean is3D, boolean is4D,
+    
+    public Projection(Movie movie, Screen screen, LocalDate date,LocalTime time, boolean is3D, boolean is4D,
             int rowGA, int colGA, int rowVIP, int colVIP, int row4DX, int col4DX) {
         this.movie = movie;
         this.screen = screen;
-        this.dateTime = dateTime;
+        this.date=date;
+        this.time = time;
         this.is3D = is3D;
         this.is4D = is4D;
 
@@ -61,13 +66,23 @@ public class Projection implements Serializable {
         this.movie = movie;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
+
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
+    }
+
+
 
     public boolean isIs3D() {
         return is3D;

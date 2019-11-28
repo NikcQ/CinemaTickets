@@ -213,7 +213,7 @@ public class projectionForm extends javax.swing.JPanel {
 
     private void dateTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateTimeActionPerformed
         String date = dateTime.getText();
-        newProjection.setDateTime(LocalDateTime.parse(date));
+//        newProjection.setDateTime(LocalDateTime.parse(date));
     }//GEN-LAST:event_dateTimeActionPerformed
 
     private void aButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aButtonActionPerformed
@@ -232,7 +232,7 @@ public class projectionForm extends javax.swing.JPanel {
         System.out.println(newProjection.getId());
         System.out.println(newProjection.getMovie().getTitle());
         System.out.println(newProjection.getScreen());
-        System.out.println(newProjection.getDateTime());
+//        System.out.println(newProjection.getDateTime());
         System.out.println(newProjection.isIs3D());
         System.out.println(newProjection.isIs4D());
         //newP.reg(newProjection);
@@ -242,7 +242,7 @@ public class projectionForm extends javax.swing.JPanel {
         newProjection.setMovie(null);
         movieName.setText(null);
         dateTime.setText(null);
-        newProjection.setDateTime(null);
+//        newProjection.setDateTime(null);
 
         newProjection.setIs3D(false);
 
