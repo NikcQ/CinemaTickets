@@ -7,6 +7,7 @@ package control;
 import DAO.ScreenDAO;
 import boundary.mainFrame;
 import entity.*;
+import java.util.ArrayList;
 
 
 public class ManageScreen {
@@ -56,6 +57,13 @@ public class ManageScreen {
     
     
     
-    
+    public static ArrayList<String> getScreenNames(){
+        ArrayList<Screen> list = mainFrame.cinemapp.getCinema().getScreens();
+        ArrayList<String> names = new ArrayList<String>();
+        for (Screen s : list){
+            names.add(s.getName());
+        }
+        return names;
+    }
     
 }

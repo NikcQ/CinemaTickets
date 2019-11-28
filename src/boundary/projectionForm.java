@@ -201,7 +201,7 @@ public class projectionForm extends javax.swing.JPanel {
 
     private void cButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cButton2ActionPerformed
         ManageProjection pro =new ManageProjection();
-        Movie mov= pro.traer("el bromas");
+        Movie mov= pro.traerPeli("el bromas");
         Movie mov2 =pel.read(mov);
         
         System.out.println(mov2.getTitle());

@@ -71,5 +71,9 @@ public class Theater implements Serializable {
     public void addScreen(Screen u) {
         screens.add(u);
     }
+    
+    public void addProjection(Projection u) {
+        projections.add(u);
+    }
 
 }

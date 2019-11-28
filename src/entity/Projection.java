@@ -44,18 +44,18 @@ public class Projection implements Serializable {
     }
     
     
-    public Projection(Movie movie, Screen screen, LocalDate date,LocalTime time, boolean is3D, boolean is4D,
-            int rowGA, int colGA, int rowVIP, int colVIP, int row4DX, int col4DX) {
+    public Projection(Movie movie, Screen screen, LocalDate date,LocalTime time, boolean is3D, boolean is4D){//,
+            //int rowGA, int colGA, int rowVIP, int colVIP, int row4DX, int col4DX) {
         this.movie = movie;
         this.screen = screen;
-        this.date=date;
+        this.date = date;
         this.time = time;
         this.is3D = is3D;
         this.is4D = is4D;
 
-        this.blockGA = new boolean[rowGA][colGA];
-        this.blockVIP = new boolean[rowVIP][colVIP];
-        this.block4DX = new boolean[row4DX][col4DX];
+        this.blockGA = new boolean[screen.getRowGA()][screen.getColGA()];
+        this.blockVIP = new boolean[screen.getRowVIP()][screen.getColVIP()];
+        this.block4DX = new boolean[screen.getRow4DX()][screen.getCol4DX()];
     }
 
     public Movie getMovie() {
