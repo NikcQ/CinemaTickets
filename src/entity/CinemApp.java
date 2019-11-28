@@ -29,5 +29,8 @@ public class CinemApp {
     public void setListings(ArrayList<Movie> listings) {
         this.listings = listings;
     }
+    public void addMovie(Movie u) {
+        listings.add(u);
+    }
 
 }
