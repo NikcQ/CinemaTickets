@@ -74,8 +74,8 @@ public class TheatreDAO {
         try{
             theater = read(theater);
             theater.setScreens(neotheater.getScreens());
-            theater.setPrices2D(neotheater.getPrices2D());
-            theater.setPrices3D(neotheater.getPrices3D());
+//            theater.setPrices2D(neotheater.getPrices2D());
+//            theater.setPrices3D(neotheater.getPrices3D());
             theater.setProjections(neotheater.getProjections());
             theater.setId(neotheater.getId());
             th.merge(theater);

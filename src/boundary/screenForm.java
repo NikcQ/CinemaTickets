@@ -1,5 +1,6 @@
 package boundary;
 
+import control.ManageScreen;
 import entity.Screen;
 
 /**
@@ -192,10 +193,21 @@ public class screenForm extends javax.swing.JPanel {
 
     private void submitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBTNActionPerformed
         // TODO add your handling code here:
+        int rowGA=(int) rowGAspinner.getValue();
+        int colGA= (int) colGAspinner.getValue();
+        int rowVIP=(int) rowVIPspinner.getValue();
+        int colVIP=(int) colVIPspinner.getValue();
+        int row4DX=(int) row4DXspinner.getValue();
+        int col4DX= (int) col4DXspinner.getValue();
+        boolean is3D=is3DBTN.isSelected();
+        String name=nameTextField.getText();
         
-        Screen newScreen = new Screen((int) rowGAspinner.getValue(), (int) colGAspinner.getValue(), (int) rowVIPspinner.getValue(), (int) colVIPspinner.getValue(), (int) row4DXspinner.getValue(), (int) col4DXspinner.getValue(), is3DBTN.isSelected(), nameTextField.getText());
+        ManageScreen scren= new ManageScreen();
+        String resultado=scren.verificarScreen(rowGA, colGA, rowVIP, colVIP, row4DX, col4DX, is3D, name);
         
-        
+        System.out.println(resultado);
+
+
     }//GEN-LAST:event_submitBTNActionPerformed
 
 

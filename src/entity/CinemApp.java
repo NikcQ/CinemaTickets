@@ -13,6 +13,13 @@ public class CinemApp {
      */
     private Theater cinema;
     private ArrayList<Movie> listings;
+    
+
+    public CinemApp() {
+        this.cinema=new Theater();
+    }
+    
+    
 
     public Theater getCinema() {
         return cinema;

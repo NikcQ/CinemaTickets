@@ -19,8 +19,8 @@ public class Theater implements Serializable {
     private ArrayList<Screen> screens;
     private ArrayList<Projection> projections;
 
-    private int[] prices2D; // {PRICE_GA, PRICE_VIP, PRICE_4DX}
-    private int[] prices3D; // {PRICE_GA, PRICE_VIP, PRICE_4DX}
+    private final static int[] prices2D={10000,12500,15000};
+    private final static int[] prices3D={15000,20000,25000}; // {PRICE_GA, PRICE_VIP, PRICE_4DX}
     private String theatreName;
 
     @Id
@@ -35,12 +35,10 @@ public class Theater implements Serializable {
         this.id = id;
     }
 
-    public Theater(int[] cost2D, int[] cost3D) {
+    public Theater() {
         this.screens = new ArrayList<Screen>();
         this.projections = new ArrayList<Projection>();
-        
-        this.prices2D = cost2D;
-        this.prices3D = cost3D;
+
     }
 
     public ArrayList<Projection> getProjections() {
@@ -63,16 +61,15 @@ public class Theater implements Serializable {
         return prices2D;
     }
 
-    public void setPrices2D(int[] prices2D) {
-        this.prices2D = prices2D;
-    }
+
 
     public int[] getPrices3D() {
         return prices3D;
     }
 
-    public void setPrices3D(int[] prices3D) {
-        this.prices3D = prices3D;
+ 
+    public void addScreen(Screen u) {
+        screens.add(u);
     }
 
 }

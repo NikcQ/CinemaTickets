@@ -212,6 +212,7 @@ public class mainFrame extends javax.swing.JFrame {
         }
     }
     public void initScreen(){
+        ArrayList<Screen> screen = new ArrayList<Screen>();
         Screen a = new Screen();
         a.setRowGA(20);
         a.setColGA(20);
@@ -221,6 +222,8 @@ public class mainFrame extends javax.swing.JFrame {
         a.setCol4DX(0);
         a.setIs3D(true);
         a.setName("1");
+        screen.add(a);
+        cinemapp.getCinema().setScreens(screen);
         salas.create(a);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
