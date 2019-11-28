@@ -6,8 +6,10 @@
 package boundary;
 
 import DAO.MovieDAO;
+import DAO.ScreenDAO;
 import entity.CinemApp;
 import entity.Movie;
+import entity.Screen;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -20,13 +22,16 @@ public class mainFrame extends javax.swing.JFrame {
     public static CinemApp cinemapp = new CinemApp();
     private managePanel managePNL = new managePanel();
     public static MovieDAO pelicula = new MovieDAO();
+    public static ScreenDAO salas = new ScreenDAO();
+    
     
     /**
      * Creates new form MainFrame
      */
     public mainFrame() {
         initComponents();
-        Inicializacion();
+        initMovie();
+        initScreen();
     }
 
     /**
@@ -152,7 +157,7 @@ public class mainFrame extends javax.swing.JFrame {
         });
     }
 
-    public void Inicializacion(){
+    public void initMovie(){
         ArrayList<Movie> peliculas = new ArrayList<Movie>();
         String ms = "2007-12-03";
         String[] asx = {" ", "Documentary", "Historical", "Musical", "Comedy", "Children's", "Adventure/Action", "Science Fiction", "Thriller"};
@@ -205,6 +210,18 @@ public class mainFrame extends javax.swing.JFrame {
         for (Movie i:peliculas) {
             pelicula.create(i);
         }
+    }
+    public void initScreen(){
+        Screen a = new Screen();
+        a.setRowGA(20);
+        a.setColGA(20);
+        a.setRowVIP(5);
+        a.setColVIP(20);
+        a.setRow4DX(0);
+        a.setCol4DX(0);
+        a.setIs3D(true);
+        a.setName("1");
+        salas.create(a);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel containerMain;
