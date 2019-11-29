@@ -56,6 +56,12 @@ public class NewProjectionForm extends javax.swing.JPanel {
 
         jLabel2.setText("Screen");
 
+        screenCBX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                screenCBXActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Date");
 
         dateFLD.addActionListener(new java.awt.event.ActionListener() {
@@ -175,6 +181,10 @@ public class NewProjectionForm extends javax.swing.JPanel {
     private void movieCBXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieCBXActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_movieCBXActionPerformed
+
+    private void screenCBXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_screenCBXActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_screenCBXActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

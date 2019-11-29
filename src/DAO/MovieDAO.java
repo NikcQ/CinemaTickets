@@ -7,6 +7,8 @@ package DAO;
 
 import entity.Movie;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NonUniqueResultException;
@@ -51,7 +53,7 @@ public class MovieDAO {
         }
     }
     
-    public Movie read(Movie movie){
+   public Movie read(Movie movie){
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         Movie film = null;
@@ -68,12 +70,30 @@ public class MovieDAO {
         }
     }
     
+    
+     public ArrayList<Movie> readTable(){
+        EntityManager mo = efm.createEntityManager();
+        mo.getTransaction().begin();
+        List<Movie> listOfMovies = new ArrayList<Movie>();
+        ArrayList<Movie> listofMov = new ArrayList<Movie>(); 
+        Query q = mo.createQuery("SELECT m FROM Movie m ");
+        try{
+            listOfMovies =  (List<Movie>) q.getResultList();
+            listofMov = new ArrayList<Movie> (listOfMovies);
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            mo.close();
+            return listofMov;
+        }
+     }
+    
     public boolean update(Movie movie,Movie neomovie){
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         boolean ret = false;
         try{
-            movie = read(movie);
+           // movie = read(movie);
             movie.setTitle(neomovie.getTitle());
             movie.setGenre(neomovie.getGenre());
             movie.setLanguages(neomovie.getLanguages());

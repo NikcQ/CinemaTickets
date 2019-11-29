@@ -5,7 +5,10 @@
  */
 package DAO;
 
+import entity.Movie;
 import entity.Screen;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NonUniqueResultException;
@@ -66,6 +69,24 @@ public class ScreenDAO {
             return secondsc;
         }
     }
+    
+         public ArrayList<Screen> readTable(){
+        EntityManager mo = efm.createEntityManager();
+        mo.getTransaction().begin();
+        List<Screen> listOfScreens = new ArrayList<Screen>();
+        ArrayList<Screen> listofScr = new ArrayList<Screen>(); 
+        Query q = mo.createQuery("SELECT m FROM Screen m ");
+        try{
+            listOfScreens =  (List<Screen>) q.getResultList();
+            listofScr = new ArrayList<Screen> (listOfScreens);
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            mo.close();
+            return listofScr;
+        }
+     }
+    
     
     public boolean update(Screen screen,Screen neoscreen){  //es necesario que read este completo para el uso de update
         EntityManager sc = efm.createEntityManager();

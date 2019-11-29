@@ -6,10 +6,12 @@
 package boundary;
 
 import DAO.MovieDAO;
+import DAO.ProjectionDAO;
 import DAO.ScreenDAO;
 import entity.CinemApp;
 import entity.Movie;
 import entity.Screen;
+import entity.Theater;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -22,7 +24,10 @@ public class mainFrame extends javax.swing.JFrame {
     public static CinemApp cinemapp = new CinemApp();
     private managePanel managePNL = new managePanel();
     public static MovieDAO pelicula = new MovieDAO();
+    public static ProjectionDAO funcion = new ProjectionDAO();
     public static ScreenDAO salas = new ScreenDAO();
+    public static Theater theater = new Theater();
+    
     
     
     /**
@@ -32,6 +37,9 @@ public class mainFrame extends javax.swing.JFrame {
         initComponents();
         initMovie();
         initScreen();
+        cinemapp.setListings(pelicula.readTable());//Inicialización de los arreglos desde la base de datos
+        theater.setScreens(salas.readTable());
+        theater.setProjections(funcion.readTable());
     }
 
     /**

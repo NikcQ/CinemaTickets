@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Table(name = "Theatres")
 public class Theater implements Serializable {
 
-    private ArrayList<Screen> screens;
+    private static ArrayList<Screen> screens;
     private ArrayList<Projection> projections;
 
     private final static int[] prices2D={10000,12500,15000};

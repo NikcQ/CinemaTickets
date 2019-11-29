@@ -6,6 +6,8 @@
 package DAO;
 
 import entity.Projection;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NonUniqueResultException;
@@ -66,6 +68,23 @@ public class ProjectionDAO {
             return otherprojection;
         }
     }
+    
+     public ArrayList<Projection> readTable(){
+        EntityManager mo = efm.createEntityManager();
+        mo.getTransaction().begin();
+        List<Projection> listOfProjections = new ArrayList<Projection>();
+        ArrayList<Projection> listofPro = new ArrayList<Projection>(); 
+        Query q = mo.createQuery("SELECT m FROM Projection m ");
+        try{
+            listOfProjections =  (List<Projection>) q.getResultList();
+            listofPro = new ArrayList<Projection> (listOfProjections);
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            mo.close();
+            return listofPro;
+        }
+     }
     
     public boolean update(Projection projection,Projection neoprojection){
         EntityManager pr = efm.createEntityManager();
