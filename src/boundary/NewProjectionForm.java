@@ -162,7 +162,7 @@ public class NewProjectionForm extends javax.swing.JPanel {
 
     private void submitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBTNActionPerformed
         // TODO add your handling code here:
-        System.out.println(ManageProjection.verificarFORM(dateFLD.getText(),timeFLD.getText(), is3DCHK.isSelected(), is4DCHK.isSelected(), (String)movieCBX.getSelectedItem(), (String)screenCBX.getSelectedItem()));
+        System.out.println(ManageProjection.verificarFORM(timeFLD.getText(),dateFLD.getText(), is3DCHK.isSelected(), is4DCHK.isSelected(), (String)movieCBX.getSelectedItem(), (String)screenCBX.getSelectedItem()));
     }//GEN-LAST:event_submitBTNActionPerformed
 
     private void loadBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadBTNActionPerformed
