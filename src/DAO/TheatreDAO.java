@@ -17,61 +17,62 @@ import javax.persistence.Query;
  * @author Home
  */
 public class TheatreDAO {
+
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
-    
-    public void create (Theater theater){
+
+    public void create(Theater theater) {
         EntityManager th = efm.createEntityManager();
         th.getTransaction().begin();
-        try{
+        try {
             th.persist(theater);
             th.getTransaction().commit();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             th.getTransaction().rollback();
-        }finally{
+        } finally {
             th.close();
         }
     }
-    
-    public boolean delete(Theater theater){
+
+    public boolean delete(Theater theater) {
         EntityManager th = efm.createEntityManager();
         th.getTransaction().begin();
         boolean ret = false;
-        try{
+        try {
             th.remove(theater);
             th.getTransaction().commit();
             ret = true;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             th.getTransaction().rollback();
-        }finally{
+        } finally {
             th.close();
             return ret;
         }
     }
-    
-    public Theater read(Theater theater){
+
+    public Theater read(Theater theater) {
         EntityManager th = efm.createEntityManager();
         th.getTransaction().begin();
         Theater othertheater = null;
-        Query q = th.createQuery("SELECT t FROM Theater t "+"WHERE t.id LIKE :id").setParameter("id", theater.getId());
-        try{
+        Query q = th.createQuery("SELECT t FROM Theater t " + "WHERE t.id LIKE :id").setParameter("id", theater.getId());
+        try {
             othertheater = (Theater) q.getSingleResult();
-        }catch(NonUniqueResultException e){
+        } catch (NonUniqueResultException e) {
             othertheater = (Theater) q.getResultList().get(0);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             th.close();
             return othertheater;
         }
     }
-    
-    public boolean update(Theater theater,Theater neotheater){
+
+    public boolean update(Theater theater, Theater neotheater) {
         EntityManager th = efm.createEntityManager();
         th.getTransaction().begin();
         boolean ret = false;
-        try{
+        try {
             theater = read(theater);
             theater.setScreens(neotheater.getScreens());
 //            theater.setPrices2D(neotheater.getPrices2D());
@@ -81,13 +82,13 @@ public class TheatreDAO {
             th.merge(theater);
             th.getTransaction().commit();
             ret = true;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             th.getTransaction().rollback();
-        }finally{
+        } finally {
             th.close();
             return ret;
         }
     }
-    
+
 }

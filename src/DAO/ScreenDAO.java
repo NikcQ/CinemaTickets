@@ -20,101 +20,101 @@ import javax.persistence.Query;
  * @author Home
  */
 public class ScreenDAO {
+
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
-    
-    public void create (Screen screen){
+
+    public void create(Screen screen) {
         EntityManager sc = efm.createEntityManager();
         sc.getTransaction().begin();
-        try{
+        try {
             sc.persist(screen);
             sc.getTransaction().commit();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             sc.getTransaction().rollback();
-        }finally{
+        } finally {
             sc.close();
         }
     }
-    
-    public boolean delete(Screen screen){
+
+    public boolean delete(Screen screen) {
         EntityManager sc = efm.createEntityManager();
         sc.getTransaction().begin();
         boolean ret = false;
-        try{
+        try {
             sc.remove(screen);
             sc.getTransaction().commit();
             ret = true;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             sc.getTransaction().rollback();
-        }finally{
+        } finally {
             sc.close();
             return ret;
         }
     }
-    
-    public Screen read(Screen screen){
+
+    public Screen read(Screen screen) {
         EntityManager sc = efm.createEntityManager();
         sc.getTransaction().begin();
         Screen secondsc = null;
-        Query q = sc.createQuery("SELECT s FROM Screen s "+"WHERE s.title LIKE :name").setParameter("name", screen.getName());            //falta parametro indicador de la busqueda
-        try{
+        Query q = sc.createQuery("SELECT s FROM Screen s " + "WHERE s.title LIKE :name").setParameter("name", screen.getName());            //falta parametro indicador de la busqueda
+        try {
             secondsc = (Screen) q.getSingleResult();
-        }catch(NonUniqueResultException e){
+        } catch (NonUniqueResultException e) {
             secondsc = (Screen) q.getResultList().get(0);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             sc.close();
             return secondsc;
         }
     }
-    
-         public ArrayList<Screen> readTable(){
+
+    public ArrayList<Screen> readTable() {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         List<Screen> listOfScreens = new ArrayList<Screen>();
-        ArrayList<Screen> listofScr = new ArrayList<Screen>(); 
+        ArrayList<Screen> listofScr = new ArrayList<Screen>();
         Query q = mo.createQuery("SELECT m FROM Screen m ");
-        try{
-            listOfScreens =  (List<Screen>) q.getResultList();
-            listofScr = new ArrayList<Screen> (listOfScreens);
-        }catch(Exception e){
+        try {
+            listOfScreens = (List<Screen>) q.getResultList();
+            listofScr = new ArrayList<Screen>(listOfScreens);
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             mo.close();
             return listofScr;
         }
-     }
-    
-    
-    public boolean update(Screen screen,Screen neoscreen){  //es necesario que read este completo para el uso de update
+    }
+
+    public boolean update(Screen screen, Screen neoscreen) {  //es necesario que read este completo para el uso de update
         EntityManager sc = efm.createEntityManager();
         sc.getTransaction().begin();
         boolean ret = false;
-        try{
+        try {
             screen = read(screen);
             screen.setRowGA(neoscreen.getRowGA());
             screen.setColGA(neoscreen.getColGA());
-            
+
             screen.setRowVIP(neoscreen.getRowVIP());
             screen.setColVIP(neoscreen.getColVIP());
-            
+
             screen.setRow4DX(neoscreen.getRow4DX());
             screen.setCol4DX(neoscreen.getCol4DX());
-            
+
             screen.setIs3D(neoscreen.isIs3D());
             screen.setId(neoscreen.getId());
             sc.merge(screen);
             sc.getTransaction().commit();
             ret = true;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             sc.getTransaction().rollback();
-        }finally{
+        } finally {
             sc.close();
             return ret;
         }
     }
-    
+
 }

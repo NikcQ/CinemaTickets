@@ -20,7 +20,7 @@ public class NewProjectionForm extends javax.swing.JPanel {
      */
     public NewProjectionForm() {
         initComponents();
-        
+
     }
 
     /**
@@ -162,18 +162,18 @@ public class NewProjectionForm extends javax.swing.JPanel {
 
     private void submitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBTNActionPerformed
         // TODO add your handling code here:
-        System.out.println(ManageProjection.verificarFORM(timeFLD.getText(),dateFLD.getText(), is3DCHK.isSelected(), is4DCHK.isSelected(), (String)movieCBX.getSelectedItem(), (String)screenCBX.getSelectedItem()));
+        System.out.println(ManageProjection.verificarFORM(timeFLD.getText(), dateFLD.getText(), is3DCHK.isSelected(), is4DCHK.isSelected(), (String) movieCBX.getSelectedItem(), (String) screenCBX.getSelectedItem()));
     }//GEN-LAST:event_submitBTNActionPerformed
 
     private void loadBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadBTNActionPerformed
         // TODO add your handling code here:
         movieCBX.removeAllItems();
         screenCBX.removeAllItems();
-        
-        for (String t : ManageMovie.getMovieTitles()){
+
+        for (String t : ManageMovie.getMovieTitles()) {
             movieCBX.addItem(t);
         }
-        for (String n : ManageScreen.getScreenNames()){
+        for (String n : ManageScreen.getScreenNames()) {
             screenCBX.addItem(n);
         }
     }//GEN-LAST:event_loadBTNActionPerformed
