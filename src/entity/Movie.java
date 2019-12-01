@@ -19,9 +19,9 @@ public class Movie {
 
     private String title;
     private int runtime;
-    private String rating;
     private boolean is3D;
     private boolean is4D;
+    private String rating;
     // NOT IN CONSTRUCTOR
     private LocalDate releaseDate;
     private String[] genre;
@@ -44,7 +44,7 @@ public class Movie {
 
     public Movie() {
     }
-    
+
     public Movie(String title, int runtime, String rating, boolean is3D, boolean is4D) {
         this.title = title;
         this.runtime = runtime;
@@ -52,6 +52,7 @@ public class Movie {
         this.is3D = is3D;
         this.is4D = is4D;
     }
+
     public String getTitle() {
         return title;
     }
@@ -128,4 +129,8 @@ public class Movie {
         return MOVIE_LANGS;
     }
 
+    @Override
+    public String toString() {
+        return "Movie{" + "title=" + title + ", runtime=" + runtime + ", is3D=" + is3D + ", is4D=" + is4D + ", rating=" + rating + ", releaseDate=" + releaseDate + ", id=" + id + '}';
+    }
 }

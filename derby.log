@@ -1,7 +1,7 @@
-Sat Nov 30 22:38:28 COT 2019 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
+Sat Nov 30 23:37:09 COT 2019 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Sat Nov 30 22:38:28 COT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-016e-bf89-c7e6-00003cb073c0 
+Sat Nov 30 23:37:09 COT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-016e-bfbf-8166-00003cb073c0 
 on database directory /Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets/cinemAppDB_JPA with class loader sun.misc.Launcher$AppClassLoader@66d3c617 
 Loaded from file:/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/db/lib/derby.jar
 java.vendor=Oracle Corporation

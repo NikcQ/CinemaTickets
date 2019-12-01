@@ -42,10 +42,9 @@ public class Projection implements Serializable {
 
     public Projection() {
     }
-    
-    
-    public Projection(Movie movie, Screen screen, LocalDate date,LocalTime time, boolean is3D, boolean is4D){//,
-            //int rowGA, int colGA, int rowVIP, int colVIP, int row4DX, int col4DX) {
+
+    public Projection(Movie movie, Screen screen, LocalDate date, LocalTime time, boolean is3D, boolean is4D) {//,
+        //int rowGA, int colGA, int rowVIP, int colVIP, int row4DX, int col4DX) {
         this.movie = movie;
         this.screen = screen;
         this.date = date;
@@ -81,8 +80,6 @@ public class Projection implements Serializable {
     public void setTime(LocalTime time) {
         this.time = time;
     }
-
-
 
     public boolean isIs3D() {
         return is3D;
@@ -130,5 +127,10 @@ public class Projection implements Serializable {
 
     public void setScreen(Screen screen) {
         this.screen = screen;
+    }
+
+    @Override
+    public String toString() {
+        return "Projection{" + "movie=" + movie.getId() + ", screen=" + screen.getId() + ", date=" + date + ", time=" + time + ", is3D=" + is3D + ", is4D=" + is4D + ", id=" + id + '}';
     }
 }

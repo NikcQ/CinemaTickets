@@ -15,15 +15,15 @@ import javax.persistence.Table;
 @Table(name = "Screens")
 public class Screen implements Serializable {
 
-//seat block order is GA - VIP - 4DX(if availlable)
+    private String name;              //names the screen as in "1", "2", "3", etc...
+    private boolean is3D;             //Specifies if the movie is projected in 3D or not. Default is FALSE
+    //seat block order is GA - VIP - 4DX(if availlable)
     private int rowGA;
     private int colGA;
     private int rowVIP;
     private int colVIP;
     private int row4DX;
     private int col4DX;
-    private boolean is3D;             //Specifies if the movie is projected in 3D or not. Default is FALSE
-    private String name;              //names the screen as in "1", "2", "3", etc...
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +39,7 @@ public class Screen implements Serializable {
 
     public Screen() {
     }
-    
+
     public Screen(int rowGA, int colGA, int rowVIP, int colVIP, int row4DX, int col4DX, boolean is3D, String name) {
         this.rowGA = rowGA;
         this.colGA = colGA;
@@ -115,5 +115,10 @@ public class Screen implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Screen{" + "name=" + name + ", is3D=" + is3D + ", rowGA=" + rowGA + ", colGA=" + colGA + ", rowVIP=" + rowVIP + ", colVIP=" + colVIP + ", row4DX=" + row4DX + ", col4DX=" + col4DX + ", id=" + id + '}';
+    }
+
 }
