@@ -22,12 +22,18 @@ import java.util.ArrayList;
 public class mainFrame extends javax.swing.JFrame {
     
     public static CinemApp cinemapp = new CinemApp();
+    public static Theater theater = new Theater();
+    
+    // PANELS
     private managePanel managePNL = new managePanel();
     private ticketSalePanel ticketPNL = new ticketSalePanel();
+    private debuggingPanel debugPNL = new debuggingPanel();
+    
+    // DAO
     public static MovieDAO pelicula = new MovieDAO();
     public static ProjectionDAO funcion = new ProjectionDAO();
     public static ScreenDAO salas = new ScreenDAO();
-    public static Theater theater = new Theater();
+    
     
     
     
@@ -58,6 +64,7 @@ public class mainFrame extends javax.swing.JFrame {
         ticketsBTN = new javax.swing.JButton();
         statsBTN = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
+        debugBTN = new javax.swing.JButton();
         manageBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,6 +94,17 @@ public class mainFrame extends javax.swing.JFrame {
         statsBTN.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(statsBTN);
         jToolBar1.add(filler1);
+
+        debugBTN.setText("Debugging");
+        debugBTN.setFocusable(false);
+        debugBTN.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        debugBTN.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        debugBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                debugBTNActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(debugBTN);
 
         manageBTN.setText("Manage");
         manageBTN.setFocusable(false);
@@ -132,6 +150,13 @@ public class mainFrame extends javax.swing.JFrame {
         containerMain.add(managePNL);
         containerMain.setVisible(true);
     }//GEN-LAST:event_manageBTNActionPerformed
+
+    private void debugBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debugBTNActionPerformed
+        containerMain.setVisible(false);
+        containerMain.removeAll();
+        containerMain.add(debugPNL);
+        containerMain.setVisible(true);
+    }//GEN-LAST:event_debugBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,6 +265,7 @@ public class mainFrame extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel containerMain;
+    private javax.swing.JButton debugBTN;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JToolBar jToolBar1;
