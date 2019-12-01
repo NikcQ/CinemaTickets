@@ -23,9 +23,6 @@ public class Ticket implements Serializable {
   //  private Client client;
   //  private int discount;
     private int totalPrice;
-    
-    //private Movie movie;
-    //private Screen screen;
     private Projection projection;
     
     private int numberOfGASeats;
