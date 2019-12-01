@@ -18,6 +18,7 @@ public class Theater implements Serializable {
 
     private static ArrayList<Screen> screens;
     private static ArrayList<Projection> projections;
+    private static ArrayList<Ticket> tickets;
 
     private final static int[] prices2D={10000,12500,15000};
     private final static int[] prices3D={15000,20000,25000}; // {PRICE_GA, PRICE_VIP, PRICE_4DX}

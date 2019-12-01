@@ -23,6 +23,7 @@ public class mainFrame extends javax.swing.JFrame {
     
     public static CinemApp cinemapp = new CinemApp();
     private managePanel managePNL = new managePanel();
+    private ticketSalePanel ticketPNL = new ticketSalePanel();
     public static MovieDAO pelicula = new MovieDAO();
     public static ProjectionDAO funcion = new ProjectionDAO();
     public static ScreenDAO salas = new ScreenDAO();
@@ -119,7 +120,10 @@ public class mainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ticketsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ticketsBTNActionPerformed
-        // TODO add your handling code here:
+        containerMain.setVisible(false);
+        containerMain.removeAll();
+        containerMain.add(ticketPNL);
+        containerMain.setVisible(true);
     }//GEN-LAST:event_ticketsBTNActionPerformed
 
     private void manageBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageBTNActionPerformed
