@@ -17,14 +17,17 @@ import javax.persistence.Table;
 @Table(name = "Tickets")
 public class Ticket implements Serializable {
   
-    private Movie movie;
-    private Screen screen;
-    private LocalDate date;
-    private LocalTime time;
+    
+    private LocalDate purchaseDate;
+    private LocalTime purchaseTime;
   //  private Client client;
   //  private int discount;
-    private int amountOfMoney;  
+    private int totalPrice;
+    
+    //private Movie movie;
+    //private Screen screen;
     private Projection projection;
+    
     private int numberOfGASeats;
     private int numberOfVIPSeats;
     private int numberOf4DSeats;
@@ -43,45 +46,30 @@ public class Ticket implements Serializable {
 
     public Ticket() {
     }
-    
-    public Movie getMovie() {
-        return movie;
+
+
+    public LocalDate getPurchaseDate() {
+        return purchaseDate;
     }
 
-    public void setMovie(Movie movie) {
-        this.movie = movie;
+    public void setPurchaseDate(LocalDate purchaseDate) {
+        this.purchaseDate = purchaseDate;
     }
 
-    public Screen getScreen() {
-        return screen;
+    public LocalTime getPurchaseTime() {
+        return purchaseTime;
     }
 
-    public void setScreen(Screen screen) {
-        this.screen = screen;
+    public void setPurchaseTime(LocalTime purchaseTime) {
+        this.purchaseTime = purchaseTime;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public int getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }
-
-    public int getAmountOfMoney() {
-        return amountOfMoney;
-    }
-
-    public void setAmountOfMoney(int amountOfMoney) {
-        this.amountOfMoney = amountOfMoney;
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public Projection getProjection() {

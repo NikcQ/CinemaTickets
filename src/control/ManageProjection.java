@@ -13,6 +13,7 @@ import entity.Screen;
 import entity.Theater;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 /**
  *
@@ -44,7 +45,49 @@ public class ManageProjection {
         }
         return pant;
     }
-
+    
+    // RETRIEVAL METHODS
+    public static ArrayList<Projection> getAllProjections(){
+        return mainFrame.cinemapp.getCinema().getProjections();
+    }
+    
+    
+    public static ArrayList<Projection> filterProjectionsByDate(ArrayList<Projection> theProjections, LocalDate date){
+        ArrayList<Projection> sameDate = new ArrayList<Projection>();
+        
+        for(Projection p: theProjections){
+            if(p.getDate().isEqual(date)){
+                sameDate.add(p);
+            }
+        }
+        
+        return sameDate;
+    }
+    
+    public static ArrayList<Projection> filterProjectionsByTitle(ArrayList<Projection> theProjections, String title){
+        ArrayList<Projection> sameTitle = new ArrayList<Projection>();
+        
+        for(Projection p: theProjections){
+            if(p.getMovie().getTitle().equals(title)){
+                sameTitle.add(p);
+            }
+        }
+        
+        return sameTitle;
+    }
+    
+    public static ArrayList<String> getProjectionStrings(ArrayList<Projection> theProjections){
+        ArrayList<String> strings = new ArrayList<String>();
+        for (Projection m : theProjections){
+            strings.add(null);
+        }
+        return strings;
+    }
+    
+    
+    
+    // VERIFICATION METHODS BELOW
+    
     public static String verificarFORM(String time, String date, boolean is3D, boolean is4D, String movieName, String screenName) {
         Movie peli = traerPeli(movieName);
         Screen pant = traerScreen(screenName);
@@ -120,5 +163,5 @@ public class ManageProjection {
 
         return false;
     }
-
+    
 }
