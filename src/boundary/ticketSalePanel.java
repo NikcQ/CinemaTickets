@@ -1,4 +1,3 @@
-
 package boundary;
 
 import control.ManageMovie;
@@ -11,9 +10,10 @@ import java.util.ArrayList;
  * @author Edisson
  */
 public class ticketSalePanel extends javax.swing.JPanel {
-    
+
     ArrayList<Projection> showings = new ArrayList<Projection>();
     ArrayList<String> descriptions = new ArrayList<String>();
+
     /**
      * Creates new form ticketSalePanel
      */
@@ -212,7 +212,11 @@ public class ticketSalePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_movieCBXActionPerformed
 
     private void projectionCBXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectionCBXActionPerformed
-        // TODO add your handling code here:
+       /* String[] arr = movie1.getMOVIE_GENRE();
+        for (int i = 0; i < arr.length; i++) {
+            listGeneros.addItem(arr[i]);
+        }
+        */
     }//GEN-LAST:event_projectionCBXActionPerformed
 
     private void paymentBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentBottonActionPerformed
@@ -220,7 +224,7 @@ public class ticketSalePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_paymentBottonActionPerformed
 
     private void backtBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backtBottonActionPerformed
-        
+
     }//GEN-LAST:event_backtBottonActionPerformed
 
     private void loadBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadBTNActionPerformed
@@ -231,12 +235,13 @@ public class ticketSalePanel extends javax.swing.JPanel {
         for (String d : ManageProjection.getProjectionDescriptions(showings, true)) {
             projectionCBX.addItem(d);
         }
-        
+
         // Display all Movies
         movieCBX.removeAllItems();
         for (String t : ManageProjection.getProjectionTitles(showings)) {
             movieCBX.addItem(t);
         }
+
         System.out.println("Loaded");
     }//GEN-LAST:event_loadBTNActionPerformed
 
@@ -259,7 +264,7 @@ public class ticketSalePanel extends javax.swing.JPanel {
         for (String d : ManageProjection.getProjectionDescriptions(showings, false)) {
             projectionCBX.addItem(d);
         }
-        
+
         // update movies and show only those with projections on the date
         movieCBX.removeAllItems();
         for (String t : ManageProjection.getProjectionTitles(showings)) {
