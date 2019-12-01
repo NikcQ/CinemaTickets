@@ -1,11 +1,19 @@
 
 package boundary;
 
+import control.ManageMovie;
+import control.ManageProjection;
+import entity.Projection;
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 /**
  * @author Edisson
  */
 public class ticketSalePanel extends javax.swing.JPanel {
-
+    
+    ArrayList<Projection> showings = new ArrayList<Projection>();
+    ArrayList<String> descriptions = new ArrayList<String>();
     /**
      * Creates new form ticketSalePanel
      */
@@ -22,21 +30,12 @@ public class ticketSalePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        movieMenu = new javax.swing.JComboBox<>();
+        movieCBX = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        dateField = new javax.swing.JTextField();
-        projectionList = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        time = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        time1 = new javax.swing.JTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        is4D = new javax.swing.JTextArea();
+        dateFLD = new javax.swing.JTextField();
+        projectionCBX = new javax.swing.JComboBox<>();
         Seats4D = new javax.swing.JComboBox<>();
         VIPSeats = new javax.swing.JComboBox<>();
         GASeats = new javax.swing.JComboBox<>();
@@ -45,10 +44,13 @@ public class ticketSalePanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         paymentBotton = new javax.swing.JButton();
         backtBotton = new javax.swing.JButton();
+        loadBTN = new javax.swing.JButton();
+        movieFilterBTN = new javax.swing.JButton();
+        dateFilterBTN = new javax.swing.JButton();
 
-        movieMenu.addActionListener(new java.awt.event.ActionListener() {
+        movieCBX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                movieMenuActionPerformed(evt);
+                movieCBXActionPerformed(evt);
             }
         });
 
@@ -58,38 +60,11 @@ public class ticketSalePanel extends javax.swing.JPanel {
 
         jLabel3.setText("Projection");
 
-        projectionList.addActionListener(new java.awt.event.ActionListener() {
+        projectionCBX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                projectionListActionPerformed(evt);
+                projectionCBXActionPerformed(evt);
             }
         });
-
-        jLabel4.setText("Time");
-
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        time.setColumns(20);
-        time.setRows(5);
-        jScrollPane1.setViewportView(time);
-
-        jLabel5.setText("3D");
-
-        jLabel6.setText("4D");
-
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        time1.setColumns(20);
-        time1.setRows(5);
-        jScrollPane2.setViewportView(time1);
-
-        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        is4D.setColumns(20);
-        is4D.setRows(5);
-        jScrollPane3.setViewportView(is4D);
 
         jLabel7.setText("GA");
 
@@ -108,6 +83,27 @@ public class ticketSalePanel extends javax.swing.JPanel {
         backtBotton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backtBottonActionPerformed(evt);
+            }
+        });
+
+        loadBTN.setText("LOAD");
+        loadBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadBTNActionPerformed(evt);
+            }
+        });
+
+        movieFilterBTN.setText("Filter by Movie");
+        movieFilterBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                movieFilterBTNActionPerformed(evt);
+            }
+        });
+
+        dateFilterBTN.setText("Filter by Date");
+        dateFilterBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateFilterBTNActionPerformed(evt);
             }
         });
 
@@ -130,27 +126,14 @@ public class ticketSalePanel extends javax.swing.JPanel {
                                 .addComponent(jLabel7))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3))))
+                                .addComponent(jLabel3)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(projectionList, 0, 230, Short.MAX_VALUE)
-                            .addComponent(dateField)
-                            .addComponent(movieMenu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(projectionCBX, 0, 230, Short.MAX_VALUE)
+                            .addComponent(dateFLD)
+                            .addComponent(movieCBX, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,35 +154,44 @@ public class ticketSalePanel extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(paymentBotton)
                                 .addGap(42, 42, 42))))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(loadBTN)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(movieFilterBTN)
+                                .addGap(90, 90, 90))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(dateFilterBTN)
+                                .addGap(99, 99, 99))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(movieMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(46, 46, 46))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(projectionList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4))
-                .addGap(36, 36, 36)
+                .addContainerGap()
+                .addComponent(loadBTN)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(movieCBX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(movieFilterBTN)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dateFLD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dateFilterBTN)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(projectionCBX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(84, 84, 84)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Seats4D, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(VIPSeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,7 +199,7 @@ public class ticketSalePanel extends javax.swing.JPanel {
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(paymentBotton)
                     .addComponent(backtBotton))
@@ -215,13 +207,13 @@ public class ticketSalePanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void movieMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieMenuActionPerformed
+    private void movieCBXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieCBXActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_movieMenuActionPerformed
+    }//GEN-LAST:event_movieCBXActionPerformed
 
-    private void projectionListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectionListActionPerformed
+    private void projectionCBXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectionCBXActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_projectionListActionPerformed
+    }//GEN-LAST:event_projectionCBXActionPerformed
 
     private void paymentBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentBottonActionPerformed
         // TODO add your handling code here:
@@ -231,30 +223,69 @@ public class ticketSalePanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_backtBottonActionPerformed
 
+    private void loadBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadBTNActionPerformed
+        System.out.println("Loading...");
+        // Display all Projections
+        projectionCBX.removeAllItems();
+        showings = ManageProjection.getAllProjections();
+        for (String d : ManageProjection.getProjectionDescriptions(showings, true)) {
+            projectionCBX.addItem(d);
+        }
+        
+        // Display all Movies
+        movieCBX.removeAllItems();
+        for (String t : ManageProjection.getProjectionTitles(showings)) {
+            movieCBX.addItem(t);
+        }
+        System.out.println("Loaded");
+    }//GEN-LAST:event_loadBTNActionPerformed
+
+    private void movieFilterBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieFilterBTNActionPerformed
+        System.out.println("Filtering by Movie... \"" + (String) movieCBX.getSelectedItem() + "\"");
+        // Filter and display projections of the selected movie
+        projectionCBX.removeAllItems();
+        showings = ManageProjection.filterProjectionsByTitle(ManageProjection.getAllProjections(), (String) movieCBX.getSelectedItem());
+        for (String d : ManageProjection.getProjectionDescriptions(showings, true)) {
+            projectionCBX.addItem(d);
+        }
+        System.out.println("Filtered by Movie.");
+    }//GEN-LAST:event_movieFilterBTNActionPerformed
+
+    private void dateFilterBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateFilterBTNActionPerformed
+        System.out.println("Filtering by Date...");
+        // Filter and display projections on the selected date
+        projectionCBX.removeAllItems();
+        showings = ManageProjection.filterProjectionsByDate(showings, LocalDate.parse(dateFLD.getText()));
+        for (String d : ManageProjection.getProjectionDescriptions(showings, false)) {
+            projectionCBX.addItem(d);
+        }
+        
+        // update movies and show only those with projections on the date
+        movieCBX.removeAllItems();
+        for (String t : ManageProjection.getProjectionTitles(showings)) {
+            movieCBX.addItem(t);
+        }
+        System.out.println("Filtered by Date.");
+    }//GEN-LAST:event_dateFilterBTNActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> GASeats;
     private javax.swing.JComboBox<String> Seats4D;
     private javax.swing.JComboBox<String> VIPSeats;
     private javax.swing.JButton backtBotton;
-    private javax.swing.JTextField dateField;
-    private javax.swing.JTextArea is4D;
+    private javax.swing.JTextField dateFLD;
+    private javax.swing.JButton dateFilterBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JComboBox<String> movieMenu;
+    private javax.swing.JButton loadBTN;
+    private javax.swing.JComboBox<String> movieCBX;
+    private javax.swing.JButton movieFilterBTN;
     private javax.swing.JButton paymentBotton;
-    private javax.swing.JComboBox<String> projectionList;
-    private javax.swing.JTextArea time;
-    private javax.swing.JTextArea time1;
+    private javax.swing.JComboBox<String> projectionCBX;
     // End of variables declaration//GEN-END:variables
 }

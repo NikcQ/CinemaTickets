@@ -134,7 +134,7 @@ public class Projection implements Serializable {
         return "Projection{" + "movie=" + movie.getId() + ", screen=" + screen.getId() + ", date=" + date + ", time=" + time + ", is3D=" + is3D + ", is4D=" + is4D + ", id=" + id + '}';
     }
     
-    public String description(boolean withDate) {
-        return (is3D? "3D" : "2D") + (is4D? " - 4D |": " | ") + "movie=" + movie.getId() + ", screen=" + screen.getId() + ", date=" + date + ", time=" + time + ", is3D=" + is3D + ", is4D=" + is4D + ", id=" + id + '}';
+    public String getDescription(boolean withDate) {
+        return (withDate? date + " | " + time : time) + (is3D? " | 3D" : " | 2D") + (is4D? " - 4D |": " | ") + movie.getTitle();
     }
 }

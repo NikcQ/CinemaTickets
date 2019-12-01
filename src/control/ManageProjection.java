@@ -76,12 +76,20 @@ public class ManageProjection {
         return sameTitle;
     }
     
-    public static ArrayList<String> getProjectionStrings(ArrayList<Projection> theProjections){
-        ArrayList<String> strings = new ArrayList<String>();
-        for (Projection m : theProjections){
-            strings.add(null);
+    public static ArrayList<String> getProjectionTitles(ArrayList<Projection> theProjections){
+        ArrayList<String> titles = new ArrayList<String>();
+        for (Projection p : theProjections){
+            titles.add(p.getMovie().getTitle());
         }
-        return strings;
+        return titles;
+    }
+    
+    public static ArrayList<String> getProjectionDescriptions(ArrayList<Projection> theProjections, boolean withDate){
+        ArrayList<String> descs = new ArrayList<String>();
+        for (Projection p : theProjections){
+            descs.add(p.getDescription(withDate));
+        }
+        return descs;
     }
     
     
