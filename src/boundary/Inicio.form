@@ -68,7 +68,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\user\Documents\NetBeansProjects\CinemaTickets\camara-de-video (1).png"/>
+              <Image iconType="2" name="C:\Users\user\Documents\NetBeansProjects\CinemaTickets\src\camara-de-video (1).png"/>
             </Property>
           </Properties>
           <Events>
@@ -78,21 +78,21 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\user\Documents\NetBeansProjects\CinemaTickets\claqueta.png"/>
+              <Image iconType="2" name="C:\Users\user\Documents\NetBeansProjects\CinemaTickets\src\claqueta.png"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\user\Documents\NetBeansProjects\CinemaTickets\cinema-screen.png"/>
+              <Image iconType="2" name="C:\Users\user\Documents\NetBeansProjects\CinemaTickets\src\cinema-screen.png"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\user\Documents\NetBeansProjects\CinemaTickets\billete.png"/>
+              <Image iconType="2" name="C:\Users\user\Documents\NetBeansProjects\CinemaTickets\src\billete.png"/>
             </Property>
           </Properties>
         </Component>
