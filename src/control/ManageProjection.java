@@ -21,8 +21,6 @@ import java.util.ArrayList;
  */
 public class ManageProjection {
 
-    //MovieDAO movdao = mainFrame.pelicula;
-    //CinemApp cinemapp = mainFrame.cinemapp;
     public static Theater theater = mainFrame.theater;
 
     // Traer 1 película
@@ -45,57 +43,61 @@ public class ManageProjection {
         }
         return pant;
     }
-    
+
     // RETRIEVAL METHODS
-    public static ArrayList<Projection> getAllProjections(){
+    public static ArrayList<Projection> getAllProjections() {
         return mainFrame.cinemapp.getCinema().getProjections();
     }
-    
-    
-    public static ArrayList<Projection> filterProjectionsByDate(ArrayList<Projection> theProjections, LocalDate date){
+
+    public static Projection getProjection(int index) {
+        Projection projection = new Projection();
+        for (Projection proj : mainFrame.cinemapp.getCinema().getProjections()) {
+            if (proj.getId() == index) {
+                projection = proj;
+            }
+        }
+        return projection;
+    }
+
+    public static ArrayList<Projection> filterProjectionsByDate(ArrayList<Projection> theProjections, LocalDate date) {
         ArrayList<Projection> sameDate = new ArrayList<Projection>();
-        
-        for(Projection p: theProjections){
-            if(p.getDate().isEqual(date)){
+        for (Projection p : theProjections) {
+            if (p.getDate().isEqual(date)) {
                 sameDate.add(p);
             }
         }
-        
+
         return sameDate;
     }
-    
-    public static ArrayList<Projection> filterProjectionsByTitle(ArrayList<Projection> theProjections, String title){
+
+    public static ArrayList<Projection> filterProjectionsByTitle(ArrayList<Projection> theProjections, String title) {
         ArrayList<Projection> sameTitle = new ArrayList<Projection>();
-        
-        for(Projection p: theProjections){
-            if(p.getMovie().getTitle().equals(title)){
+        for (Projection p : theProjections) {
+            if (p.getMovie().getTitle().equals(title)) {
                 sameTitle.add(p);
             }
         }
-        
+
         return sameTitle;
     }
-    
-    public static ArrayList<String> getProjectionTitles(ArrayList<Projection> theProjections){
+
+    public static ArrayList<String> getProjectionTitles(ArrayList<Projection> theProjections) {
         ArrayList<String> titles = new ArrayList<String>();
-        for (Projection p : theProjections){
+        for (Projection p : theProjections) {
             titles.add(p.getMovie().getTitle());
         }
         return titles;
     }
-    
-    public static ArrayList<String> getProjectionDescriptions(ArrayList<Projection> theProjections, boolean withDate){
+
+    public static ArrayList<String> getProjectionDescriptions(ArrayList<Projection> theProjections, boolean withDate) {
         ArrayList<String> descs = new ArrayList<String>();
-        for (Projection p : theProjections){
+        for (Projection p : theProjections) {
             descs.add(p.getDescription(withDate));
         }
         return descs;
     }
-    
-    
-    
+
     // VERIFICATION METHODS BELOW
-    
     public static String verificarFORM(String time, String date, boolean is3D, boolean is4D, String movieName, String screenName) {
         Movie peli = traerPeli(movieName);
         Screen pant = traerScreen(screenName);
@@ -121,10 +123,10 @@ public class ManageProjection {
             return "The projection date has passed";
         } else if (pDate.isEqual(LocalDate.now()) && pTime.isBefore(LocalTime.now())) {
             return "The projection time has passed";
+
         } else if (pDate.isBefore(peli.getReleaseDate())) { // Check release date
             return "The projection date is before the movie release date";
         }
-
         Projection proj = new Projection(peli, pant, pDate, pTime, is3D, is4D);
         if (checkProjectionOverlap(proj)) {
             return "Projection overlapping";
@@ -142,16 +144,15 @@ public class ManageProjection {
     private static boolean checkProjectionOverlap(Projection projectiontocheck) {
         LocalTime initHour = LocalTime.parse("10:00");
         LocalTime finHour = LocalTime.parse("22:00");
-        int minutes = 120;
         if (projectiontocheck.getTime().isBefore(initHour) || (projectiontocheck.getTime().isAfter(finHour))) {
             return true;
         }
         for (Projection proj : mainFrame.cinemapp.getCinema().getProjections()) {
             if ((projectiontocheck.getScreen().getName().equals(proj.getScreen().getName())) && (projectiontocheck.getDate().equals(proj.getDate()))) {
-                if (projectiontocheck.getTime().equals(proj.getTime()) || ((projectiontocheck.getTime().plusMinutes(minutes)).isAfter(proj.getTime()) && (proj.getTime().isAfter(projectiontocheck.getTime())))) {
+                if (projectiontocheck.getTime().equals(proj.getTime()) || ((projectiontocheck.getTime().plusMinutes(projectiontocheck.getMovie().getRuntime())).isAfter(proj.getTime()) && (proj.getTime().isAfter(projectiontocheck.getTime())))) {
                     return true;
                 }
-                if (((proj.getTime().plusMinutes(minutes)).isAfter(projectiontocheck.getTime())) && (projectiontocheck.getTime().isAfter(proj.getTime()))) {
+                if (((proj.getTime().plusMinutes(proj.getMovie().getRuntime())).isAfter(projectiontocheck.getTime())) && (projectiontocheck.getTime().isAfter(proj.getTime()))) {
                     return true;
                 }
             }
@@ -171,5 +172,5 @@ public class ManageProjection {
 
         return false;
     }
-    
+
 }

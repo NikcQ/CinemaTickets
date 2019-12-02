@@ -204,16 +204,7 @@ public class mainFrame extends javax.swing.JFrame {
         Movie c = new Movie();
         Movie d = new Movie();
         
-        c.setTitle("loco");
-        c.setRuntime(3);
-        c.setRating("ASD");
-        c.setIs3D(true);
-        c.setIs4D(true);
-        c.setReleaseDate(LocalDate.parse(ms));
-        c.setGenre(asx);
-        c.setLanguages(len);
-        
-        a.setTitle("el bromas");
+     /*   a.setTitle("el bromas");
         a.setRuntime(2);
         a.setRating("TP");
         a.setIs3D(true);
@@ -243,6 +234,7 @@ public class mainFrame extends javax.swing.JFrame {
         peliculas.add(a);
         peliculas.add(b);
         peliculas.add(c);
+*/
         cinemapp.setListings(peliculas);
         for (Movie i:peliculas) {
             pelicula.create(i);

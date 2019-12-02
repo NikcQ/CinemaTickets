@@ -1,6 +1,5 @@
 package boundary;
 
-import control.ManageMovie;
 import control.ManageProjection;
 import entity.Projection;
 import java.time.LocalDate;
@@ -63,6 +62,24 @@ public class ticketSalePanel extends javax.swing.JPanel {
         projectionCBX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projectionCBXActionPerformed(evt);
+            }
+        });
+
+        Seats4D.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Seats4DActionPerformed(evt);
+            }
+        });
+
+        VIPSeats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VIPSeatsActionPerformed(evt);
+            }
+        });
+
+        GASeats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GASeatsActionPerformed(evt);
             }
         });
 
@@ -212,11 +229,26 @@ public class ticketSalePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_movieCBXActionPerformed
 
     private void projectionCBXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectionCBXActionPerformed
-       /* String[] arr = movie1.getMOVIE_GENRE();
-        for (int i = 0; i < arr.length; i++) {
-            listGeneros.addItem(arr[i]);
+        if (projectionCBX.getSelectedItem() != null) {
+            GASeats.removeAllItems();
+            VIPSeats.removeAllItems();
+            Seats4D.removeAllItems();
+            Projection proj = new Projection();
+            String idProjection = (String) projectionCBX.getSelectedItem();
+            String[] parts = idProjection.split(" - ");
+            int index = Integer.parseInt(idProjection = parts[1]);
+            proj = ManageProjection.getProjection(index);
+            for (int i = 0; i < proj.numberOfAvailableSeats(proj.getBlockGA()); i++) {
+                GASeats.addItem(String.valueOf(i + 1));
+            }
+            for (int i = 0; i < proj.numberOfAvailableSeats(proj.getBlockVIP()); i++) {
+                VIPSeats.addItem(String.valueOf(i + 1));
+            }
+            for (int i = 0; i < proj.numberOfAvailableSeats(proj.getBlock4DX()); i++) {
+                Seats4D.addItem(String.valueOf(i + 1));
+            }
+
         }
-        */
     }//GEN-LAST:event_projectionCBXActionPerformed
 
     private void paymentBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentBottonActionPerformed
@@ -272,6 +304,18 @@ public class ticketSalePanel extends javax.swing.JPanel {
         }
         System.out.println("Filtered by Date.");
     }//GEN-LAST:event_dateFilterBTNActionPerformed
+
+    private void GASeatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GASeatsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GASeatsActionPerformed
+
+    private void VIPSeatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VIPSeatsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VIPSeatsActionPerformed
+
+    private void Seats4DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Seats4DActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Seats4DActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

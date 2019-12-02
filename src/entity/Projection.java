@@ -43,15 +43,13 @@ public class Projection implements Serializable {
     public Projection() {
     }
 
-    public Projection(Movie movie, Screen screen, LocalDate date, LocalTime time, boolean is3D, boolean is4D) {//,
-        //int rowGA, int colGA, int rowVIP, int colVIP, int row4DX, int col4DX) {
+    public Projection(Movie movie, Screen screen, LocalDate date, LocalTime time, boolean is3D, boolean is4D) {
         this.movie = movie;
         this.screen = screen;
         this.date = date;
         this.time = time;
         this.is3D = is3D;
         this.is4D = is4D;
-
         this.blockGA = new boolean[screen.getRowGA()][screen.getColGA()];
         this.blockVIP = new boolean[screen.getRowVIP()][screen.getColVIP()];
         this.block4DX = new boolean[screen.getRow4DX()][screen.getCol4DX()];
@@ -133,8 +131,19 @@ public class Projection implements Serializable {
     public String toString() {
         return "Projection{" + "movie=" + movie.getId() + ", screen=" + screen.getId() + ", date=" + date + ", time=" + time + ", is3D=" + is3D + ", is4D=" + is4D + ", id=" + id + '}';
     }
-    
+
     public String getDescription(boolean withDate) {
-        return (withDate? date + " | " + time : time) + (is3D? " | 3D" : " | 2D") + (is4D? " - 4D |": " | ") + movie.getTitle();
+        return (withDate ? date + " | " + time : time) + (is3D ? " | 3D" : " | 2D") + (is4D ? " - 4D |" : " | ") + movie.getTitle() + " - " + id;
+    }
+
+    public int numberOfAvailableSeats(boolean block[][]) {
+        int seats = 0;
+        for (int i = 0; i < block.length; i++) {
+            for (int j = 0; j < block[i].length; j++) {
+                seats++;
+            }
+
+        }
+        return seats;
     }
 }

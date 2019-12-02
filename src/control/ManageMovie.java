@@ -9,6 +9,7 @@ import DAO.MovieDAO;
 import boundary.mainFrame;
 import entity.CinemApp;
 import entity.Movie;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -26,7 +27,7 @@ public class ManageMovie {
     public ManageMovie() {
     }
 
-    public String verificarMovie(String title, int runtime, String rating, boolean is3D, boolean is4D) {
+    public String verificarMovie(String title, int runtime, String rating, boolean is3D, boolean is4D, LocalDate releaseDate) {
 
         Movie nuevo = new Movie();
         nuevo.setTitle(title);
@@ -36,6 +37,7 @@ public class ManageMovie {
         nuevo.setIs4D(is4D);
         nuevo.setGenre(asx);
         nuevo.setLanguages(len);
+        nuevo.setReleaseDate(releaseDate);
 
 //    movies.add(nuevo);
         cinemapp.addMovie(nuevo);
@@ -52,11 +54,11 @@ public class ManageMovie {
         }
 
     }
-    
-    public static ArrayList<String> getMovieTitles(){
+
+    public static ArrayList<String> getMovieTitles() {
         ArrayList<Movie> list = mainFrame.cinemapp.getListings();
         ArrayList<String> titles = new ArrayList<String>();
-        for (Movie m : list){
+        for (Movie m : list) {
             titles.add(m.getTitle());
         }
         return titles;

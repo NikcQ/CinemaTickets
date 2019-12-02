@@ -73,8 +73,18 @@ public class NewProjectionForm extends javax.swing.JPanel {
         jLabel4.setText("Time");
 
         is3DCHK.setText("is 3D");
+        is3DCHK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                is3DCHKActionPerformed(evt);
+            }
+        });
 
         is4DCHK.setText("is 4D");
+        is4DCHK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                is4DCHKActionPerformed(evt);
+            }
+        });
 
         cancelBTN.setText("Cancel");
 
@@ -161,8 +171,19 @@ public class NewProjectionForm extends javax.swing.JPanel {
     }//GEN-LAST:event_dateFLDActionPerformed
 
     private void submitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBTNActionPerformed
-        // TODO add your handling code here:
-        System.out.println(ManageProjection.verificarFORM(timeFLD.getText(), dateFLD.getText(), is3DCHK.isSelected(), is4DCHK.isSelected(), (String) movieCBX.getSelectedItem(), (String) screenCBX.getSelectedItem()));
+        String result;
+        result = ManageProjection.verificarFORM(timeFLD.getText(), dateFLD.getText(), is3DCHK.isSelected(), is4DCHK.isSelected(), (String) movieCBX.getSelectedItem(), (String) screenCBX.getSelectedItem());
+        if (result.equals("Projection created successfully.")) {
+            System.out.println(result);
+            timeFLD.setText(null);
+            dateFLD.setText(null);
+            movieCBX.removeAllItems();
+            screenCBX.removeAllItems();
+            is3DCHK.setSelected(false);
+            is4DCHK.setSelected(false);
+        } else {
+            System.out.println(result);
+        }
     }//GEN-LAST:event_submitBTNActionPerformed
 
     private void loadBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadBTNActionPerformed
@@ -185,6 +206,14 @@ public class NewProjectionForm extends javax.swing.JPanel {
     private void screenCBXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_screenCBXActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_screenCBXActionPerformed
+
+    private void is3DCHKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_is3DCHKActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_is3DCHKActionPerformed
+
+    private void is4DCHKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_is4DCHKActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_is4DCHKActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

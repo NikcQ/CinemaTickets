@@ -150,11 +150,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="is 3D"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="is3DCHKActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="is4DCHK">
       <Properties>
         <Property name="text" type="java.lang.String" value="is 4D"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="is4DCHKActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cancelBTN">
       <Properties>
