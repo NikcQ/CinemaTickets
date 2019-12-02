@@ -43,8 +43,6 @@ public class mainFrame extends javax.swing.JFrame {
      */
     public mainFrame() {
         initComponents();
-//        initMovie();
-//        initScreen();
         cinemapp.setListings(pelicula.readTable());//Inicialización de los arreglos desde la base de datos
         theater.setScreens(salas.readTable());
         theater.setProjections(funcion.readTable());
@@ -215,67 +213,7 @@ public class mainFrame extends javax.swing.JFrame {
         });
     }
 
-    public void initMovie(){
-        ArrayList<Movie> peliculas = new ArrayList<Movie>();
-        String ms = "2007-12-03";
-        String[] asx = {" ", "Documentary", "Historical", "Musical", "Comedy", "Children's", "Adventure/Action", "Science Fiction", "Thriller"};
-        String[] len = {" ", "English", "Spanish", "French", "Portuguese", "German", "Doblada"};
-        Movie a = new Movie();
-        Movie b = new Movie();
-        Movie c = new Movie();
-        Movie d = new Movie();
-        
-     /*   a.setTitle("el bromas");
-        a.setRuntime(2);
-        a.setRating("TP");
-        a.setIs3D(true);
-        a.setIs4D(false);
-        a.setReleaseDate(LocalDate.parse(ms));
-        a.setGenre(asx);
-        a.setLanguages(len);
-        
-        b.setTitle("asd");
-        b.setRuntime(2);
-        b.setRating("TP");
-        b.setIs3D(true);
-        b.setIs4D(false);
-        b.setReleaseDate(LocalDate.parse(ms));
-        b.setGenre(asx);
-        c.setLanguages(len);
-        
-        c.setTitle("ghj");
-        c.setRuntime(2);
-        c.setRating("TP");
-        c.setIs3D(true);
-        c.setIs4D(false);
-        c.setReleaseDate(LocalDate.parse(ms));
-        c.setGenre(asx);
-        c.setLanguages(len);
-        
-        peliculas.add(a);
-        peliculas.add(b);
-        peliculas.add(c);
-*/
-        cinemapp.setListings(peliculas);
-        for (Movie i:peliculas) {
-            pelicula.create(i);
-        }
-    }
-    public void initScreen(){
-        ArrayList<Screen> screen = new ArrayList<Screen>();
-        Screen a = new Screen();
-        a.setRowGA(20);
-        a.setColGA(20);
-        a.setRowVIP(5);
-        a.setColVIP(20);
-        a.setRow4DX(0);
-        a.setCol4DX(0);
-        a.setIs3D(true);
-        a.setName("1");
-        screen.add(a);
-        cinemapp.getCinema().setScreens(screen);
-        salas.create(a);
-    }
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel containerMain;
     private javax.swing.JButton debugBTN;

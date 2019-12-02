@@ -77,4 +77,12 @@ public class Theater implements Serializable {
         projections.add(u);
     }
 
+    public String getTheatreName() {
+        return theatreName;
+    }
+
+    public void setTheatreName(String theatreName) {
+        this.theatreName = theatreName;
+    }
+    
 }

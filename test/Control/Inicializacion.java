@@ -8,10 +8,12 @@ package Control;
 import DAO.MovieDAO;
 import DAO.ProjectionDAO;
 import DAO.ScreenDAO;
+import DAO.TheaterDAO;
 import static boundary.mainFrame.cinemapp;
 import entity.Movie;
 import entity.Projection;
 import entity.Screen;
+import entity.Theater;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -51,6 +53,7 @@ public class Inicializacion {
         MovieDAO daoM = new MovieDAO();
         ScreenDAO daoS = new ScreenDAO();
         ProjectionDAO daoP = new ProjectionDAO();
+        TheaterDAO daoT = new TheaterDAO();
         ArrayList<Movie> peliculas = new ArrayList<Movie>();
         String ms = "2007-12-03";
         String[] asx = {" ", "Documentary", "Historical", "Musical", "Comedy", "Children's", "Adventure/Action", "Science Fiction", "Thriller"};
@@ -116,6 +119,13 @@ public class Inicializacion {
         e.setIs4D(false);
         projection.add(e);
         daoP.create(e);
+        ArrayList<Theater> theater = new ArrayList<Theater>();
+        Theater t = new Theater();
+        t.setProjections(projection);
+        t.setScreens(screen);
+        t.setTheatreName("teatro_1");
+        theater.add(t);
+        daoT.create(t);
     }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
