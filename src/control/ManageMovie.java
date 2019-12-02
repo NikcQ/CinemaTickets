@@ -27,17 +27,36 @@ public class ManageMovie {
     public ManageMovie() {
     }
 
-    public String verificarMovie(String title, int runtime, String rating, boolean is3D, boolean is4D, LocalDate releaseDate) {
+    public String verificarMovie(String title, int runtime, String rating, boolean is3D, boolean is4D, LocalDate date, ArrayList genre,ArrayList languages) {
 
+        if (title.length()<=1) {
+            return ("No hay un titulo");
+        }
+        if (runtime<15 || runtime>480) {
+            return ("Duracion invalida");
+        }
+        if (rating== null) {
+            return ("No hay rating");
+        }
+        if (date.isBefore(LocalDate.now())) {
+            return ("Fecha invalida");
+        }
+        if (genre.size()<1) {
+            return ("No hay genero");
+                    
+        }
+        if (languages.size()<1) {
+            return ("No hay lenguajes");
+        }
         Movie nuevo = new Movie();
         nuevo.setTitle(title);
         nuevo.setRuntime(runtime);
         nuevo.setRating(rating);
         nuevo.setIs3D(is3D);
         nuevo.setIs4D(is4D);
-        nuevo.setGenre(asx);
-        nuevo.setLanguages(len);
-        nuevo.setReleaseDate(releaseDate);
+        nuevo.setReleaseDate(date);
+        nuevo.setGenre(arrayToList(genre));
+        nuevo.setLanguages(arrayToList(languages));
 
 //    movies.add(nuevo);
         cinemapp.addMovie(nuevo);
@@ -53,6 +72,11 @@ public class ManageMovie {
             System.out.println("---------------");
         }
 
+    }
+    
+    public String [] arrayToList(ArrayList list){
+    String[] array = (String[]) list.toArray(new String[list.size()]);
+        return array;
     }
 
     public static ArrayList<String> getMovieTitles() {

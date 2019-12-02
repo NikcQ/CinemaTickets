@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class mainFrame extends javax.swing.JFrame {
     
     public static CinemApp cinemapp = new CinemApp();
+        private Inicio inicio=new Inicio();
     public static Theater theater = new Theater();
     
     // PANELS
@@ -42,8 +43,8 @@ public class mainFrame extends javax.swing.JFrame {
      */
     public mainFrame() {
         initComponents();
-        initMovie();
-        initScreen();
+//        initMovie();
+//        initScreen();
         cinemapp.setListings(pelicula.readTable());//Inicialización de los arreglos desde la base de datos
         theater.setScreens(salas.readTable());
         theater.setProjections(funcion.readTable());
@@ -61,6 +62,7 @@ public class mainFrame extends javax.swing.JFrame {
         containerMain = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
+        jButton1 = new javax.swing.JButton();
         ticketsBTN = new javax.swing.JButton();
         statsBTN = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
@@ -76,6 +78,17 @@ public class mainFrame extends javax.swing.JFrame {
         containerMain.add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
         jToolBar1.setRollover(true);
+
+        jButton1.setText("Inicio");
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton1);
 
         ticketsBTN.setText("Tickets");
         ticketsBTN.setFocusable(false);
@@ -157,6 +170,14 @@ public class mainFrame extends javax.swing.JFrame {
         containerMain.add(debugPNL);
         containerMain.setVisible(true);
     }//GEN-LAST:event_debugBTNActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+                containerMain.setVisible(false);
+        containerMain.removeAll();
+        containerMain.add(inicio);
+
+        containerMain.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,6 +280,7 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel containerMain;
     private javax.swing.JButton debugBTN;
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton manageBTN;

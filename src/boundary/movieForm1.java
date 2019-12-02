@@ -299,32 +299,15 @@ public class movieForm1 extends javax.swing.JPanel {
         
         ManageMovie Mov = new ManageMovie();
         System.out.println("-----------");
-        String resultadoReg = Mov.verificarMovie(tituloo, runtimee, rating, iS3d, iS3d, dat);
+        String resultadoReg = Mov.verificarMovie(tituloo, runtimee, rating, iS3d, iS3d, dat,genero,lenguajes);
         
         
         System.out.println(resultadoReg);
-        
-//        movie1.setReleaseDate(LocalDate.parse(f));
+        if (resultadoReg=="Registro Correcto") {
+            JOptionPane.showMessageDialog(null, "Ok", "Usuario creado correctamente", JOptionPane.INFORMATION_MESSAGE);
+        }
 
-//        System.out.println(movie1.getTitle() + "\n");
-
-//        String[] geneross = movie1.getGenre();
-//        for (int i = 0; i < geneross.length; i++) {
-//            System.out.println(geneross[i]);
-//        }
-//        System.out.println("\n" + movie1.getRuntime() + "\n");
-//
-//        for (int i = 0; i < movie1.getLanguages().length; i++) {
-//            System.out.println(movie1.getLanguages()[i]);
-//        }
-//        System.out.println(movie1.getRating());
-
-//        System.out.println(movie1.getReleaseDate());
-
-//        System.out.println(movie1.isIs3D());
-//        System.out.println(movie1.isIs4D());
-
-//        JOptionPane.showMessageDialog(null, "Ok", "Usuario creado correctamente", JOptionPane.INFORMATION_MESSAGE);
+      
 
         titulo.setText(null);
 
