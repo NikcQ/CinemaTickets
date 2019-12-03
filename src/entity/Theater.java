@@ -22,6 +22,14 @@ public class Theater implements Serializable {
 
     private final static int[] prices2D={10000,12500,15000};
     private final static int[] prices3D={15000,20000,25000}; // {PRICE_GA, PRICE_VIP, PRICE_4DX}
+
+    public static ArrayList<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public static void setTickets(ArrayList<Ticket> aTickets) {
+        tickets = aTickets;
+    }
     private String theatreName;
 
     @Id
@@ -39,6 +47,7 @@ public class Theater implements Serializable {
     public Theater() {
         this.screens = new ArrayList<Screen>();
         this.projections = new ArrayList<Projection>();
+        this.tickets = new ArrayList<Ticket>();
 
     }
 
@@ -75,6 +84,10 @@ public class Theater implements Serializable {
     
     public void addProjection(Projection u) {
         projections.add(u);
+    }
+    
+    public void addTicket(Ticket u) {
+        tickets.add(u);
     }
 
     public String getTheatreName() {

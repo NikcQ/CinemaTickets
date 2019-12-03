@@ -1,9 +1,11 @@
 package boundary;
 
 import control.ManageProjection;
+import control.ManageTicket;
 import entity.Projection;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author Edisson
@@ -12,6 +14,9 @@ public class ticketSalePanel extends javax.swing.JPanel {
 
     ArrayList<Projection> showings = new ArrayList<Projection>();
     ArrayList<String> descriptions = new ArrayList<String>();
+
+    String selCategory;
+    ArrayList<int[]> seats;
 
     /**
      * Creates new form ticketSalePanel
@@ -48,6 +53,9 @@ public class ticketSalePanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         rowCBX = new javax.swing.JComboBox<>();
         seatsCBX = new javax.swing.JComboBox<>();
+        numSeatsSPN = new javax.swing.JSpinner();
+        jLabel6 = new javax.swing.JLabel();
+        rowBTN = new javax.swing.JButton();
 
         movieCBX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +144,15 @@ public class ticketSalePanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel6.setText("Number of seats");
+
+        rowBTN.setText("Select Row");
+        rowBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rowBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,50 +162,60 @@ public class ticketSalePanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(loadBTN)
-                            .addComponent(gaRBTN))
-                        .addGap(76, 76, 76)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(movieCBX, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(dateFLD))
-                                .addContainerGap())
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(projectionCBX, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5)
-                                .addGap(125, 125, 125))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(rowCBX, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(seatsCBX, 0, 154, Short.MAX_VALUE)
-                                .addContainerGap())))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(movieFilterBTN, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(dateFilterBTN, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(dxRBTN)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dxRBTN)
+                                    .addComponent(vipCBX)
+                                    .addComponent(backBTN))
+                                .addGap(81, 81, 81)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rowCBX, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(seatsCBX, 0, 154, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(rowBTN)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(confirmBTN))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabel4)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLabel5)
+                                                .addGap(119, 119, 119)))))))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(loadBTN)
+                            .addComponent(gaRBTN))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(vipCBX)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(backBTN)
+                                .addGap(76, 76, 76)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(movieCBX, 0, 305, Short.MAX_VALUE)
+                                            .addComponent(dateFLD))
+                                        .addContainerGap())
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(projectionCBX, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addContainerGap())))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(confirmBTN)))
-                        .addContainerGap())))
+                                .addComponent(jLabel6)
+                                .addGap(97, 97, 97)
+                                .addComponent(numSeatsSPN, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,23 +238,30 @@ public class ticketSalePanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(projectionCBX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rowCBX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(seatsCBX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(gaRBTN))
+                    .addComponent(gaRBTN)
+                    .addComponent(numSeatsSPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(vipCBX)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dxRBTN)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(vipCBX)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dxRBTN))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rowCBX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(seatsCBX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backBTN)
-                    .addComponent(confirmBTN))
+                    .addComponent(confirmBTN)
+                    .addComponent(rowBTN))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -262,6 +296,9 @@ public class ticketSalePanel extends javax.swing.JPanel {
     private void confirmBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBTNActionPerformed
         // TODO add your handling code here:
         
+        int[] saleSeats = seats.get(seatsCBX.getSelectedIndex());
+        System.out.println(ManageTicket.verifySeats(ManageProjection.getProjection((String) projectionCBX.getSelectedItem()), selCategory, Integer.parseInt((String) rowCBX.getSelectedItem()), saleSeats));
+
     }//GEN-LAST:event_confirmBTNActionPerformed
 
     private void backBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBTNActionPerformed
@@ -318,38 +355,63 @@ public class ticketSalePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_rowCBXActionPerformed
 
+    private void setRowCBX(Projection proj, String cat) {
+        selCategory = cat;
+        rowCBX.removeAllItems();
+        rowCBX.setEnabled(true);
+        int blockRows = ManageProjection.getNumRowsFromBlock(ManageProjection.getSeatBlock(proj, cat));
+        if (blockRows == 0) {
+            rowCBX.addItem("No rows in " + cat);
+            rowCBX.setEnabled(false);
+        } else {
+            for (int i = 1; i <= blockRows; i++) {
+                rowCBX.addItem(Integer.toString(i));
+            }
+        }
+    }
+
+
     private void gaRBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gaRBTNActionPerformed
         // TODO add your handling code here:
         if (projectionCBX.getSelectedItem() != null) {
-            Projection selProj = ManageProjection.getProjection((String) projectionCBX.getSelectedItem());
-            
-            for (int i = 1; i <= selProj.getScreen().getRowGA(); i++) {
-                rowCBX.addItem(Integer.toString(i));
-            }
+            setRowCBX(ManageProjection.getProjection((String) projectionCBX.getSelectedItem()), "GA");
         }
     }//GEN-LAST:event_gaRBTNActionPerformed
 
     private void vipCBXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vipCBXActionPerformed
         // TODO add your handling code here:
         if (projectionCBX.getSelectedItem() != null) {
-            Projection selProj = ManageProjection.getProjection((String) projectionCBX.getSelectedItem());
-            
-            for (int i = 1; i <= selProj.getScreen().getRowVIP(); i++) {
-                rowCBX.addItem(Integer.toString(i));
-            }
+            setRowCBX(ManageProjection.getProjection((String) projectionCBX.getSelectedItem()), "VIP");
         }
     }//GEN-LAST:event_vipCBXActionPerformed
 
     private void dxRBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dxRBTNActionPerformed
         // TODO add your handling code here:
         if (projectionCBX.getSelectedItem() != null) {
-            Projection selProj = ManageProjection.getProjection((String) projectionCBX.getSelectedItem());
-            
-            for (int i = 1; i <= selProj.getScreen().getRow4DX(); i++) {
-                rowCBX.addItem(Integer.toString(i));
-            }
+            setRowCBX(ManageProjection.getProjection((String) projectionCBX.getSelectedItem()), "4DX");
         }
     }//GEN-LAST:event_dxRBTNActionPerformed
+
+    private void rowBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rowBTNActionPerformed
+        // TODO add your handling code here:
+        if (rowCBX.isEnabled()) {
+            seatsCBX.setEnabled(true);
+            Projection selProj = ManageProjection.getProjection((String) projectionCBX.getSelectedItem());
+            int selRow = Integer.parseInt((String) rowCBX.getSelectedItem());
+            int numSeats = (int) numSeatsSPN.getValue();
+            boolean[][] selBlock = ManageProjection.getSeatBlock(selProj, selCategory);
+            
+            seatsCBX.removeAllItems();
+            if (numSeats > 0) {
+                seats = ManageProjection.getEmptySeatsFromBlock(selBlock, selRow, numSeats);
+                for (int[] seat : seats) {
+                    seatsCBX.addItem(Arrays.toString(seat));
+                }
+            }
+        } else{
+            seatsCBX.setEnabled(false);
+        }
+    }//GEN-LAST:event_rowBTNActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -364,10 +426,13 @@ public class ticketSalePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JButton loadBTN;
     private javax.swing.JComboBox<String> movieCBX;
     private javax.swing.JButton movieFilterBTN;
+    private javax.swing.JSpinner numSeatsSPN;
     private javax.swing.JComboBox<String> projectionCBX;
+    private javax.swing.JButton rowBTN;
     private javax.swing.JComboBox<String> rowCBX;
     private javax.swing.ButtonGroup seatTypeBTNGRP;
     private javax.swing.JComboBox<String> seatsCBX;

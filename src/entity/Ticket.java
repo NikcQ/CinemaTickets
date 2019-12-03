@@ -4,6 +4,7 @@ package entity;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Arrays;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,12 +23,15 @@ public class Ticket implements Serializable {
     private LocalTime purchaseTime;
   //  private Client client;
   //  private int discount;
-    private int totalPrice;
     private Projection projection;
     
-    private int numberOfGASeats;
-    private int numberOfVIPSeats;
-    private int numberOf4DSeats;
+    private String category;
+    private int row;
+    private int[] seats;
+    
+    private int totalPrice;
+    
+    private static String[] CATEGORIES = {"GA", "VIP", "4DX"};
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,6 +48,23 @@ public class Ticket implements Serializable {
     public Ticket() {
     }
 
+    public Ticket(Projection projection, String category, int row, int[] seats, int totalPrice) {
+        this.projection = projection;
+        this.seats = seats;
+        this.row = row;
+        this.category = category;
+        this.totalPrice = totalPrice;
+        
+        this.purchaseDate = LocalDate.now();
+        this.purchaseTime = LocalTime.now();
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" + "purchaseDate=" + purchaseDate + ", purchaseTime=" + purchaseTime + ", projection=" + projection.getId() + ", category=" + category + ", row=" + row + ", seats=" + Arrays.toString(seats) + ", totalPrice=" + totalPrice + '}';
+    }
+    
+    
 
     public LocalDate getPurchaseDate() {
         return purchaseDate;
@@ -61,14 +82,6 @@ public class Ticket implements Serializable {
         this.purchaseTime = purchaseTime;
     }
 
-    public int getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
     public Projection getProjection() {
         return projection;
     }
@@ -77,29 +90,51 @@ public class Ticket implements Serializable {
         this.projection = projection;
     }
 
-    public int getNumberOfGASeats() {
-        return numberOfGASeats;
+    public int[] getSeats() {
+        return seats;
     }
 
-    public void setNumberOfGASeats(int numberOfGASeats) {
-        this.numberOfGASeats = numberOfGASeats;
+    public void setSeats(int[] seats) {
+        this.seats = seats;
     }
 
-    public int getNumberOfVIPSeats() {
-        return numberOfVIPSeats;
+    public int getRow() {
+        return row;
     }
 
-    public void setNumberOfVIPSeats(int numberOfVIPSeats) {
-        this.numberOfVIPSeats = numberOfVIPSeats;
+    public void setRow(int row) {
+        this.row = row;
     }
 
-    public int getNumberOf4DSeats() {
-        return numberOf4DSeats;
+    public String getCategory() {
+        return category;
     }
 
-    public void setNumberOf4DSeats(int numberOf4DSeats) {
-        this.numberOf4DSeats = numberOf4DSeats;
+    public void setCategory(String category) {
+        this.category = category;
     }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public static String[] getCATEGORIES() {
+        return CATEGORIES;
+    }
+
+    public static void setCATEGORIES(String[] CATEGORIES) {
+        Ticket.CATEGORIES = CATEGORIES;
+    }
+    
+    
+    
+    
+    
+    
     
 
 }

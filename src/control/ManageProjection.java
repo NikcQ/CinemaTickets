@@ -58,10 +58,10 @@ public class ManageProjection {
         }
         return projection;
     }
-    
+
     public static Projection getProjection(String desc) {
         for (Projection proj : getAllProjections()) {
-            if (proj.getDescription(true) == desc || proj.getDescription(false) == desc) {
+            if (proj.getDescription(true).equals(desc) || proj.getDescription(false).equals(desc)) {
                 return proj;
             }
         }
@@ -105,6 +105,42 @@ public class ManageProjection {
             descs.add(p.getDescription(withDate));
         }
         return descs;
+    }
+
+    public static boolean[][] getSeatBlock(Projection proj, String categ) {
+        if (categ.equals("GA")) {
+            return proj.getBlockGA();
+        } else if (categ.equals("VIP")) {
+            return proj.getBlockVIP();
+        } else if (categ.equals("4DX")) {
+            return proj.getBlock4DX();
+        } else {
+            return null;
+        }
+    }
+
+    public static int getNumRowsFromBlock(boolean[][] block) {
+        return block.length;
+    }
+
+    public static ArrayList<int[]> getEmptySeatsFromBlock(boolean[][] block, int row, int numSeats) {
+        ArrayList<int[]> theSeats = new ArrayList<int[]>();
+        for (int i = 0; i < block[row].length - numSeats + 1; i++) {
+            int[] currentSeats = new int[numSeats];
+            boolean flag = true;
+            for (int j = 0; j < numSeats; j++) {
+                if (!block[row][i + j]) {
+                    currentSeats[j] = i + j + 1;
+                } else {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                theSeats.add(currentSeats);
+            }
+        }
+        return theSeats;
     }
 
     // VERIFICATION METHODS BELOW

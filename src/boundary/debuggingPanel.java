@@ -8,6 +8,7 @@ package boundary;
 import entity.Movie;
 import entity.Projection;
 import entity.Screen;
+import entity.Ticket;
 import java.util.ArrayList;
 
 /**
@@ -143,7 +144,15 @@ public class debuggingPanel extends javax.swing.JPanel {
         // Fetch Tickets from CinemApp>Theatre>{Tickets}
         // ArrayList<Ticket> theTickets = ¿?
         
-        System.out.println("\n // DEBUGGING TOOL NOT AVAILABLE YET. // \n");
+        ArrayList<Ticket> theTickets = mainFrame.cinemapp.getCinema().getTickets();
+        
+        System.out.println("\n // PRINTING TICKETS BELOW // \n");
+        
+        for(Ticket t: theTickets){
+            System.out.println(t);
+        }
+        
+        System.out.println("\n // DONE PRINTING TICKETS // \n");
     }//GEN-LAST:event_printTicketBTNActionPerformed
 
 

@@ -1,25 +1,25 @@
-Mon Dec 02 20:47:30 COT 2019 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
+Tue Dec 03 09:40:47 COT 2019 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Mon Dec 02 20:47:30 COT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-016e-c970-e77f-000057633615 
-on database directory C:\Users\NikcQ\Documents\NetBeansProjects\CinemaTickets\cinemAppDB_JPA with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
-Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_111/db/lib/derby.jar
+Tue Dec 03 09:40:47 COT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-016e-cc34-dd92-00003cb073c0 
+on database directory /Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets/sample with class loader sun.misc.Launcher$AppClassLoader@66d3c617 
+Loaded from file:/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/db/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_221-b11
-user.dir=C:\Program Files\Java\jdk1.8.0_111\db
-os.name=Windows 10
-os.arch=amd64
-os.version=10.0
-derby.system.home=C:\Users\NikcQ\Documents\NetBeansProjects\CinemaTickets
-Database Class Loader started - derby.database.classpath=''
-Mon Dec 02 20:47:30 COT 2019 Thread[DRDAConnThread_2,5,main] (XID = 4155), (SESSIONID = 0), (DATABASE = cinemAppDB_JPA), (DRDAID = {1}), Cleanup action starting
-java.sql.SQLNonTransientConnectionException: Se ha producido un fallo de autenticación de conexión. Motivo: Autenticación no válida..
+java.runtime.version=1.8.0_111-b14
+user.dir=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/db
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.14.6
+derby.system.home=/Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets
+----------------------------------------------------------------
+Tue Dec 03 09:40:47 COT 2019:
+Shutting down instance a816c00e-016e-cc34-dd92-00003cb073c0 on database directory /Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets/sample with class loader sun.misc.Launcher$AppClassLoader@66d3c617 
+Tue Dec 03 09:40:47 COT 2019 Thread[DRDAConnThread_2,5,main] Cleanup action starting
+java.sql.SQLException: Failed to start database 'sample' with class loader sun.misc.Launcher$AppClassLoader@66d3c617, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.checkUserCredentials(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.seeNextException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
 	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
 	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
 	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
@@ -32,20 +32,49 @@ java.sql.SQLNonTransientConnectionException: Se ha producido un fallo de autenti
 	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
 	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-Caused by: ERROR 08004: Se ha producido un fallo de autenticación de conexión. Motivo: Autenticación no válida..
+Caused by: ERROR XJ040: Failed to start database 'sample' with class loader sun.misc.Launcher$AppClassLoader@66d3c617, see the next exception for details.
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
-	... 18 more
+	... 16 more
+Caused by: ERROR XSLAN: Database at /Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets/sample has an incompatible format with the current version of the software.  The database was created by or upgraded by version 10.14.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.store.raw.log.LogToFile.readControlFile(Unknown Source)
+	at org.apache.derby.impl.store.raw.log.LogToFile.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.bootLogFactory(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.setRawStoreFactory(Unknown Source)
+	at org.apache.derby.impl.store.raw.RawStore.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.access.RAMAccessManager.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase.bootStore(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.bootService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startProviderService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.findProviderAndStartService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startPersistentService(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.startPersistentService(Unknown Source)
+	... 13 more
 ============= begin nested exception, level (1) ===========
-ERROR 08004: Se ha producido un fallo de autenticación de conexión. Motivo: Autenticación no válida..
-	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+java.sql.SQLException: Database at /Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets/sample has an incompatible format with the current version of the software.  The database was created by or upgraded by version 10.14.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.checkUserCredentials(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
 	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
 	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
 	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
@@ -58,6 +87,102 @@ ERROR 08004: Se ha producido un fallo de autenticación de conexión. Motivo: Aute
 	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
 	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
+Caused by: ERROR XSLAN: Database at /Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets/sample has an incompatible format with the current version of the software.  The database was created by or upgraded by version 10.14.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.store.raw.log.LogToFile.readControlFile(Unknown Source)
+	at org.apache.derby.impl.store.raw.log.LogToFile.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.bootLogFactory(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.setRawStoreFactory(Unknown Source)
+	at org.apache.derby.impl.store.raw.RawStore.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.access.RAMAccessManager.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase.bootStore(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.bootService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startProviderService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.findProviderAndStartService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startPersistentService(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.startPersistentService(Unknown Source)
+	... 13 more
 ============= end nested exception, level (1) ===========
+============= begin nested exception, level (2) ===========
+ERROR XSLAN: Database at /Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets/sample has an incompatible format with the current version of the software.  The database was created by or upgraded by version 10.14.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.store.raw.log.LogToFile.readControlFile(Unknown Source)
+	at org.apache.derby.impl.store.raw.log.LogToFile.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.bootLogFactory(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.setRawStoreFactory(Unknown Source)
+	at org.apache.derby.impl.store.raw.RawStore.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.access.RAMAccessManager.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase.bootStore(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.bootService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startProviderService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.findProviderAndStartService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startPersistentService(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.startPersistentService(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
+	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
+============= end nested exception, level (2) ===========
 Cleanup action completed
-Mon Dec 02 20:47:30 COT 2019 Thread[DRDAConnThread_2,5,main] (DATABASE = cinemAppDB_JPA), (DRDAID = {1}), Se ha producido un fallo de autenticación de conexión. Motivo: Autenticación no válida..
+Tue Dec 03 09:40:47 COT 2019 Thread[DRDAConnThread_2,5,main] (DATABASE = sample), (DRDAID = {1}), Failed to start database 'sample' with class loader sun.misc.Launcher$AppClassLoader@66d3c617, see the next exception for details.
+Tue Dec 03 09:40:47 COT 2019 Thread[DRDAConnThread_2,5,main] (DATABASE = sample), (DRDAID = {1}), Database at /Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets/sample has an incompatible format with the current version of the software.  The database was created by or upgraded by version 10.14.
+----------------------------------------------------------------
+Tue Dec 03 09:40:56 COT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance 601a400f-016e-cc34-dd92-00003cb073c0 
+on database directory /Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets/cinemAppDB_JPA with class loader sun.misc.Launcher$AppClassLoader@66d3c617 
+Loaded from file:/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/db/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_111-b14
+user.dir=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/db
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.14.6
+derby.system.home=/Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets
+Database Class Loader started - derby.database.classpath=''

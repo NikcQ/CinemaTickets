@@ -24,6 +24,7 @@ public class Screen implements Serializable {
     private int colVIP;
     private int row4DX;
     private int col4DX;
+    
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
