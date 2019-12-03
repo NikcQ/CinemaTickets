@@ -44,8 +44,8 @@ public class mainFrame extends javax.swing.JFrame {
     public mainFrame() {
         initComponents();
         cinemapp.setListings(pelicula.readTable());//Inicialización de los arreglos desde la base de datos
-        theater.setScreens(salas.readTable());
-        theater.setProjections(funcion.readTable());
+        cinemapp.getCinema().setScreens(salas.readTable());
+        cinemapp.getCinema().setProjections(funcion.readTable());
     }
 
     /**

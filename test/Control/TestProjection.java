@@ -84,7 +84,7 @@ public class TestProjection {
 
     @Test
     public void testTimeBeforeNow() {
-        assertEquals(manageprojection.verificarFORM("10:00", "2019-12-02", false, false, "el bromas", "1"), TIME_PASSED);
+        assertEquals(manageprojection.verificarFORM("01:00", "2019-12-03", false, false, "el bromas", "1"), TIME_PASSED);
 
     }
     
@@ -99,9 +99,9 @@ public class TestProjection {
 
     }
             
-   /* @Test
+    @Test
     public void testOk() {
-        assertEquals(manageprojection.verificarFORM("18:00", "2019-12-12", false, false, "el bromas", "normal"), ALLOWED );
+        assertEquals(manageprojection.verificarFORM("18:00", "2019-12-12", false, false, "el bromas", "Normal"), ALLOWED );
 
-    }*/
+    }
 }
