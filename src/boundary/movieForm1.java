@@ -5,6 +5,8 @@
  */
 package boundary;
 
+import static boundary.mainFrame.cinemapp;
+import static boundary.mainFrame.pelicula;
 import control.ManageMovie;
 import entity.Movie;
 import java.time.LocalDate;
@@ -256,17 +258,17 @@ public class movieForm1 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void is3dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_is3dActionPerformed
-        movie1.setIs3D(is3d.isSelected());
-        if (is3d.isSelected() == true) {
-            is4d.setSelected(false);
-        }
+//        movie1.setIs3D(is3d.isSelected());
+//        if (is3d.isSelected() == true) {
+//            is4d.setSelected(false);
+//        }
     }//GEN-LAST:event_is3dActionPerformed
 
     private void is4dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_is4dActionPerformed
-        movie1.setIs4D(is4d.isSelected());
-        if (is4d.isSelected() == true) {
-            is3d.setSelected(false);
-        }
+//        movie1.setIs4D(is4d.isSelected());
+//        if (is4d.isSelected() == true) {
+//            is3d.setSelected(false);
+//        }
     }//GEN-LAST:event_is4dActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -290,7 +292,8 @@ public class movieForm1 extends javax.swing.JPanel {
 //        movie1.setIs3D(is3d.isSelected());
         
         boolean iS3d=is3d.isSelected();
-        
+                boolean iS4d=is4d.isSelected();
+
 //        movie1.setIs4D(is4d.isSelected());
         
         String f = fecha.getText();
@@ -299,13 +302,16 @@ public class movieForm1 extends javax.swing.JPanel {
         
         ManageMovie Mov = new ManageMovie();
         System.out.println("-----------");
-        String resultadoReg = Mov.verificarMovie(tituloo, runtimee, rating, iS3d, iS3d, dat,genero,lenguajes);
+        String resultadoReg = Mov.verificarMovie(tituloo, runtimee, rating, iS3d, iS4d, dat,Mov.arrayToList(genero),Mov.arrayToList(lenguajes));
         
         
         System.out.println(resultadoReg);
+        cinemapp.setListings(pelicula.readTable());
+        Mov.printUsers();
         if (resultadoReg=="Registro Correcto") {
             JOptionPane.showMessageDialog(null, "Ok", "Usuario creado correctamente", JOptionPane.INFORMATION_MESSAGE);
         }
+       
 
       
 
@@ -365,7 +371,7 @@ public class movieForm1 extends javax.swing.JPanel {
     }//GEN-LAST:event_ratingListActionPerformed
 
     private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
-
+              
     }//GEN-LAST:event_CerrarActionPerformed
 
     private void fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActionPerformed

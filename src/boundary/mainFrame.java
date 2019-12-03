@@ -24,6 +24,9 @@ public class mainFrame extends javax.swing.JFrame {
     public static CinemApp cinemapp = new CinemApp();
         private Inicio inicio=new Inicio();
     public static Theater theater = new Theater();
+    private movieForm1 movie = new movieForm1();
+    private NewProjectionForm proj = new NewProjectionForm();
+    private screenForm screen = new screenForm();
     
     // PANELS
     private managePanel managePNL = new managePanel();
@@ -132,10 +135,10 @@ public class mainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(containerMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 8, Short.MAX_VALUE))
+            .addComponent(containerMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +173,7 @@ public class mainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_debugBTNActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                containerMain.setVisible(false);
+        containerMain.setVisible(false);
         containerMain.removeAll();
         containerMain.add(inicio);
 
