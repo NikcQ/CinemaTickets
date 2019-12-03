@@ -29,23 +29,25 @@ public class ticketSalePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        seatTypeBTNGRP = new javax.swing.ButtonGroup();
         movieCBX = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         dateFLD = new javax.swing.JTextField();
         projectionCBX = new javax.swing.JComboBox<>();
-        Seats4D = new javax.swing.JComboBox<>();
-        VIPSeats = new javax.swing.JComboBox<>();
-        GASeats = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        paymentBotton = new javax.swing.JButton();
-        backtBotton = new javax.swing.JButton();
+        confirmBTN = new javax.swing.JButton();
+        backBTN = new javax.swing.JButton();
         loadBTN = new javax.swing.JButton();
         movieFilterBTN = new javax.swing.JButton();
         dateFilterBTN = new javax.swing.JButton();
+        gaRBTN = new javax.swing.JRadioButton();
+        vipCBX = new javax.swing.JRadioButton();
+        dxRBTN = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        rowCBX = new javax.swing.JComboBox<>();
+        seatsCBX = new javax.swing.JComboBox<>();
 
         movieCBX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,41 +67,17 @@ public class ticketSalePanel extends javax.swing.JPanel {
             }
         });
 
-        Seats4D.addActionListener(new java.awt.event.ActionListener() {
+        confirmBTN.setText("Confirm");
+        confirmBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Seats4DActionPerformed(evt);
+                confirmBTNActionPerformed(evt);
             }
         });
 
-        VIPSeats.addActionListener(new java.awt.event.ActionListener() {
+        backBTN.setText("Back");
+        backBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VIPSeatsActionPerformed(evt);
-            }
-        });
-
-        GASeats.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GASeatsActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setText("GA");
-
-        jLabel8.setText("VIP");
-
-        jLabel9.setText("4D");
-
-        paymentBotton.setText("Payment");
-        paymentBotton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paymentBottonActionPerformed(evt);
-            }
-        });
-
-        backtBotton.setText("Back");
-        backtBotton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backtBottonActionPerformed(evt);
+                backBTNActionPerformed(evt);
             }
         });
 
@@ -124,68 +102,93 @@ public class ticketSalePanel extends javax.swing.JPanel {
             }
         });
 
+        seatTypeBTNGRP.add(gaRBTN);
+        gaRBTN.setText("GA");
+        gaRBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gaRBTNActionPerformed(evt);
+            }
+        });
+
+        seatTypeBTNGRP.add(vipCBX);
+        vipCBX.setText("VIP");
+        vipCBX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vipCBXActionPerformed(evt);
+            }
+        });
+
+        seatTypeBTNGRP.add(dxRBTN);
+        dxRBTN.setText("4DX");
+        dxRBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dxRBTNActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Row");
+
+        jLabel5.setText("Seats");
+
+        rowCBX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rowCBXActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel3)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(projectionCBX, 0, 230, Short.MAX_VALUE)
-                            .addComponent(dateFLD)
-                            .addComponent(movieCBX, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(GASeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel8))
-                            .addComponent(backtBotton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(VIPSeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Seats4D, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(62, 62, 62))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(paymentBotton)
-                                .addGap(42, 42, 42))))))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(loadBTN)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(loadBTN)
+                            .addComponent(gaRBTN))
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(movieCBX, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(dateFLD))
+                                .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(projectionCBX, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(movieFilterBTN)
-                                .addGap(90, 90, 90))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(dateFilterBTN)
-                                .addGap(99, 99, 99))))))
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel5)
+                                .addGap(125, 125, 125))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rowCBX, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(seatsCBX, 0, 154, Short.MAX_VALUE)
+                                .addContainerGap())))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(movieFilterBTN, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(dateFilterBTN, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(dxRBTN)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(vipCBX)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(backBTN)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(confirmBTN)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,18 +211,23 @@ public class ticketSalePanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(projectionCBX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(84, 84, 84)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Seats4D, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(VIPSeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(GASeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(paymentBotton)
-                    .addComponent(backtBotton))
+                    .addComponent(rowCBX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(seatsCBX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gaRBTN))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(vipCBX)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dxRBTN)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backBTN)
+                    .addComponent(confirmBTN))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -229,7 +237,7 @@ public class ticketSalePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_movieCBXActionPerformed
 
     private void projectionCBXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectionCBXActionPerformed
-        if (projectionCBX.getSelectedItem() != null) {
+        /*if (projectionCBX.getSelectedItem() != null) {
             GASeats.removeAllItems();
             VIPSeats.removeAllItems();
             Seats4D.removeAllItems();
@@ -248,16 +256,17 @@ public class ticketSalePanel extends javax.swing.JPanel {
                 Seats4D.addItem(String.valueOf(i + 1));
             }
 
-        }
+        }*/
     }//GEN-LAST:event_projectionCBXActionPerformed
 
-    private void paymentBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentBottonActionPerformed
+    private void confirmBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_paymentBottonActionPerformed
+        
+    }//GEN-LAST:event_confirmBTNActionPerformed
 
-    private void backtBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backtBottonActionPerformed
+    private void backBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBTNActionPerformed
 
-    }//GEN-LAST:event_backtBottonActionPerformed
+    }//GEN-LAST:event_backBTNActionPerformed
 
     private void loadBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadBTNActionPerformed
         System.out.println("Loading...");
@@ -305,36 +314,63 @@ public class ticketSalePanel extends javax.swing.JPanel {
         System.out.println("Filtered by Date.");
     }//GEN-LAST:event_dateFilterBTNActionPerformed
 
-    private void GASeatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GASeatsActionPerformed
+    private void rowCBXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rowCBXActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GASeatsActionPerformed
+    }//GEN-LAST:event_rowCBXActionPerformed
 
-    private void VIPSeatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VIPSeatsActionPerformed
+    private void gaRBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gaRBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_VIPSeatsActionPerformed
+        if (projectionCBX.getSelectedItem() != null) {
+            Projection selProj = ManageProjection.getProjection((String) projectionCBX.getSelectedItem());
+            
+            for (int i = 1; i <= selProj.getScreen().getRowGA(); i++) {
+                rowCBX.addItem(Integer.toString(i));
+            }
+        }
+    }//GEN-LAST:event_gaRBTNActionPerformed
 
-    private void Seats4DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Seats4DActionPerformed
+    private void vipCBXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vipCBXActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Seats4DActionPerformed
+        if (projectionCBX.getSelectedItem() != null) {
+            Projection selProj = ManageProjection.getProjection((String) projectionCBX.getSelectedItem());
+            
+            for (int i = 1; i <= selProj.getScreen().getRowVIP(); i++) {
+                rowCBX.addItem(Integer.toString(i));
+            }
+        }
+    }//GEN-LAST:event_vipCBXActionPerformed
+
+    private void dxRBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dxRBTNActionPerformed
+        // TODO add your handling code here:
+        if (projectionCBX.getSelectedItem() != null) {
+            Projection selProj = ManageProjection.getProjection((String) projectionCBX.getSelectedItem());
+            
+            for (int i = 1; i <= selProj.getScreen().getRow4DX(); i++) {
+                rowCBX.addItem(Integer.toString(i));
+            }
+        }
+    }//GEN-LAST:event_dxRBTNActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> GASeats;
-    private javax.swing.JComboBox<String> Seats4D;
-    private javax.swing.JComboBox<String> VIPSeats;
-    private javax.swing.JButton backtBotton;
+    private javax.swing.JButton backBTN;
+    private javax.swing.JButton confirmBTN;
     private javax.swing.JTextField dateFLD;
     private javax.swing.JButton dateFilterBTN;
+    private javax.swing.JRadioButton dxRBTN;
+    private javax.swing.JRadioButton gaRBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JButton loadBTN;
     private javax.swing.JComboBox<String> movieCBX;
     private javax.swing.JButton movieFilterBTN;
-    private javax.swing.JButton paymentBotton;
     private javax.swing.JComboBox<String> projectionCBX;
+    private javax.swing.JComboBox<String> rowCBX;
+    private javax.swing.ButtonGroup seatTypeBTNGRP;
+    private javax.swing.JComboBox<String> seatsCBX;
+    private javax.swing.JRadioButton vipCBX;
     // End of variables declaration//GEN-END:variables
 }
