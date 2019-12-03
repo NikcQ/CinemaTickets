@@ -22,7 +22,7 @@ public class TestMovie {
     private static ManageMovie managemovie= new ManageMovie();
     private String NO_HAY_TITULO = "Titulo invalido";
     private String  DURACION_INVALIDA="Duracion invalida";
-    private String NO_HAY_RATING= "No hay rating";
+        private String NO_HAY_RATING= "No hay rating";
     private String FECHA_INVALIDA= "Fecha invalida";
     private String NO_HAY_GENERO="No hay genero";
     private String NO_HAY_LENGUAJES= "No hay lenguajes";
