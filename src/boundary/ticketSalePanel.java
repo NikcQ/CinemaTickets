@@ -37,7 +37,6 @@ public class ticketSalePanel extends javax.swing.JPanel {
         dateFLD = new javax.swing.JTextField();
         projectionCBX = new javax.swing.JComboBox<>();
         confirmBTN = new javax.swing.JButton();
-        backBTN = new javax.swing.JButton();
         loadBTN = new javax.swing.JButton();
         movieFilterBTN = new javax.swing.JButton();
         dateFilterBTN = new javax.swing.JButton();
@@ -67,17 +66,10 @@ public class ticketSalePanel extends javax.swing.JPanel {
             }
         });
 
-        confirmBTN.setText("Confirm");
+        confirmBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/entity/comprobado.png"))); // NOI18N
         confirmBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmBTNActionPerformed(evt);
-            }
-        });
-
-        backBTN.setText("Back");
-        backBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBTNActionPerformed(evt);
             }
         });
 
@@ -174,21 +166,20 @@ public class ticketSalePanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dxRBTN)
+                                    .addComponent(vipCBX))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(movieFilterBTN, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(dateFilterBTN, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(dxRBTN)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(vipCBX)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(backBTN)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(confirmBTN)))
+                                    .addComponent(dateFilterBTN, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(confirmBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,11 +215,9 @@ public class ticketSalePanel extends javax.swing.JPanel {
                 .addComponent(vipCBX)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dxRBTN)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backBTN)
-                    .addComponent(confirmBTN))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(confirmBTN)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -263,10 +252,6 @@ public class ticketSalePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_confirmBTNActionPerformed
-
-    private void backBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBTNActionPerformed
-
-    }//GEN-LAST:event_backBTNActionPerformed
 
     private void loadBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadBTNActionPerformed
         System.out.println("Loading...");
@@ -353,7 +338,6 @@ public class ticketSalePanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backBTN;
     private javax.swing.JButton confirmBTN;
     private javax.swing.JTextField dateFLD;
     private javax.swing.JButton dateFilterBTN;
