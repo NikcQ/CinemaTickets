@@ -7,6 +7,9 @@ package control;
 
 import DAO.ProjectionDAO;
 import boundary.mainFrame;
+import static boundary.mainFrame.cinemapp;
+import static boundary.mainFrame.pelicula;
+import static boundary.mainFrame.salas;
 import entity.Movie;
 import entity.Projection;
 import entity.Screen;
@@ -25,6 +28,7 @@ public class ManageProjection {
 
     // Traer 1 película
     public static Movie traerPeli(String titulo) {
+        cinemapp.setListings(pelicula.readTable());
         Movie peli = new Movie();
         for (Movie mov : mainFrame.cinemapp.getListings()) {
             if (mov.getTitle().equals(titulo)) {
@@ -36,6 +40,7 @@ public class ManageProjection {
 
     public static Screen traerScreen(String nomScr) {
         Screen pant = new Screen();
+        cinemapp.getCinema().setScreens(salas.readTable());
         for (Screen scr : mainFrame.cinemapp.getCinema().getScreens()) {
             if (scr.getName().equals(nomScr)) {
                 pant = scr;
@@ -183,7 +188,7 @@ public class ManageProjection {
         mainFrame.cinemapp.getCinema().addProjection(proj);
         ProjectionDAO pdao = new ProjectionDAO();
         pdao.create(proj);
-        return "Projection created successfully.";
+        return "Projection successfully created.";
     }
 
     //Verify if there is a projection in the same screen at the same time

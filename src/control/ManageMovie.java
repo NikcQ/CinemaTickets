@@ -10,6 +10,7 @@ import boundary.mainFrame;
 import entity.CinemApp;
 import entity.Movie;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 
 /**
@@ -27,40 +28,31 @@ public class ManageMovie {
     public ManageMovie() {
     }
 
-    public String verificarMovie(String title, int runtime, String rating, boolean is3D, boolean is4D, LocalDate date, ArrayList genre,ArrayList languages) {
+    public String verificarMovie(String title, int runtime, String rating, boolean is3D, boolean is4D, LocalDate date, String[] genre,String[] languages) {
 
-        if (title.length()<=1) {
-            return ("No hay un titulo");
+        if (title.isEmpty()|| title.length()>40) {
+            return ("Titulo invalido");
         }
         if (runtime<15 || runtime>480) {
             return ("Duracion invalida");
         }
-        if (rating== null) {
+        if (rating.isEmpty()) {
             return ("No hay rating");
         }
-        if (date.isBefore(LocalDate.now())) {
+        if (date.isBefore(LocalDate.of(1980, 01,01))) {
             return ("Fecha invalida");
         }
-        if (genre.size()<1) {
+        if (genre.length<1) {
             return ("No hay genero");
                     
         }
-        if (languages.size()<1) {
+        if (languages.length<1) {
             return ("No hay lenguajes");
         }
-        Movie nuevo = new Movie();
-        nuevo.setTitle(title);
-        nuevo.setRuntime(runtime);
-        nuevo.setRating(rating);
-        nuevo.setIs3D(is3D);
-        nuevo.setIs4D(is4D);
-        nuevo.setReleaseDate(date);
-        nuevo.setGenre(arrayToList(genre));
-        nuevo.setLanguages(arrayToList(languages));
+        Movie nuevo = new Movie(title, runtime, rating, is3D, is4D);
 
-//    movies.add(nuevo);
-        cinemapp.addMovie(nuevo);
-        printUsers();
+//        cinemapp.addMovie(nuevo);
+//        printUsers();
         pelicula.create(nuevo);
         return ("Registro Correcto");
 
