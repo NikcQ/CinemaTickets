@@ -29,7 +29,7 @@ public class TestProjection {
     private String DATE_BEFORE_RELEASE = "The projection date is before the movie release date";
     private String OVERLAPPING = "Projection overlapping";
     private String NOT_ALLOWED = "This kind of projection is not allowed on this screen";
-    private String ALLOWED = "Projection created successfully.";
+    private String ALLOWED = "Projection successfully created.";
     private String TIME_PASSED = "The projection time has passed";
 
     public TestProjection() {
@@ -72,7 +72,7 @@ public class TestProjection {
 
     @Test
     public void testSeats4D() {
-        assertEquals(manageprojection.verificarFORM("15:00", "2020-01-01", true, true, "pruebaNO4D", "PANTALLA4D"), SEATS_4D);
+        assertEquals(manageprojection.verificarFORM("15:00", "2020-01-01", true, true, "asdf", "1"), SEATS_4D);
 
     }
 
@@ -90,7 +90,18 @@ public class TestProjection {
     
     @Test
     public void testDateBeforeRelease() {
-        assertEquals(manageprojection.verificarFORM("10:00", "2019-12-29", false, false, "hoi", "1"), DATE_BEFORE_RELEASE);
+        assertEquals(manageprojection.verificarFORM("10:00", "2019-12-29", false, false, "hd", "1"), DATE_BEFORE_RELEASE);
 
     }
+        @Test
+    public void testoverlapping() {
+        assertEquals(manageprojection.verificarFORM("08:00", "2019-12-12", false, false, "el bromas", "1"), OVERLAPPING);
+
+    }
+            
+   /* @Test
+    public void testOk() {
+        assertEquals(manageprojection.verificarFORM("18:00", "2019-12-12", false, false, "el bromas", "normal"), ALLOWED );
+
+    }*/
 }
