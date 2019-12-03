@@ -51,12 +51,22 @@ public class ManageProjection {
 
     public static Projection getProjection(int index) {
         Projection projection = new Projection();
-        for (Projection proj : mainFrame.cinemapp.getCinema().getProjections()) {
+        for (Projection proj : getAllProjections()) {
             if (proj.getId() == index) {
                 projection = proj;
             }
         }
         return projection;
+    }
+    
+    public static Projection getProjection(String desc) {
+        for (Projection proj : getAllProjections()) {
+            if (proj.getDescription(true) == desc || proj.getDescription(false) == desc) {
+                return proj;
+            }
+        }
+        System.out.println("getProjection(String desc): projection not found.");
+        return null;
     }
 
     public static ArrayList<Projection> filterProjectionsByDate(ArrayList<Projection> theProjections, LocalDate date) {
