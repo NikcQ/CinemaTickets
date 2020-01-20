@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Control;
+package control;
 
 import entity.Projection;
 import org.junit.After;
@@ -17,7 +17,6 @@ import control.ManageProjection;
 /**
  * @author Edisson
  */
-
 public class TestProjection {
 
     private static ManageProjection manageprojection = new ManageProjection();
@@ -57,7 +56,6 @@ public class TestProjection {
     //
     // @Test
     // public void hello() {}
-    
     @Test
     public void testMovie3D() {
         assertEquals(manageprojection.verificarFORM("15:00", "2020-01-01", true, false, "hoi", "1"), MOVIE_NOT_AVAILABLE_3D);
@@ -87,21 +85,22 @@ public class TestProjection {
         assertEquals(manageprojection.verificarFORM("01:00", "2019-12-03", false, false, "el bromas", "1"), TIME_PASSED);
 
     }
-    
+
     @Test
     public void testDateBeforeRelease() {
         assertEquals(manageprojection.verificarFORM("10:00", "2019-12-29", false, false, "hd", "1"), DATE_BEFORE_RELEASE);
 
     }
-        @Test
+
+    @Test
     public void testoverlapping() {
         assertEquals(manageprojection.verificarFORM("08:00", "2019-12-12", false, false, "el bromas", "1"), OVERLAPPING);
 
     }
-            
+
     @Test
     public void testOk() {
-        assertEquals(manageprojection.verificarFORM("18:00", "2019-12-12", false, false, "el bromas", "Normal"), ALLOWED );
+        assertEquals(manageprojection.verificarFORM("18:00", "2019-12-12", false, false, "el bromas", "Normal"), ALLOWED);
 
     }
 }

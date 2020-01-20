@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class ManageMovie {
 
     private CinemApp cinemapp = mainFrame.cinemapp;
-    private MovieDAO pelicula = mainFrame.pelicula;
+    private MovieDAO pelicula = mainFrame.movieDAO;
     public ArrayList<Movie> movies = new ArrayList<Movie>();
     String[] asx = {" ", "Documentary", "Historical", "Musical", "Comedy", "Children's", "Adventure/Action", "Science Fiction", "Thriller"};
     String[] len = {" ", "English", "Spanish", "French", "Portuguese", "German", "Doblada"};

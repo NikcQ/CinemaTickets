@@ -8,8 +8,6 @@ package control;
 import DAO.ProjectionDAO;
 import boundary.mainFrame;
 import static boundary.mainFrame.cinemapp;
-import static boundary.mainFrame.pelicula;
-import static boundary.mainFrame.salas;
 import entity.Movie;
 import entity.Projection;
 import entity.Screen;
@@ -17,6 +15,8 @@ import entity.Theater;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import static boundary.mainFrame.movieDAO;
+import static boundary.mainFrame.screenDAO;
 
 /**
  *
@@ -28,7 +28,7 @@ public class ManageProjection {
 
     // Traer 1 película
     public static Movie traerPeli(String titulo) {
-        cinemapp.setListings(pelicula.readTable());
+        cinemapp.setListings(movieDAO.readTable());
         Movie peli = new Movie();
         for (Movie mov : mainFrame.cinemapp.getListings()) {
             if (mov.getTitle().equals(titulo)) {
@@ -40,7 +40,7 @@ public class ManageProjection {
 
     public static Screen traerScreen(String nomScr) {
         Screen pant = new Screen();
-        cinemapp.getCinema().setScreens(salas.readTable());
+        cinemapp.getCinema().setScreens(screenDAO.readTable());
         for (Screen scr : mainFrame.cinemapp.getCinema().getScreens()) {
             if (scr.getName().equals(nomScr)) {
                 pant = scr;

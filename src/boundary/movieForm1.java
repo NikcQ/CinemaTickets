@@ -6,12 +6,12 @@
 package boundary;
 
 import static boundary.mainFrame.cinemapp;
-import static boundary.mainFrame.pelicula;
 import control.ManageMovie;
 import entity.Movie;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import static boundary.mainFrame.movieDAO;
 
 /**
  *
@@ -308,7 +308,7 @@ public class movieForm1 extends javax.swing.JPanel {
         
         
         System.out.println(resultadoReg);
-        cinemapp.setListings(pelicula.readTable());
+        cinemapp.setListings(movieDAO.readTable());
         Mov.printUsers();
         if (resultadoReg=="Registro Correcto") {
             JOptionPane.showMessageDialog(null, "Ok", "Usuario creado correctamente", JOptionPane.INFORMATION_MESSAGE);

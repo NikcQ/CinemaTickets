@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -17,9 +18,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Projections")
 public class Projection implements Serializable {
-
-    private Movie movie;
-    private Screen screen;
+    
+    
     private LocalDate date;
     private LocalTime time;
     private boolean is3D;
@@ -27,6 +27,12 @@ public class Projection implements Serializable {
     private boolean blockGA[][];   //matrix that contains the availlability of general seats. Default is FALSE
     private boolean blockVIP[][];   //matrix that contains the availlability of VIP seats. Default is FALSE
     private boolean block4DX[][]; //matrix that contains the availlability of 4DX seats. Default is FALSE
+    
+    
+    @OneToOne
+    private Movie movie;
+    @OneToOne
+    private Screen screen;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

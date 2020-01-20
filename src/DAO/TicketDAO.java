@@ -64,6 +64,26 @@ public class TicketDAO {
             return otherticket;
         }
     }
+    
+    public ArrayList<Ticket> readTable() {
+        EntityManager mo = efm.createEntityManager();
+        mo.getTransaction().begin();
+        List<Ticket> listOfTickets = new ArrayList<Ticket>();
+        ArrayList<Ticket> listofTix = new ArrayList<Ticket>();
+        Query q = mo.createQuery("SELECT m FROM Ticket m ");
+        try {
+            listOfTickets = (List<Ticket>) q.getResultList();
+            listofTix = new ArrayList<Ticket>(listOfTickets);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            mo.close();
+            return listofTix;
+        }
+    }
+    
+    
+    
    /*
     public boolean update(Ticket ticket,Ticket neoticket){
         EntityManager pr = efm.createEntityManager();
