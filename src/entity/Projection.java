@@ -15,8 +15,11 @@ import javax.persistence.Table;
  *
  * @author juanc
  */
+
+
 @Entity
 @Table(name = "Projections")
+
 public class Projection implements Serializable {
     
     

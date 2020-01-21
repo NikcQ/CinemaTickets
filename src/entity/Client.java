@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.persistence.Entity;
@@ -16,18 +12,37 @@ import javax.persistence.Table;
  *
  * @author NikcQ
  */
+@Entity
+@Table(name = "Clients")
+
 public class Client {
-    
+
     private String Fname;
     private String Lname;
-    private String birthDate;
-    private int id;
+    private LocalDate birthDate;
+    private int ic;
     private int scoreBalance;
     private int phone;
     private String email;
+    private String address;
+    private String category;
+    //private int idType;   pendiente de revisar si lo incluimos en el panel o no.
+    private int totalScore;//Este se puede agregar para saber cuando debe ascender el cliente de categoria 
     //private boolean activity;
-    
-    public Client(){
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Client() {
     }
 
     public String getFname() {
@@ -46,20 +61,20 @@ public class Client {
         this.Lname = Lname;
     }
 
-    public String getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
-    public int getId() {
-        return id;
+    public int getIc() {
+        return ic;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIc(int ic) {
+        this.ic = ic;
     }
 
     public int getScoreBalance() {
@@ -85,8 +100,29 @@ public class Client {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
-    
-    
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getTotalScore() {
+        return totalScore;
+    }
+
+    public void setTotalScore(int totalScore) {
+        this.totalScore = totalScore;
+    }
+
 }

@@ -22,6 +22,7 @@ import static boundary.mainFrame.screenDAO;
  *
  * @author Estudiante
  */
+
 public class ManageProjection {
 
     public static Theater theater = mainFrame.theater;
