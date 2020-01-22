@@ -7,6 +7,7 @@
     <class>entity.Projection</class>
     <class>entity.Ticket</class>
     <class>entity.Theater</class>
+    <class>entity.Client</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/cinemappDB_JPA"/>
       <property name="javax.persistence.jdbc.user" value="admin_cinemapp"/>

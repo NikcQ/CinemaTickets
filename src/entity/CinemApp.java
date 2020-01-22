@@ -21,6 +21,7 @@ public class CinemApp {
      */
     private Theater cinema;
     private ArrayList<Movie> listings;
+    private ArrayList<Client> clients;
 
     private final static int[] prices2D = {10000, 12500, 15000};
     private final static int[] prices3D = {15000, 20000, 25000}; // {PRICE_GA, PRICE_VIP, PRICE_4DX}
@@ -50,4 +51,11 @@ public class CinemApp {
         listings.add(u);
     }
 
+    public ArrayList<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(ArrayList<Client> clients) {
+        this.clients = clients;
+    }
 }
