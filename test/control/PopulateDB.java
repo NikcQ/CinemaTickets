@@ -63,7 +63,7 @@ public class PopulateDB {
             // LocalDate date, String[] genre,String[] languages
         assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("Parasite", 132, "A15", false, false,
                 LocalDate.parse("2020-01-09"), new String[]{"Comedy", "Drama", "Thriller"}, new String[]{"English"}));
-        assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("The Voyage of Doctor Dolittle", 101, "TP", true, false,
+        assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("The Voyage of Doctor Dolittle", 101, "TP", true, true,
                 LocalDate.parse("2020-01-09"), new String[]{"Comedy", "Drama", "Thriller"}, new String[]{"English"}));
     }
 }
