@@ -20,9 +20,9 @@ public class Client {
     private String Fname;
     private String Lname;
     private LocalDate birthDate;
-    private int ic;
+    private String ic;
     private int scoreBalance;
-    private int phone;
+    private String phone;
     private String email;
     private String address;
     private String category;
@@ -45,7 +45,7 @@ public class Client {
     public Client() {
     }
 
-    public Client(String name, String lastName, int ic, LocalDate birthDate, String mail, int phone, String address) {
+    public Client(String name, String lastName, String ic, LocalDate birthDate, String mail, String phone, String address) {
         this.Fname = name;
         this.Lname = lastName;
         this.ic = ic;
@@ -82,11 +82,11 @@ public class Client {
         this.birthDate = birthDate;
     }
 
-    public int getIc() {
+    public String getIc() {
         return ic;
     }
 
-    public void setIc(int ic) {
+    public void setIc(String ic) {
         this.ic = ic;
     }
 
@@ -98,11 +98,11 @@ public class Client {
         this.scoreBalance = scoreBalance;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

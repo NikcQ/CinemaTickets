@@ -5,6 +5,9 @@
  */
 package boundary;
 
+import control.ManageClient;
+import java.time.LocalDate;
+
 /**
  *
  * @author user
@@ -176,6 +179,23 @@ public class clienteForm extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBTNActionPerformed
+
+        String fecha = birthDateFLD.getText();
+        LocalDate date = LocalDate.parse(fecha);
+        String result;
+        result = ManageClient.verifyClient(nameFLD.getText(), LnameFLD.getText(), icFLD.getText(), date, mailFLD.getText(), phoneFLD.getText(), addressFLD.getText());
+        if (result.equals("Client successfully registered.")) {
+            System.out.println(result);
+            nameFLD.setText(null);
+            LnameFLD.setText(null);
+            icFLD.setText(null);
+            birthDateFLD.setText(null);
+            mailFLD.setText(null);
+            phoneFLD.setText(null);
+            addressFLD.setText(null);
+        } else {
+            System.out.println(result);
+        }
 
     }//GEN-LAST:event_submitBTNActionPerformed
 

@@ -7,11 +7,12 @@ import java.time.LocalDate;
 
 /**
  *
- * @author NA
+ * @author Edisson
  */
+
 public class ManageClient {
 
-    public String verifyClient(String name, String lastName, int ic, LocalDate birthDate, String mail, int phone, String address) {
+    public static String verifyClient(String name, String lastName, String ic, LocalDate birthDate, String mail, String phone, String address) {
 
         Client newClient = new Client(name, lastName, ic, birthDate, mail, phone, address);
 
@@ -21,9 +22,9 @@ public class ManageClient {
         if (lastName.length() > 35 || lastName.length() < 2 || lastName.isEmpty()) {
             return "Invalid Lastname";
         }
-        if (ic < 1 || ic > 20) {
+        /*  if (ic < 1 || ic > 20) {
             return "Invalid ic length";
-        }
+        }*/
         if (birthDate.isBefore(LocalDate.of(1900, 01, 01))) {
             return "Invalid birthDate";
         }
@@ -33,7 +34,7 @@ public class ManageClient {
         if (mail.length() < 7 || mail.length() > 40) {
             return "Invalid mail length";
         }
-        if (String.valueOf(phone).length() != 10) {
+        if (phone.length() != 10) {
             return "Invalid phone name";
         }
         if (address.length() < 7 || address.length() > 50) {
@@ -44,4 +45,22 @@ public class ManageClient {
         cdao.create(newClient);
         return "Client successfully registered.";
     }
+
+    //Metodo que agrega el puntaje al cliente
+    public static void addScore(int points, char m) {
+
+    }
+
+    // Función que verifica si el cliente existe
+    private static boolean checkID() {
+
+        return false;
+    }
+    //Metodo que verifica si se debe ascender de categoria el cliente
+
+    public static boolean upgrade(int points, char m) {
+
+        return false;
+    }
+
 }
