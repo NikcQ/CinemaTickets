@@ -50,53 +50,53 @@ public class TestScreen {
     // public void hello() {}
     @Test
     public void emptyName() {
-        assertEquals(EMPTY_SCREEN_NAME, ManageScreen.verificarScreen("", false, 0, 0, 0, 0, 0, 0, false));
+        assertEquals(EMPTY_SCREEN_NAME, ManageScreen.verifyScreen("", false, 0, 0, 0, 0, 0, 0, false));
     }
 
     @Test
     public void wrongGAVIP() {
-        assertEquals(BLOCK_DIMS, ManageScreen.verificarScreen("TheScreenName", false, 1, 0, 0, 0, 0, 0, false));
-        assertEquals(BLOCK_DIMS, ManageScreen.verificarScreen("TheScreenName", false, 0, 1, 0, 0, 0, 0, false));
-        assertEquals(BLOCK_DIMS, ManageScreen.verificarScreen("TheScreenName", false, 0, 0, 1, 0, 0, 0, false));
-        assertEquals(BLOCK_DIMS, ManageScreen.verificarScreen("TheScreenName", false, 0, 0, 0, 1, 0, 0, false));
-        assertEquals(BLOCK_DIMS, ManageScreen.verificarScreen("TheScreenName", false, 1, 0, 1, 1, 0, 0, false));
-        assertEquals(BLOCK_DIMS, ManageScreen.verificarScreen("TheScreenName", false, 0, 1, 1, 1, 0, 0, false));
-        assertEquals(BLOCK_DIMS, ManageScreen.verificarScreen("TheScreenName", false, 1, 1, 1, 0, 0, 0, false));
-        assertEquals(BLOCK_DIMS, ManageScreen.verificarScreen("TheScreenName", false, 1, 1, 0, 1, 0, 0, false));
+        assertEquals(BLOCK_DIMS, ManageScreen.verifyScreen("TheScreenName", false, 1, 0, 0, 0, 0, 0, false));
+        assertEquals(BLOCK_DIMS, ManageScreen.verifyScreen("TheScreenName", false, 0, 1, 0, 0, 0, 0, false));
+        assertEquals(BLOCK_DIMS, ManageScreen.verifyScreen("TheScreenName", false, 0, 0, 1, 0, 0, 0, false));
+        assertEquals(BLOCK_DIMS, ManageScreen.verifyScreen("TheScreenName", false, 0, 0, 0, 1, 0, 0, false));
+        assertEquals(BLOCK_DIMS, ManageScreen.verifyScreen("TheScreenName", false, 1, 0, 1, 1, 0, 0, false));
+        assertEquals(BLOCK_DIMS, ManageScreen.verifyScreen("TheScreenName", false, 0, 1, 1, 1, 0, 0, false));
+        assertEquals(BLOCK_DIMS, ManageScreen.verifyScreen("TheScreenName", false, 1, 1, 1, 0, 0, 0, false));
+        assertEquals(BLOCK_DIMS, ManageScreen.verifyScreen("TheScreenName", false, 1, 1, 0, 1, 0, 0, false));
     }
 
     @Test
     public void noBlocksGAVIP() {
-        assertEquals(BLOCK_DIMS_GAVIP, ManageScreen.verificarScreen("TheScreenName", false, 0, 0, 0, 0, 0, 0, false));
-        assertEquals(BLOCK_DIMS_GAVIP, ManageScreen.verificarScreen("TheScreenName", false, 0, 0, 0, 0, 1, 0, false));
-        assertEquals(BLOCK_DIMS_GAVIP, ManageScreen.verificarScreen("TheScreenName", false, 0, 0, 0, 0, 0, 1, false));
-        assertEquals(BLOCK_DIMS_GAVIP, ManageScreen.verificarScreen("TheScreenName", false, 0, 0, 0, 0, 1, 1, false));
+        assertEquals(BLOCK_DIMS_GAVIP, ManageScreen.verifyScreen("TheScreenName", false, 0, 0, 0, 0, 0, 0, false));
+        assertEquals(BLOCK_DIMS_GAVIP, ManageScreen.verifyScreen("TheScreenName", false, 0, 0, 0, 0, 1, 0, false));
+        assertEquals(BLOCK_DIMS_GAVIP, ManageScreen.verifyScreen("TheScreenName", false, 0, 0, 0, 0, 0, 1, false));
+        assertEquals(BLOCK_DIMS_GAVIP, ManageScreen.verifyScreen("TheScreenName", false, 0, 0, 0, 0, 1, 1, false));
     }
 
     @Test
     public void wrong4DX() {
-        assertEquals(BLOCK_DIMS_4DX, ManageScreen.verificarScreen("TheScreenName", true, 0, 0, 0, 0, 0, 0, false));
-        assertEquals(BLOCK_DIMS_4DX, ManageScreen.verificarScreen("TheScreenName", true, 0, 0, 0, 0, 1, 0, false));
-        assertEquals(BLOCK_DIMS_4DX, ManageScreen.verificarScreen("TheScreenName", true, 0, 0, 0, 0, 0, 1, false));
-        assertEquals(BLOCK_DIMS_4DX, ManageScreen.verificarScreen("TheScreenName", true, -1, 0, -1, 0, 0, 0, false));
-        assertEquals(BLOCK_DIMS_4DX, ManageScreen.verificarScreen("TheScreenName", true, 0, -1, 0, -1, 0, 0, false));
+        assertEquals(BLOCK_DIMS_4DX, ManageScreen.verifyScreen("TheScreenName", true, 0, 0, 0, 0, 0, 0, false));
+        assertEquals(BLOCK_DIMS_4DX, ManageScreen.verifyScreen("TheScreenName", true, 0, 0, 0, 0, 1, 0, false));
+        assertEquals(BLOCK_DIMS_4DX, ManageScreen.verifyScreen("TheScreenName", true, 0, 0, 0, 0, 0, 1, false));
+        assertEquals(BLOCK_DIMS_4DX, ManageScreen.verifyScreen("TheScreenName", true, -1, 0, -1, 0, 0, 0, false));
+        assertEquals(BLOCK_DIMS_4DX, ManageScreen.verifyScreen("TheScreenName", true, 0, -1, 0, -1, 0, 0, false));
     }
     
     @Test
     public void correctGAVIP(){
-        assertEquals(SCREEN_SUCCESS, ManageScreen.verificarScreen("TheScreenName", false, 1, 1, 0, 0, 1, 0, false));
-        assertEquals(SCREEN_SUCCESS, ManageScreen.verificarScreen("TheScreenName", false, 0, 0, 1, 1, 0, 1, false));
-        assertEquals(SCREEN_SUCCESS, ManageScreen.verificarScreen("TheScreenName", false, 1, 1, 1, 1, 1, 0, false));
-        assertEquals(SCREEN_SUCCESS, ManageScreen.verificarScreen("TheScreenName", false, 1, 1, 0, 0, 0, 1, true));
-        assertEquals(SCREEN_SUCCESS, ManageScreen.verificarScreen("TheScreenName", false, 0, 0, 1, 1, 1, 0, true));
-        assertEquals(SCREEN_SUCCESS, ManageScreen.verificarScreen("TheScreenName", false, 1, 1, 1, 1, 0, 1, true));
+        assertEquals(SCREEN_SUCCESS, ManageScreen.verifyScreen("TheScreenName", false, 1, 1, 0, 0, 1, 0, false));
+        assertEquals(SCREEN_SUCCESS, ManageScreen.verifyScreen("TheScreenName", false, 0, 0, 1, 1, 0, 1, false));
+        assertEquals(SCREEN_SUCCESS, ManageScreen.verifyScreen("TheScreenName", false, 1, 1, 1, 1, 1, 0, false));
+        assertEquals(SCREEN_SUCCESS, ManageScreen.verifyScreen("TheScreenName", false, 1, 1, 0, 0, 0, 1, true));
+        assertEquals(SCREEN_SUCCESS, ManageScreen.verifyScreen("TheScreenName", false, 0, 0, 1, 1, 1, 0, true));
+        assertEquals(SCREEN_SUCCESS, ManageScreen.verifyScreen("TheScreenName", false, 1, 1, 1, 1, 0, 1, true));
     }
     
     @Test
     public void correct4DX(){
-        assertEquals(SCREEN_SUCCESS, ManageScreen.verificarScreen("TheScreenName", true, 0, 0, 0, 0, 1, 1, false));
-        assertEquals(SCREEN_SUCCESS, ManageScreen.verificarScreen("TheScreenName", true, 1, 1, 0, 0, 1, 1, false));
-        assertEquals(SCREEN_SUCCESS, ManageScreen.verificarScreen("TheScreenName", true, 0, 0, 1, 1, 1, 1, false));
-        assertEquals(SCREEN_SUCCESS, ManageScreen.verificarScreen("TheScreenName", true, 1, 1, 1, 1, 1, 1, false));
+        assertEquals(SCREEN_SUCCESS, ManageScreen.verifyScreen("TheScreenName", true, 0, 0, 0, 0, 1, 1, false));
+        assertEquals(SCREEN_SUCCESS, ManageScreen.verifyScreen("TheScreenName", true, 1, 1, 0, 0, 1, 1, false));
+        assertEquals(SCREEN_SUCCESS, ManageScreen.verifyScreen("TheScreenName", true, 0, 0, 1, 1, 1, 1, false));
+        assertEquals(SCREEN_SUCCESS, ManageScreen.verifyScreen("TheScreenName", true, 1, 1, 1, 1, 1, 1, false));
     }
 }

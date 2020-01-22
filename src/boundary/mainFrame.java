@@ -47,7 +47,9 @@ public class mainFrame extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         containerMain.add(inicio);
-        cinemapp.setListings(movieDAO.readTable());//Inicialización de los arreglos desde la base de datos
+        //Inicialización de los arreglos desde la base de datos
+        cinemapp.setListings(movieDAO.readTable());
+        // THEATRE_NUKE
         cinemapp.getCinema().setScreens(screenDAO.readTable());
         cinemapp.getCinema().setProjections(projDAO.readTable());
         cinemapp.getCinema().setTickets(ticketDAO.readTable());

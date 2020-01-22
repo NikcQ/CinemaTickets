@@ -27,7 +27,7 @@ public class Movie {
     private String[] genre;
     private String[] languages;
     // Static Fields
-    private final static String[] MOVIE_GENRE = {" ", "Documentary", "Historical", "Musical", "Comedy", "Children's", "Adventure/Action", "Science Fiction", "Thriller"}; // Add movie genres in ENGLISH
+    private final static String[] MOVIE_GENRE = {" ", "Documentary", "Historical", "Musical", "Comedy", "Children's", "Adventure", "Action", "Science Fiction", "Thriller", "Animated"}; // Add movie genres in ENGLISH
     private final static String[] MOVIE_RATING = {"TP", "A7", "A12", "A15", "A18"};
     private final static String[] MOVIE_LANGS = {" ", "English", "Spanish", "French", "Portuguese", "German", "Doblada"};
     @Id

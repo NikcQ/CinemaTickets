@@ -304,7 +304,7 @@ public class movieForm1 extends javax.swing.JPanel {
         
         ManageMovie Mov = new ManageMovie();
         System.out.println("-----------");
-        String resultadoReg = Mov.verificarMovie(tituloo, runtimee, rating, iS3d, iS4d, dat,Mov.arrayToList(genero),Mov.arrayToList(lenguajes));
+        String resultadoReg = Mov.verifyMovie(tituloo, runtimee, rating, iS3d, iS4d, dat,Mov.arrayToList(genero),Mov.arrayToList(lenguajes));
         
         
         System.out.println(resultadoReg);

@@ -24,7 +24,7 @@ public class ManageScreen {
     private static String BLOCK_DIMS_4DX = "A 4DX screen must have a valid 4DX seat block.";
     private static String SCREEN_SUCCESS = "The screen was registered successfully.";
 
-    public static String verificarScreen(String name, boolean is4D, int rowGA, int colGA, int rowVIP, int colVIP, int row4DX, int col4DX, boolean is3D) {
+    public static String verifyScreen(String name, boolean is4D, int rowGA, int colGA, int rowVIP, int colVIP, int row4DX, int col4DX, boolean is3D) {
         Screen s;
         if (checkScreenName(name)) {
             if (is4D) {

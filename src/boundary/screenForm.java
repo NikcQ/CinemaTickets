@@ -194,7 +194,7 @@ public class screenForm extends javax.swing.JPanel {
         int row4DX = (int) row4DXspinner.getValue();
         int col4DX = (int) col4DXspinner.getValue();
         String name = nameTextField.getText();
-        String outstr = ManageScreen.verificarScreen(name, is4DCHK.isSelected(), rowGA, colGA, rowVIP, colVIP, row4DX, col4DX, is3DCHK.isSelected());
+        String outstr = ManageScreen.verifyScreen(name, is4DCHK.isSelected(), rowGA, colGA, rowVIP, colVIP, row4DX, col4DX, is3DCHK.isSelected());
         System.out.println(outstr);
     }//GEN-LAST:event_submitBTNActionPerformed
 

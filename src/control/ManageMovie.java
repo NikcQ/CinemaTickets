@@ -19,8 +19,8 @@ import java.util.ArrayList;
  */
 public class ManageMovie {
 
-    private CinemApp cinemapp = mainFrame.cinemapp;
-    private MovieDAO pelicula = mainFrame.movieDAO;
+    private static CinemApp cinemapp = mainFrame.cinemapp;
+    private static MovieDAO pelicula = mainFrame.movieDAO;
     public ArrayList<Movie> movies = new ArrayList<Movie>();
     String[] asx = {" ", "Documentary", "Historical", "Musical", "Comedy", "Children's", "Adventure/Action", "Science Fiction", "Thriller"};
     String[] len = {" ", "English", "Spanish", "French", "Portuguese", "German", "Doblada"};
@@ -28,7 +28,7 @@ public class ManageMovie {
     public ManageMovie() {
     }
 
-    public String verificarMovie(String title, int runtime, String rating, boolean is3D, boolean is4D, LocalDate date, String[] genre,String[] languages) {
+    public static String verifyMovie(String title, int runtime, String rating, boolean is3D, boolean is4D, LocalDate date, String[] genre,String[] languages) {
 
         if (title.isEmpty()|| title.length()>40) {
             return ("Titulo invalido");
