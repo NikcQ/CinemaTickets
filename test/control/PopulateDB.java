@@ -58,12 +58,33 @@ public class PopulateDB {
         assertEquals(SCREEN_SUCCESS, ManageScreen.verifyScreen("Sala 4DX", true, 0, 0, 0, 0, 8, 16, false));
     }
 
+    @Test
     public void createMovies() {
         // String title, int runtime, String rating, boolean is3D, boolean is4D,
-            // LocalDate date, String[] genre,String[] languages
+        // LocalDate date, String[] genre,String[] languages
         assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("Parasite", 132, "A15", false, false,
                 LocalDate.parse("2020-01-09"), new String[]{"Comedy", "Drama", "Thriller"}, new String[]{"English"}));
         assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("The Voyage of Doctor Dolittle", 101, "TP", true, true,
                 LocalDate.parse("2020-01-09"), new String[]{"Comedy", "Drama", "Thriller"}, new String[]{"English"}));
+        assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("1917", 118, "A12", false, false,
+                LocalDate.parse("2020-01-23"), new String[]{"Drama"}, new String[]{"English"}));
+        assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("Jojo Rabbit", 108, "A12", false, false,
+                LocalDate.parse("2020-01-16"), new String[]{"Comedy", "Drama", "War"}, new String[]{"English"}));
+        assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("Frozen 2", 104, "TP", true, false,
+                LocalDate.parse("2019-11-21"), new String[]{"Animation", "Adventure", "Comedy"}, new String[]{"English"}));
+        assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("Asterix: Le Secret de la Potion Magique", 86, "TP", true, false,
+                LocalDate.parse("2020-01-23"), new String[]{"Animation"}, new String[]{"French"}));
+        assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("Star Wars: The Rise of Skywalker", 142, "A7", true, false,
+                LocalDate.parse("2019-12-19"), new String[]{"Action", "Adventure", "Fantasy"}, new String[]{"English"}));
+        assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("The Dead Don't Die", 104, "A12", false, false,
+                LocalDate.parse("2020-01-16"), new String[]{"Comedy", "Horror"}, new String[]{"German", "French", "English"}));
+        assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("Birds of Prey", 109, "A15", true, true,
+                LocalDate.parse("2020-02-06"), new String[]{"Action", "Adventure", "Crime"}, new String[]{"English"}));
+        assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("A Beautiful Day in the Neighborhood", 109, "A12", false, false,
+                LocalDate.parse("2020-02-06"), new String[]{"Drama"}, new String[]{"English"}));
+        assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("Sonic the Hedgehog", 100, "TP", true, true,
+                LocalDate.parse("2020-02-13"), new String[]{"Action", "Animation", "Adventure"}, new String[]{"English"}));
+        assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("The Grudge", 94, "A15", false, false,
+                LocalDate.parse("2020-02-13"), new String[]{"Horror"}, new String[]{"English"}));
     }
 }
