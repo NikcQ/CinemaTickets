@@ -11,8 +11,9 @@ import control.ManageScreen;
 
 /**
  *
- * @author user
+ * @author Edisson
  */
+
 public class NewProjectionForm extends javax.swing.JPanel {
 
     /**

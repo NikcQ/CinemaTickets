@@ -16,6 +16,7 @@ import javax.persistence.Query;
  *
  * @author Home
  */
+
 public class TheaterDAO {
 
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
