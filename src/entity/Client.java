@@ -45,6 +45,19 @@ public class Client {
     public Client() {
     }
 
+    public Client(String name, String lastName, int ic, LocalDate birthDate, String mail, int phone, String address) {
+        this.Fname = name;
+        this.Lname = lastName;
+        this.ic = ic;
+        this.birthDate = birthDate;
+        this.email = mail;
+        this.phone = phone;
+        this.address = address;
+        this.category = "Basic";
+        this.scoreBalance = 0;
+        this.totalScore = 0;
+    }
+
     public String getFname() {
         return Fname;
     }
