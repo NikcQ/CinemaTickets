@@ -12,12 +12,12 @@ import java.time.LocalDate;
  *
  * @author user
  */
-public class clienteForm extends javax.swing.JPanel {
+public class FormClient extends javax.swing.JPanel {
 
     /**
      * Creates new form clienteForm
      */
-    public clienteForm() {
+    public FormClient() {
         initComponents();
     }
 

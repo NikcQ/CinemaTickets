@@ -7,12 +7,12 @@ import entity.Screen;
  *
  * @author Estudiante
  */
-public class screenForm extends javax.swing.JPanel {
+public class FormScreen extends javax.swing.JPanel {
 
     /**
      * Creates new form screenForm
      */
-    public screenForm() {
+    public FormScreen() {
         initComponents();
         row4DXspinner.setEnabled(false);
         col4DXspinner.setEnabled(false);

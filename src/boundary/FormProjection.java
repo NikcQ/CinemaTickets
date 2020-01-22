@@ -14,12 +14,12 @@ import control.ManageScreen;
  * @author Edisson
  */
 
-public class NewProjectionForm extends javax.swing.JPanel {
+public class FormProjection extends javax.swing.JPanel {
 
     /**
      * Creates new form NewProjectionForm
      */
-    public NewProjectionForm() {
+    public FormProjection() {
         initComponents();
 
     }

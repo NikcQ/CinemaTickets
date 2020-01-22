@@ -10,7 +10,7 @@ import java.util.Arrays;
 /**
  * @author Edisson
  */
-public class ticketSalePanel extends javax.swing.JPanel {
+public class FormTicketSale extends javax.swing.JPanel {
 
     ArrayList<Projection> showings = new ArrayList<Projection>();
     ArrayList<String> descriptions = new ArrayList<String>();
@@ -21,7 +21,7 @@ public class ticketSalePanel extends javax.swing.JPanel {
     /**
      * Creates new form ticketSalePanel
      */
-    public ticketSalePanel() {
+    public FormTicketSale() {
         initComponents();
     }
 

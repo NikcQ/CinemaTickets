@@ -23,16 +23,16 @@ import java.util.ArrayList;
 public class mainFrame extends javax.swing.JFrame {
 
     public static CinemApp cinemapp = new CinemApp();
-    private Inicio inicio = new Inicio();
+    private PanelMainMenu inicio = new PanelMainMenu();
     public static Theater theater = new Theater();
-    private movieForm1 movie = new movieForm1();
-    private NewProjectionForm proj = new NewProjectionForm();
-    private screenForm screen = new screenForm();
+    private FormMovie movie = new FormMovie();
+    private FormProjection proj = new FormProjection();
+    private FormScreen screen = new FormScreen();
 
     // PANELS
     private managePanel managePNL = new managePanel();
-    private ticketSalePanel ticketPNL = new ticketSalePanel();
-    private debuggingPanel debugPNL = new debuggingPanel();
+    private FormTicketSale ticketPNL = new FormTicketSale();
+    private PanelDebug debugPNL = new PanelDebug();
 
     // DAO
     public static MovieDAO movieDAO = new MovieDAO();
@@ -128,7 +128,7 @@ public class mainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_debugBTNActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Inicio ini = new Inicio();
+        PanelMainMenu ini = new PanelMainMenu();
         containerMain.setVisible(false);
         containerMain.removeAll();
         containerMain.add(ini);

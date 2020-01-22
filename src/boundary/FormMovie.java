@@ -17,7 +17,7 @@ import static boundary.mainFrame.movieDAO;
  *
  * @author user
  */
-public class movieForm1 extends javax.swing.JPanel {
+public class FormMovie extends javax.swing.JPanel {
 
     Movie movie1=new Movie();
     ArrayList lenguajes = new ArrayList();
@@ -26,7 +26,7 @@ public class movieForm1 extends javax.swing.JPanel {
     /**
      * Creates new form movieForm1
      */
-    public movieForm1() {
+    public FormMovie() {
         initComponents();
 //        movie2 = new Movie(null, 0, null, false, false);
 

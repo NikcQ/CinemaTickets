@@ -11,18 +11,18 @@ import javax.swing.JPanel;
  *
  * @author user
  */
-public class Inicio extends javax.swing.JPanel {
-    private movieForm1 movie = new movieForm1();
-    private NewProjectionForm proj = new NewProjectionForm();
-    private screenForm screen = new screenForm();
-    private ticketSalePanel ticket =new ticketSalePanel();
-    private statisticsForm panelstat = new statisticsForm();
-    private clienteForm cliente =new clienteForm();
+public class PanelMainMenu extends javax.swing.JPanel {
+    private FormMovie movie = new FormMovie();
+    private FormProjection proj = new FormProjection();
+    private FormScreen screen = new FormScreen();
+    private FormTicketSale ticket =new FormTicketSale();
+    private FormStatistics panelstat = new FormStatistics();
+    private FormClient cliente =new FormClient();
 
     /**
      * Creates new form Inicio
      */
-    public Inicio() {
+    public PanelMainMenu() {
         initComponents();
 
 

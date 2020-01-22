@@ -9,12 +9,12 @@ package boundary;
  *
  * @author user
  */
-public class statisticsForm extends javax.swing.JPanel {
+public class FormStatistics extends javax.swing.JPanel {
 
     /**
      * Creates new form statistics
      */
-    public statisticsForm() {
+    public FormStatistics() {
         initComponents();
     }
 

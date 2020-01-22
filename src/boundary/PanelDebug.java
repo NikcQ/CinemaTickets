@@ -15,12 +15,12 @@ import java.util.ArrayList;
  *
  * @author juanc
  */
-public class debuggingPanel extends javax.swing.JPanel {
+public class PanelDebug extends javax.swing.JPanel {
 
     /**
      * Creates new form debuggingPanel
      */
-    public debuggingPanel() {
+    public PanelDebug() {
         initComponents();
     }
 
