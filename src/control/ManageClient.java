@@ -41,8 +41,8 @@ public class ManageClient {
             return "Invalid address length";
         }
 
-        ClientDAO cdao = new ClientDAO();
-        cdao.create(newClient);
+        //ClientDAO cdao = new ClientDAO();
+        ClientDAO.create(newClient);
         return "Client successfully registered.";
     }
 
