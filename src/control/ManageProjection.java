@@ -22,11 +22,11 @@ import static boundary.mainFrame.screenDAO;
  *
  * @author Estudiante
  */
-
 public class ManageProjection {
 
-    //public static Theater theater = mainFrame.theater;
+    private static final String PROJECTION_SUCCESS = "Projection successfully created.";
 
+    //public static Theater theater = mainFrame.theater;
     // Traer 1 película
     public static Movie traerPeli(String titulo) {
         //cinemapp.setListings(movieDAO.readTable());
@@ -150,7 +150,7 @@ public class ManageProjection {
     }
 
     // VERIFICATION METHODS BELOW
-    public static String verificarFORM(String time, String date, boolean is3D, boolean is4D, String movieName, String screenName) {
+    public static String verifyProjection(String time, String date, boolean is3D, boolean is4D, String movieName, String screenName) {
         Movie peli = traerPeli(movieName);
         Screen pant = traerScreen(screenName);
 
@@ -183,13 +183,13 @@ public class ManageProjection {
         if (checkProjectionOverlap(proj)) {
             return "Projection overlapping";
         }
-        if (checkScreen(proj)) {
+        if (!checkScreen(proj)) {
             return "This kind of projection is not allowed on this screen";
         }
         //mainFrame.cinemapp.getCinema().addProjection(proj);
         ProjectionDAO pdao = new ProjectionDAO();
         pdao.create(proj);
-        return "Projection successfully created.";
+        return PROJECTION_SUCCESS;
     }
 
     //Verify if there is a projection in the same screen at the same time
@@ -215,14 +215,14 @@ public class ManageProjection {
     //Verify if this kind of projection is allowed
     private static boolean checkScreen(Projection projectiontocheck) {
 
-        if (projectiontocheck.isIs3D() != projectiontocheck.getScreen().isIs3D()) {
-            return true;
+        if (projectiontocheck.isIs3D() && !projectiontocheck.getScreen().isIs3D()) {
+            // If proj is 3D and Screen isn't 3D
+            return false;
+        } else if (projectiontocheck.isIs4D() && projectiontocheck.getScreen().getRow4DX() == 0) {
+            // If proj is 4D and 
+            return false;
         }
-        if (projectiontocheck.isIs3D() == true && projectiontocheck.isIs4D() == true && projectiontocheck.getScreen().getRow4DX() == 0) {
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
 }

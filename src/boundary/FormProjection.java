@@ -178,7 +178,7 @@ public class FormProjection extends javax.swing.JPanel {
 
     private void submitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBTNActionPerformed
         String result;
-        result = ManageProjection.verificarFORM(timeFLD.getText(), dateFLD.getText(), is3DCHK.isSelected(), is4DCHK.isSelected(), (String) movieCBX.getSelectedItem(), (String) screenCBX.getSelectedItem());
+        result = ManageProjection.verifyProjection(timeFLD.getText(), dateFLD.getText(), is3DCHK.isSelected(), is4DCHK.isSelected(), (String) movieCBX.getSelectedItem(), (String) screenCBX.getSelectedItem());
         if (result.equals("Projection successfully created .")) {
             System.out.println(result);
             timeFLD.setText(null);

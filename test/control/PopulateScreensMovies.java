@@ -17,13 +17,13 @@ import static org.junit.Assert.*;
  *
  * @author juanc
  */
-public class PopulateDB {
+public class PopulateScreensMovies {
 
     // Only successes in this test.
-    private static String SCREEN_SUCCESS = "The screen was registered successfully.";
-    private static String MOVIE_SUCCESS = "Registro Correcto";
+    private static final String SCREEN_SUCCESS = "The screen was registered successfully.";
+    private static final String MOVIE_SUCCESS = "Registro Correcto";
 
-    public PopulateDB() {
+    public PopulateScreensMovies() {
     }
 
     @BeforeClass
@@ -45,8 +45,6 @@ public class PopulateDB {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    // @Test
-    // public void hello() {}
     @Test
     public void createScreens() {
         assertEquals(SCREEN_SUCCESS, ManageScreen.verifyScreen("Sala 2D GA", false, 12, 16, 0, 0, 0, 0, false));
@@ -87,4 +85,5 @@ public class PopulateDB {
         assertEquals(MOVIE_SUCCESS, ManageMovie.verifyMovie("The Grudge", 94, "A15", false, false,
                 LocalDate.parse("2020-02-13"), new String[]{"Horror"}, new String[]{"English"}));
     }
+    
 }

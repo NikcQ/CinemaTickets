@@ -142,7 +142,7 @@ public class Projection implements Serializable {
     }
 
     public String getDescription(boolean withDate) {
-        return (withDate ? date + " | " + time : time) + (is3D ? " | 3D" : " | 2D") + (is4D ? " - 4D |" : " | ") + movie.getTitle() + " - " + id;
+        return (withDate ? date + " | " + time : time) + (is3D ? " | 3D" : " | 2D") + (is4D ? " - 4D | " : " | ") + movie.getTitle() + " - " + id;
     }
 
     public int numberOfAvailableSeats(boolean block[][]) {
