@@ -330,6 +330,7 @@ public class FormTicketSale extends javax.swing.JPanel {
         showings = ManageProjection.filterProjectionsByTitle(ManageProjection.getAllProjections(), (String) movieCBX.getSelectedItem());
         for (String d : ManageProjection.getProjectionDescriptions(showings, true)) {
             projectionCBX.addItem(d);
+            //System.out.println(d);
         }
         System.out.println("Filtered by Movie.");
     }//GEN-LAST:event_movieFilterBTNActionPerformed
