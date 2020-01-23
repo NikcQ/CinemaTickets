@@ -6,7 +6,6 @@ package control;
  */
 import DAO.ScreenDAO;
 import boundary.mainFrame;
-import entity.CinemApp;
 import entity.Screen;
 //import entity.Theater;
 import java.util.ArrayList;

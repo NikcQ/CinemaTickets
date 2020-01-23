@@ -5,7 +5,7 @@
  */
 package boundary;
 
-import entity.CinemApp;
+import control.CinemApp;
 import entity.Client;
 import entity.Movie;
 import entity.Projection;

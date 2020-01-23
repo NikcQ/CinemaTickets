@@ -9,7 +9,7 @@ import DAO.MovieDAO;
 import DAO.ProjectionDAO;
 import DAO.ScreenDAO;
 import DAO.TicketDAO;
-import entity.CinemApp;
+import control.CinemApp;
 import entity.Movie;
 import entity.Screen;
 //import entity.Theater;

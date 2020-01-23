@@ -1,10 +1,15 @@
-package entity;
+package control;
 
 import DAO.ClientDAO;
 import DAO.MovieDAO;
 import DAO.ProjectionDAO;
 import DAO.ScreenDAO;
 import DAO.TicketDAO;
+import entity.Client;
+import entity.Movie;
+import entity.Projection;
+import entity.Screen;
+import entity.Ticket;
 import java.util.ArrayList;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

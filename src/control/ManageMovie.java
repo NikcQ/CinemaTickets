@@ -7,7 +7,6 @@ package control;
 
 import DAO.MovieDAO;
 import boundary.mainFrame;
-import entity.CinemApp;
 import entity.Movie;
 import java.time.LocalDate;
 import java.time.Month;
