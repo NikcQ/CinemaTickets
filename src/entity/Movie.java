@@ -45,12 +45,15 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(String title, int runtime, String rating, boolean is3D, boolean is4D) {
+    public Movie(String title, int runtime, String rating, boolean is3D, boolean is4D, LocalDate date, String[] genre, String[] languages) {
         this.title = title;
         this.runtime = runtime;
         this.rating = rating;
         this.is3D = is3D;
         this.is4D = is4D;
+        this.releaseDate = date;
+        this.genre = genre;
+        this.languages = languages;
     }
 
     public String getTitle() {

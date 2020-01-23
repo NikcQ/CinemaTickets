@@ -28,28 +28,28 @@ public class ManageMovie {
     public ManageMovie() {
     }
 
-    public static String verifyMovie(String title, int runtime, String rating, boolean is3D, boolean is4D, LocalDate date, String[] genre,String[] languages) {
+    public static String verifyMovie(String title, int runtime, String rating, boolean is3D, boolean is4D, LocalDate date, String[] genre, String[] languages) {
 
-        if (title.isEmpty()|| title.length()>40) {
+        if (title.isEmpty() || title.length() > 40) {
             return ("Titulo invalido");
         }
-        if (runtime<15 || runtime>480) {
+        if (runtime < 15 || runtime > 480) {
             return ("Duracion invalida");
         }
         if (rating.isEmpty()) {
             return ("No hay rating");
         }
-        if (date.isBefore(LocalDate.of(1980, 01,01))) {
+        if (date.isBefore(LocalDate.of(1980, 01, 01))) {
             return ("Fecha invalida");
         }
-        if (genre.length<1) {
+        if (genre.length < 1) {
             return ("No hay genero");
-                    
+
         }
-        if (languages.length<1) {
+        if (languages.length < 1) {
             return ("No hay lenguajes");
         }
-        Movie nuevo = new Movie(title, runtime, rating, is3D, is4D);
+        Movie nuevo = new Movie(title, runtime, rating, is3D, is4D, date, genre, languages);
 
 //        cinemapp.addMovie(nuevo);
 //        printUsers();
@@ -65,9 +65,9 @@ public class ManageMovie {
         }
 
     }
-    
-    public String [] arrayToList(ArrayList list){
-    String[] array = (String[]) list.toArray(new String[list.size()]);
+
+    public String[] arrayToList(ArrayList list) {
+        String[] array = (String[]) list.toArray(new String[list.size()]);
         return array;
     }
 
