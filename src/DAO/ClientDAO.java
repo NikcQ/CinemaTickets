@@ -17,7 +17,7 @@ public class ClientDAO {
     
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
     
-    public void create(Client client) {
+    public static void create(Client client) {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         try {
@@ -31,7 +31,7 @@ public class ClientDAO {
         }
     }
     
-    public boolean delete(Client client) {
+    public static boolean delete(Client client) {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         boolean ret = false;
@@ -48,7 +48,7 @@ public class ClientDAO {
         }
     }
     
-    public Client read(Client client) {
+    public static Client read(Client client) {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         Client cli = null;
@@ -65,7 +65,7 @@ public class ClientDAO {
         }
     }
     
-    public ArrayList<Client> readTable() {
+    public static ArrayList<Client> readTable() {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         List<Client> listOfClients = new ArrayList<Client>();
@@ -82,7 +82,7 @@ public class ClientDAO {
         }
     }
     
-    public boolean update(Client client, Client neoclient) {
+    public static boolean update(Client client, Client neoclient) {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         boolean ret = false;

@@ -18,7 +18,7 @@ import javax.persistence.Query;
 public class TicketDAO {
      private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
     
-    public void create (Ticket ticket){
+    public static void create (Ticket ticket){
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();
         try{
@@ -32,7 +32,7 @@ public class TicketDAO {
         }
     }
     
-    public boolean delete(Ticket ticket){
+    public static boolean delete(Ticket ticket){
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();
         boolean ret = false;
@@ -49,7 +49,7 @@ public class TicketDAO {
         }
     }
     
-    public Ticket read(Ticket ticket){
+    public static Ticket read(Ticket ticket){
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();
         Ticket otherticket = null;
@@ -66,7 +66,7 @@ public class TicketDAO {
         }
     }
     
-    public ArrayList<Ticket> readTable() {
+    public static ArrayList<Ticket> readTable() {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         List<Ticket> listOfTickets = new ArrayList<Ticket>();

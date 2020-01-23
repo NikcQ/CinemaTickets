@@ -1,12 +1,29 @@
 package entity;
 
+import DAO.ClientDAO;
+import DAO.MovieDAO;
+import DAO.ProjectionDAO;
+import DAO.ScreenDAO;
+import DAO.TicketDAO;
 import java.util.ArrayList;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author juanc
  */
 public class CinemApp {
+
+    private final static int[] prices2D = {10000, 12500, 15000};
+    private final static int[] prices3D = {15000, 20000, 25000}; // {PRICE_GA, PRICE_VIP, PRICE_4DX}
+//    private static ArrayList<Screen> screens;
+//    private static ArrayList<Projection> projections;
+//    private static ArrayList<Ticket> tickets;
+//    private static ArrayList<Movie> listings;
+//    private static ArrayList<Client> clients;
+//    private static String theatreName;
 
     public static int[] getPrices2D() {
         return prices2D;
@@ -16,46 +33,27 @@ public class CinemApp {
         return prices3D;
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    private Theater cinema;
-    private ArrayList<Movie> listings;
-    private ArrayList<Client> clients;
+    public static ArrayList<Screen> getScreens() {
+        return ScreenDAO.readTable();
+    }
 
-    private final static int[] prices2D = {10000, 12500, 15000};
-    private final static int[] prices3D = {15000, 20000, 25000}; // {PRICE_GA, PRICE_VIP, PRICE_4DX}
+    public static ArrayList<Projection> getProjections() {
+        return ProjectionDAO.readTable();
+    }
+
+    public static ArrayList<Ticket> getTickets() {
+        return TicketDAO.readTable();
+    }
+
+    public static ArrayList<Movie> getListings() {
+        return MovieDAO.readTable();
+    }
+
+    public static ArrayList<Client> getClients() {
+        return ClientDAO.readTable();
+    }
 
     public CinemApp() {
-        // THEATER_NUKE
-        this.cinema = new Theater();
     }
 
-    public Theater getCinema() {
-        return cinema;
-    }
-
-    public void setCinema(Theater cinema) {
-        this.cinema = cinema;
-    }
-
-    public ArrayList<Movie> getListings() {
-        return listings;
-    }
-
-    public void setListings(ArrayList<Movie> listings) {
-        this.listings = listings;
-    }
-
-    public void addMovie(Movie u) {
-        listings.add(u);
-    }
-
-    public ArrayList<Client> getClients() {
-        return clients;
-    }
-
-    public void setClients(ArrayList<Client> clients) {
-        this.clients = clients;
-    }
 }

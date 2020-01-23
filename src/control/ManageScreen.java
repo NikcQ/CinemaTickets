@@ -8,13 +8,13 @@ import DAO.ScreenDAO;
 import boundary.mainFrame;
 import entity.CinemApp;
 import entity.Screen;
-import entity.Theater;
+//import entity.Theater;
 import java.util.ArrayList;
 
 public class ManageScreen {
 
     private static CinemApp cinemapp = mainFrame.cinemapp;
-    private static Theater teatro = mainFrame.cinemapp.getCinema();
+    //private static Theater teatro = mainFrame.cinemapp.getCinema();
     private static ScreenDAO screenDAO = mainFrame.screenDAO;
 
     // Control Strings
@@ -44,7 +44,7 @@ public class ManageScreen {
                     return BLOCK_DIMS;
                 }
             }
-            teatro.addScreen(s);
+            //teatro.addScreen(s);
             screenDAO.create(s);
             return SCREEN_SUCCESS;
         } else {
@@ -69,7 +69,7 @@ public class ManageScreen {
     }
 
     public static void printScreen() {
-        for (Screen screen : teatro.getScreens()) {
+        for (Screen screen : CinemApp.getScreens()) {
             System.out.println(screen.getName());
             System.out.println("---------------");
         }
@@ -77,7 +77,7 @@ public class ManageScreen {
     }
 
     public static ArrayList<String> getScreenNames() {
-        ArrayList<Screen> list = mainFrame.cinemapp.getCinema().getScreens();
+        ArrayList<Screen> list = mainFrame.cinemapp.getScreens();
         ArrayList<String> names = new ArrayList<String>();
         for (Screen s : list) {
             names.add(s.getName());

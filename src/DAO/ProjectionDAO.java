@@ -21,7 +21,7 @@ import javax.persistence.Query;
 public class ProjectionDAO {
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
     
-    public void create (Projection projection){
+    public static void create (Projection projection){
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();
         try{
@@ -35,7 +35,7 @@ public class ProjectionDAO {
         }
     }
     
-    public boolean delete(Projection projection){
+    public static boolean delete(Projection projection){
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();
         boolean ret = false;
@@ -52,7 +52,7 @@ public class ProjectionDAO {
         }
     }
     
-    public Projection read(Projection projection){
+    public static Projection read(Projection projection){
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();
         Projection otherprojection = null;
@@ -69,7 +69,7 @@ public class ProjectionDAO {
         }
     }
     
-     public ArrayList<Projection> readTable(){
+     public static ArrayList<Projection> readTable(){
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         List<Projection> listOfProjections = new ArrayList<Projection>();
@@ -86,7 +86,7 @@ public class ProjectionDAO {
         }
      }
     
-    public boolean update(Projection projection,Projection neoprojection){
+    public static boolean update(Projection projection,Projection neoprojection){
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();
         boolean ret = false;

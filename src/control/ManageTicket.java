@@ -36,13 +36,13 @@ public class ManageTicket {
             
         int price;
         if(proj.isIs3D()){
-            price = seats.length * mainFrame.cinemapp.getCinema().getPrices3D()[Arrays.asList(Ticket.getCATEGORIES()).indexOf(cat)];
+            price = seats.length * mainFrame.cinemapp.getPrices3D()[Arrays.asList(Ticket.getCATEGORIES()).indexOf(cat)];
         }else{
-            price = seats.length * mainFrame.cinemapp.getCinema().getPrices2D()[Arrays.asList(Ticket.getCATEGORIES()).indexOf(cat)];
+            price = seats.length * mainFrame.cinemapp.getPrices2D()[Arrays.asList(Ticket.getCATEGORIES()).indexOf(cat)];
         }
         Ticket tick = new Ticket(proj, cat, row, seats, price);
         
-        mainFrame.cinemapp.getCinema().addTicket(tick);
+        //mainFrame.cinemapp.addTicket(tick);
         TicketDAO tdao = new TicketDAO();
         tdao.create(tick);
         return "Ticket sale registered successfully";

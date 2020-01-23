@@ -102,7 +102,7 @@ public class PanelDebug extends javax.swing.JPanel {
 
     private void printScreenBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printScreenBTNActionPerformed
         // Fetch Screens from CinemApp>Theatre>{Screens}
-        ArrayList<Screen> theScreens = mainFrame.cinemapp.getCinema().getScreens();
+        ArrayList<Screen> theScreens = mainFrame.cinemapp.getScreens();
         
         
         System.out.println("\n // PRINTING SCREENS BELOW // \n");
@@ -129,7 +129,7 @@ public class PanelDebug extends javax.swing.JPanel {
 
     private void printProjectionBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printProjectionBTNActionPerformed
         // Fetch Projections from CinemApp>Theatre>{Projections}
-        ArrayList<Projection> theProjections = mainFrame.cinemapp.getCinema().getProjections();
+        ArrayList<Projection> theProjections = mainFrame.cinemapp.getProjections();
         
         System.out.println("\n // PRINTING PROJECTIONS BELOW // \n");
         
@@ -144,7 +144,7 @@ public class PanelDebug extends javax.swing.JPanel {
         // Fetch Tickets from CinemApp>Theatre>{Tickets}
         // ArrayList<Ticket> theTickets = ¿?
         
-        ArrayList<Ticket> theTickets = mainFrame.cinemapp.getCinema().getTickets();
+        ArrayList<Ticket> theTickets = mainFrame.cinemapp.getTickets();
         
         System.out.println("\n // PRINTING TICKETS BELOW // \n");
         

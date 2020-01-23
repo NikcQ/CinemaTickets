@@ -72,7 +72,7 @@ public class ManageMovie {
     }
 
     public static ArrayList<String> getMovieTitles() {
-        ArrayList<Movie> list = mainFrame.cinemapp.getListings();
+        ArrayList<Movie> list = CinemApp.getListings();
         ArrayList<String> titles = new ArrayList<String>();
         for (Movie m : list) {
             titles.add(m.getTitle());

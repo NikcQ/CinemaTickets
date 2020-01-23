@@ -22,7 +22,7 @@ public class MovieDAO {
 
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
 
-    public void create(Movie movie) {
+    public static void create(Movie movie) {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         try {
@@ -36,7 +36,7 @@ public class MovieDAO {
         }
     }
 
-    public boolean delete(Movie movie) {
+    public static boolean delete(Movie movie) {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         boolean ret = false;
@@ -53,7 +53,7 @@ public class MovieDAO {
         }
     }
 
-    public Movie read(Movie movie) {
+    public static Movie read(Movie movie) {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         Movie film = null;
@@ -70,7 +70,7 @@ public class MovieDAO {
         }
     }
 
-    public ArrayList<Movie> readTable() {
+    public static ArrayList<Movie> readTable() {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         List<Movie> listOfMovies = new ArrayList<Movie>();
@@ -87,7 +87,7 @@ public class MovieDAO {
         }
     }
 
-    public boolean update(Movie movie, Movie neomovie) {
+    public static boolean update(Movie movie, Movie neomovie) {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         boolean ret = false;

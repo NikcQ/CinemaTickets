@@ -12,7 +12,7 @@ import DAO.TicketDAO;
 import entity.CinemApp;
 import entity.Movie;
 import entity.Screen;
-import entity.Theater;
+//import entity.Theater;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ public class mainFrame extends javax.swing.JFrame {
 
     public static CinemApp cinemapp = new CinemApp();
     private PanelMainMenu inicio = new PanelMainMenu();
-    public static Theater theater = new Theater();
+    //public static Theater theater = new Theater();
     private FormMovie movie = new FormMovie();
     private FormProjection proj = new FormProjection();
     private FormScreen screen = new FormScreen();
@@ -48,11 +48,11 @@ public class mainFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         containerMain.add(inicio);
         //Inicialización de los arreglos desde la base de datos
-        cinemapp.setListings(movieDAO.readTable());
+        //cinemapp.setListings(movieDAO.readTable());
         // THEATRE_NUKE
-        cinemapp.getCinema().setScreens(screenDAO.readTable());
-        cinemapp.getCinema().setProjections(projDAO.readTable());
-        cinemapp.getCinema().setTickets(ticketDAO.readTable());
+        //cinemapp.getCinema().setScreens(screenDAO.readTable());
+        //cinemapp.getCinema().setProjections(projDAO.readTable());
+        //cinemapp.getCinema().setTickets(ticketDAO.readTable());
     }
 
     /**

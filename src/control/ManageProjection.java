@@ -11,7 +11,7 @@ import static boundary.mainFrame.cinemapp;
 import entity.Movie;
 import entity.Projection;
 import entity.Screen;
-import entity.Theater;
+//import entity.Theater;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -25,11 +25,11 @@ import static boundary.mainFrame.screenDAO;
 
 public class ManageProjection {
 
-    public static Theater theater = mainFrame.theater;
+    //public static Theater theater = mainFrame.theater;
 
     // Traer 1 película
     public static Movie traerPeli(String titulo) {
-        cinemapp.setListings(movieDAO.readTable());
+        //cinemapp.setListings(movieDAO.readTable());
         Movie peli = new Movie();
         for (Movie mov : mainFrame.cinemapp.getListings()) {
             if (mov.getTitle().equals(titulo)) {
@@ -41,8 +41,8 @@ public class ManageProjection {
 
     public static Screen traerScreen(String nomScr) {
         Screen pant = new Screen();
-        cinemapp.getCinema().setScreens(screenDAO.readTable());
-        for (Screen scr : mainFrame.cinemapp.getCinema().getScreens()) {
+        //cinemapp.getCinema().setScreens(screenDAO.readTable());
+        for (Screen scr : mainFrame.cinemapp.getScreens()) {
             if (scr.getName().equals(nomScr)) {
                 pant = scr;
             }
@@ -52,7 +52,7 @@ public class ManageProjection {
 
     // RETRIEVAL METHODS
     public static ArrayList<Projection> getAllProjections() {
-        return mainFrame.cinemapp.getCinema().getProjections();
+        return mainFrame.cinemapp.getProjections();
     }
 
     public static Projection getProjection(int index) {
@@ -186,7 +186,7 @@ public class ManageProjection {
         if (checkScreen(proj)) {
             return "This kind of projection is not allowed on this screen";
         }
-        mainFrame.cinemapp.getCinema().addProjection(proj);
+        //mainFrame.cinemapp.getCinema().addProjection(proj);
         ProjectionDAO pdao = new ProjectionDAO();
         pdao.create(proj);
         return "Projection successfully created.";
@@ -199,7 +199,7 @@ public class ManageProjection {
         if (projectiontocheck.getTime().isBefore(initHour) || (projectiontocheck.getTime().isAfter(finHour))) {
             return true;
         }
-        for (Projection proj : mainFrame.cinemapp.getCinema().getProjections()) {
+        for (Projection proj : mainFrame.cinemapp.getProjections()) {
             if ((projectiontocheck.getScreen().getName().equals(proj.getScreen().getName())) && (projectiontocheck.getDate().equals(proj.getDate()))) {
                 if (projectiontocheck.getTime().equals(proj.getTime()) || ((projectiontocheck.getTime().plusMinutes(projectiontocheck.getMovie().getRuntime())).isAfter(proj.getTime()) && (proj.getTime().isAfter(projectiontocheck.getTime())))) {
                     return true;

@@ -23,7 +23,7 @@ public class ScreenDAO {
 
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
 
-    public void create(Screen screen) {
+    public static void create(Screen screen) {
         EntityManager sc = efm.createEntityManager();
         sc.getTransaction().begin();
         try {
@@ -37,7 +37,7 @@ public class ScreenDAO {
         }
     }
 
-    public boolean delete(Screen screen) {
+    public static boolean delete(Screen screen) {
         EntityManager sc = efm.createEntityManager();
         sc.getTransaction().begin();
         boolean ret = false;
@@ -54,7 +54,7 @@ public class ScreenDAO {
         }
     }
 
-    public Screen read(Screen screen) {
+    public static Screen read(Screen screen) {
         EntityManager sc = efm.createEntityManager();
         sc.getTransaction().begin();
         Screen secondsc = null;
@@ -71,7 +71,7 @@ public class ScreenDAO {
         }
     }
 
-    public ArrayList<Screen> readTable() {
+    public static ArrayList<Screen> readTable() {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         List<Screen> listOfScreens = new ArrayList<Screen>();
@@ -88,7 +88,7 @@ public class ScreenDAO {
         }
     }
 
-    public boolean update(Screen screen, Screen neoscreen) {  //es necesario que read este completo para el uso de update
+    public static boolean update(Screen screen, Screen neoscreen) {  //es necesario que read este completo para el uso de update
         EntityManager sc = efm.createEntityManager();
         sc.getTransaction().begin();
         boolean ret = false;
