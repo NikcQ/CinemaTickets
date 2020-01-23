@@ -24,9 +24,7 @@ public class ManageClient {
         if (checkID(ic)==true){
             return "existing user";
         }
-        /*  if (ic < 1 || ic > 20) {
-            return "Invalid ic length";
-        }*/
+
         if (birthDate.isBefore(LocalDate.of(1900, 01, 01))) {
             return "Invalid birthDate";
         }
@@ -37,7 +35,7 @@ public class ManageClient {
             return "Invalid mail length";
         }
         if (phone.length() != 10) {
-            return "Invalid phone name";
+            return "Invalid phone namber";
         }
         if (address.length() < 7 || address.length() > 50) {
             return "Invalid address length";
