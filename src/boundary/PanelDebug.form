@@ -24,6 +24,7 @@
                   <Component id="printMovieBTN" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="printProjectionBTN" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="printTicketBTN" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="printClientBTN" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="184" max="32767" attributes="0"/>
           </Group>
@@ -42,7 +43,9 @@
               <Component id="printProjectionBTN" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="printTicketBTN" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="98" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="printClientBTN" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="63" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,6 +87,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Welcome to the debugging panel:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="printClientBTN">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Print Clients"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="printClientBTNActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

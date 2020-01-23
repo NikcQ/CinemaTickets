@@ -52,7 +52,24 @@ public class ClientDAO {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         Client cli = null;
-        Query q = mo.createQuery("SELECT i FROM Client i " + "WHERE i.Ic LIKE :Ic").setParameter("Ic", client.getIc());
+        Query q = mo.createQuery("SELECT i FROM Client i " + "WHERE i.ic = :ic").setParameter("ic", client.getIc());
+        try {
+            cli = (Client) q.getSingleResult();
+        } catch (NonUniqueResultException e) {
+            cli = (Client) q.getResultList().get(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            mo.close();
+            return cli;
+        }
+    }
+    
+    public static Client read(String ic) {
+        EntityManager mo = efm.createEntityManager();
+        mo.getTransaction().begin();
+        Client cli = null;
+        Query q = mo.createQuery("SELECT i FROM Client i " + "WHERE i.ic = :ic").setParameter("ic", ic);
         try {
             cli = (Client) q.getSingleResult();
         } catch (NonUniqueResultException e) {
@@ -70,7 +87,7 @@ public class ClientDAO {
         mo.getTransaction().begin();
         List<Client> listOfClients = new ArrayList<Client>();
         ArrayList<Client> listOfCli = new ArrayList<Client>();
-        Query q = mo.createQuery("SELECT m FROM Movie m ");
+        Query q = mo.createQuery("SELECT m FROM Client m ");
         try {
             listOfClients = (List<Client>) q.getResultList();
             listOfCli = new ArrayList<Client>(listOfClients);
@@ -102,4 +119,5 @@ public class ClientDAO {
             return ret;
         }
     }
+    
 }

@@ -9,7 +9,6 @@ import java.time.LocalDate;
  *
  * @author Edisson
  */
-
 public class ManageClient {
 
     public static String verifyClient(String name, String lastName, String ic, LocalDate birthDate, String mail, String phone, String address) {
@@ -47,8 +46,16 @@ public class ManageClient {
     }
 
     //Metodo que agrega el puntaje al cliente
-    public static void addScore(int points, char m) {
-
+    public static void addScore(String ic, int points) {
+        Client c = ClientDAO.read(ic);
+        Client d = ClientDAO.read(ic);
+        d.setScoreBalance(c.getScoreBalance() + points);
+        ClientDAO.update(c, d);
+    }
+    
+    // Check if client has enough points
+    public static boolean checkScore(String ic, int points) {
+        return ClientDAO.read(ic).getScoreBalance() >= points ? true : false;
     }
 
     // Función que verifica si el cliente existe

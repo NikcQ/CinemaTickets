@@ -138,4 +138,9 @@ public class Client {
         this.totalScore = totalScore;
     }
 
+    @Override
+    public String toString() {
+        return "Client{" + "Fname=" + Fname + ", Lname=" + Lname + ", birthDate=" + birthDate + ", ic=" + ic + ", scoreBalance=" + scoreBalance + ", phone=" + phone + ", email=" + email + ", address=" + address + ", category=" + category + ", totalScore=" + totalScore + ", id=" + id + '}';
+    }
+
 }
