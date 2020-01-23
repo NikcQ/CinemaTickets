@@ -42,6 +42,8 @@ public class PanelDebug extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         printClientBTN = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(650, 400));
+
         printScreenBTN.setText("Print Screens");
         printScreenBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

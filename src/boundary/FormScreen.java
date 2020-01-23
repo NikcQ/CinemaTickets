@@ -49,6 +49,8 @@ public class FormScreen extends javax.swing.JPanel {
 
         jLabel1.setText("jLabel1");
 
+        setPreferredSize(new java.awt.Dimension(650, 400));
+
         jLabel2.setText("Add new Screen");
 
         jLabel3.setText("GA Rows");

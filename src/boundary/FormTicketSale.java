@@ -59,6 +59,8 @@ public class FormTicketSale extends javax.swing.JPanel {
         RedeemBTN = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(650, 400));
+
         movieCBX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 movieCBXActionPerformed(evt);

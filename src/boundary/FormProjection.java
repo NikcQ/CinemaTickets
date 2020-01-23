@@ -46,6 +46,8 @@ public class FormProjection extends javax.swing.JPanel {
         submitBTN = new javax.swing.JButton();
         loadBTN = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(650, 400));
+
         jLabel1.setText("Movie");
 
         movieCBX.addActionListener(new java.awt.event.ActionListener() {

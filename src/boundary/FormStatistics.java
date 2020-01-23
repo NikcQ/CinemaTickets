@@ -39,6 +39,8 @@ public class FormStatistics extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(650, 400));
+
         jLabel1.setText("Movie Statistics:");
 
         smovieCBX.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));

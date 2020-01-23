@@ -49,6 +49,8 @@ public class FormClient extends javax.swing.JPanel {
         updateBTN = new javax.swing.JButton();
         checkBTN = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(650, 400));
+
         jLabel2.setText("Name");
 
         jLabel3.setText("LastName");
@@ -98,7 +100,7 @@ public class FormClient extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(344, 344, 344)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                         .addGap(84, 84, 84)
                         .addComponent(submitBTN)
                         .addGap(8, 8, 8))
