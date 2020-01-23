@@ -13,7 +13,7 @@ public class ManageClient {
 
     public static String verifyClient(String name, String lastName, LocalDate birthDate,String ic,  String phone, String mail, String address) {
 
-        Client newClient = new Client(name, lastName, ic, birthDate, mail, phone, address);
+        Client newClient = new Client(name, lastName,birthDate, ic,  phone, mail, address);
 
         if (name.length() > 35 || name.length() < 2 || name.isEmpty()) {
             return "Invalid Name";
@@ -21,7 +21,7 @@ public class ManageClient {
         if (lastName.length() > 35 || lastName.length() < 2 || lastName.isEmpty()) {
             return "Invalid Lastname";
         }
-        if (checkID(ic)==true){
+        if (checkExistingId(ic)){
             return "existing user";
         }
 
@@ -35,7 +35,7 @@ public class ManageClient {
             return "Invalid mail length";
         }
         if (phone.length() != 10) {
-            return "Invalid phone namber";
+            return "Invalid phone number";
         }
         if (address.length() < 7 || address.length() > 50) {
             return "Invalid address length";
@@ -60,7 +60,7 @@ public class ManageClient {
     }
 
     // Función que verifica si el cliente existe
-    private static boolean checkID( String ic) {
+    private static boolean checkExistingId( String ic) {
         Client a = ClientDAO.read(ic);
         if (a==null){
         return false;

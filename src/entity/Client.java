@@ -45,7 +45,7 @@ public class Client {
     public Client() {
     }
 
-    public Client(String name, String lastName, String ic, LocalDate birthDate, String mail, String phone, String address) {
+    public Client(String name, String lastName, LocalDate birthDate,String ic,  String phone, String mail, String address) {
         this.Fname = name;
         this.Lname = lastName;
         this.ic = ic;

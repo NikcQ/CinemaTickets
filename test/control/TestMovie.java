@@ -55,7 +55,7 @@ public class TestMovie {
 
     @Test
     public void testTitulo() {
-        assertEquals(managemovie.verifyMovie("", 20, MOVIE_RATING[0], true, true, LocalDate.now(), asx, len), NO_HAY_TITULO);
+        assertEquals(ManageMovie.verifyMovie("", 20, MOVIE_RATING[0], true, true, LocalDate.now(), asx, len), NO_HAY_TITULO);
         assertEquals(managemovie.verifyMovie("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", 20, MOVIE_RATING[0], true, true, LocalDate.now(), asx, len), NO_HAY_TITULO);
 
     }

@@ -185,7 +185,7 @@ public class FormClient extends javax.swing.JPanel {
         String fecha = birthDateFLD.getText();
         LocalDate date = LocalDate.parse(fecha);
         String result;
-        result = ManageClient.verifyClient(nameFLD.getText(), LnameFLD.getText(), date,icFLD.getText(),  mailFLD.getText(), phoneFLD.getText(), addressFLD.getText());
+        result = ManageClient.verifyClient(nameFLD.getText(), LnameFLD.getText(), date,icFLD.getText(),phoneFLD.getText(),  mailFLD.getText(),  addressFLD.getText());
         if (result.equals("Client successfully registered.")) {
             System.out.println(result);
             nameFLD.setText(null);
