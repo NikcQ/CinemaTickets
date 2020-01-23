@@ -14,9 +14,9 @@ import javax.persistence.Query;
  * @author Edisson
  */
 public class ClientDAO {
-    
+
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
-    
+
     public static void create(Client client) {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
@@ -30,7 +30,7 @@ public class ClientDAO {
             mo.close();
         }
     }
-    
+
     public static boolean delete(Client client) {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
@@ -47,7 +47,7 @@ public class ClientDAO {
             return ret;
         }
     }
-    
+
     public static Client read(Client client) {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
@@ -64,7 +64,7 @@ public class ClientDAO {
             return cli;
         }
     }
-    
+
     public static ArrayList<Client> readTable() {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
@@ -81,7 +81,7 @@ public class ClientDAO {
             return listOfCli;
         }
     }
-    
+
     public static boolean update(Client client, Client neoclient) {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();

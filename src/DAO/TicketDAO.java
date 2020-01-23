@@ -1,6 +1,4 @@
-
 package DAO;
-
 
 import entity.Ticket;
 import java.util.ArrayList;
@@ -14,58 +12,58 @@ import javax.persistence.Query;
 /**
  * @author Edisson
  */
-
 public class TicketDAO {
-     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
-    
-    public static void create (Ticket ticket){
+
+    private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
+
+    public static void create(Ticket ticket) {
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();
-        try{
+        try {
             pr.persist(ticket);
             pr.getTransaction().commit();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             pr.getTransaction().rollback();
-        }finally{
+        } finally {
             pr.close();
         }
     }
-    
-    public static boolean delete(Ticket ticket){
+
+    public static boolean delete(Ticket ticket) {
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();
         boolean ret = false;
-        try{
+        try {
             pr.remove(ticket);
             pr.getTransaction().commit();
             ret = true;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             pr.getTransaction().rollback();
-        }finally{
+        } finally {
             pr.close();
             return ret;
         }
     }
-    
-    public static Ticket read(Ticket ticket){
+
+    public static Ticket read(Ticket ticket) {
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();
         Ticket otherticket = null;
-        Query q = pr.createQuery("SELECT t FROM Ticket t "+"WHERE t.id LIKE :ticket").setParameter("ticket", ticket.getId());
-        try{
-            otherticket= (Ticket) q.getSingleResult();
-        }catch(NonUniqueResultException e){
+        Query q = pr.createQuery("SELECT t FROM Ticket t " + "WHERE t.id LIKE :ticket").setParameter("ticket", ticket.getId());
+        try {
+            otherticket = (Ticket) q.getSingleResult();
+        } catch (NonUniqueResultException e) {
             otherticket = (Ticket) q.getResultList().get(0);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             pr.close();
             return otherticket;
         }
     }
-    
+
     public static ArrayList<Ticket> readTable() {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
@@ -82,10 +80,8 @@ public class TicketDAO {
             return listofTix;
         }
     }
-    
-    
-    
-   /*
+
+    /*
     public boolean update(Ticket ticket,Ticket neoticket){
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();

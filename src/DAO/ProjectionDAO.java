@@ -19,78 +19,79 @@ import javax.persistence.Query;
  * @author Home
  */
 public class ProjectionDAO {
+
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
-    
-    public static void create (Projection projection){
+
+    public static void create(Projection projection) {
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();
-        try{
+        try {
             pr.persist(projection);
             pr.getTransaction().commit();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             pr.getTransaction().rollback();
-        }finally{
+        } finally {
             pr.close();
         }
     }
-    
-    public static boolean delete(Projection projection){
+
+    public static boolean delete(Projection projection) {
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();
         boolean ret = false;
-        try{
+        try {
             pr.remove(projection);
             pr.getTransaction().commit();
             ret = true;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             pr.getTransaction().rollback();
-        }finally{
+        } finally {
             pr.close();
             return ret;
         }
     }
-    
-    public static Projection read(Projection projection){
+
+    public static Projection read(Projection projection) {
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();
         Projection otherprojection = null;
-        Query q = pr.createQuery("SELECT p FROM Projection p "+"WHERE p.movie LIKE :movie"+" AND p.screen LIKE :screen").setParameter("movie", projection.getMovie()).setParameter("screen", projection.getScreen());
-        try{
+        Query q = pr.createQuery("SELECT p FROM Projection p " + "WHERE p.id = :id").setParameter("id", projection.getId());
+        try {
             otherprojection = (Projection) q.getSingleResult();
-        }catch(NonUniqueResultException e){
+        } catch (NonUniqueResultException e) {
             otherprojection = (Projection) q.getResultList().get(0);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             pr.close();
             return otherprojection;
         }
     }
-    
-     public static ArrayList<Projection> readTable(){
+
+    public static ArrayList<Projection> readTable() {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
         List<Projection> listOfProjections = new ArrayList<Projection>();
-        ArrayList<Projection> listofPro = new ArrayList<Projection>(); 
+        ArrayList<Projection> listofPro = new ArrayList<Projection>();
         Query q = mo.createQuery("SELECT m FROM Projection m ");
-        try{
-            listOfProjections =  (List<Projection>) q.getResultList();
-            listofPro = new ArrayList<Projection> (listOfProjections);
-        }catch(Exception e){
+        try {
+            listOfProjections = (List<Projection>) q.getResultList();
+            listofPro = new ArrayList<Projection>(listOfProjections);
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             mo.close();
             return listofPro;
         }
-     }
-    
-    public static boolean update(Projection projection,Projection neoprojection){
+    }
+
+    public static boolean update(Projection projection, Projection neoprojection) {
         EntityManager pr = efm.createEntityManager();
         pr.getTransaction().begin();
         boolean ret = false;
-        try{
+        try {
             projection = read(projection);
             projection.setMovie(neoprojection.getMovie());
             projection.setScreen(neoprojection.getScreen());
@@ -99,16 +100,46 @@ public class ProjectionDAO {
             projection.setIs3D(neoprojection.isIs3D());
             projection.setIs4D(neoprojection.isIs4D());
             projection.setId(neoprojection.getId());
+            projection.setBlockGA(neoprojection.getBlockGA());
+            projection.setBlockVIP(neoprojection.getBlockVIP());
+            projection.setBlock4DX(neoprojection.getBlock4DX());
             pr.merge(projection);
             pr.getTransaction().commit();
             ret = true;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             pr.getTransaction().rollback();
-        }finally{
+        } finally {
             pr.close();
             return ret;
         }
     }
-    
+
+    public static boolean updateBlock(Projection projection, boolean[][] block, String cat) {
+        EntityManager pr = efm.createEntityManager();
+        pr.getTransaction().begin();
+        boolean ret = false;
+        try {
+            projection = read(projection);
+
+            if (cat.equals("GA")) {
+                projection.setBlockGA(block);
+            } else if (cat.equals("VIP")) {
+                projection.setBlockVIP(block);
+            } else if (cat.equals("4DX")) {
+                projection.setBlock4DX(block);
+            }
+
+            pr.merge(projection);
+            pr.getTransaction().commit();
+            ret = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            pr.getTransaction().rollback();
+        } finally {
+            pr.close();
+            return ret;
+        }
+    }
+
 }
