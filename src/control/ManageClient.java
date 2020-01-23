@@ -11,7 +11,7 @@ import java.time.LocalDate;
  */
 public class ManageClient {
 
-    public static String verifyClient(String name, String lastName, String ic, LocalDate birthDate, String mail, String phone, String address) {
+    public static String verifyClient(String name, String lastName, LocalDate birthDate,String ic,  String phone, String mail, String address) {
 
         Client newClient = new Client(name, lastName, ic, birthDate, mail, phone, address);
 
@@ -20,6 +20,9 @@ public class ManageClient {
         }
         if (lastName.length() > 35 || lastName.length() < 2 || lastName.isEmpty()) {
             return "Invalid Lastname";
+        }
+        if (checkID(ic)==true){
+            return "existing user";
         }
         /*  if (ic < 1 || ic > 20) {
             return "Invalid ic length";
@@ -59,9 +62,12 @@ public class ManageClient {
     }
 
     // Función que verifica si el cliente existe
-    private static boolean checkID() {
-
+    private static boolean checkID( String ic) {
+        Client a = ClientDAO.read(ic);
+        if (a==null){
         return false;
+        }
+        return true;
     }
     //Metodo que verifica si se debe ascender de categoria el cliente
 
