@@ -265,7 +265,7 @@ Movie movie1=new Movie();
         
         
         System.out.println(resultadoReg);
-        //cinemapp.setListings(movieDAO.readTable());
+        cinemapp.setListings(movieDAO.readTable());
         Mov.printUsers();
         if (resultadoReg=="Registro Correcto") {
             JOptionPane.showMessageDialog(null, "Ok", "Usuario creado correctamente", JOptionPane.INFORMATION_MESSAGE);
