@@ -1,14 +1,14 @@
-Wed Jan 22 15:34:41 COT 2020 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
+Wed Jan 22 20:47:39 COT 2020 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Wed Jan 22 15:34:41 COT 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-016f-cef6-d669-00003cb073c0 
-on database directory /Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets/cinemappDB_JPA with class loader sun.misc.Launcher$AppClassLoader@66d3c617 
-Loaded from file:/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/db/lib/derby.jar
+Wed Jan 22 20:47:39 COT 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-016f-d015-5f65-000057633615 
+on database directory C:\Users\NikcQ\Documents\NetBeansProjects\CinemaTickets\cinemappDB_JPA with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_111/db/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_111-b14
-user.dir=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/db
-os.name=Mac OS X
-os.arch=x86_64
-os.version=10.14.6
-derby.system.home=/Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets
+java.runtime.version=1.8.0_221-b11
+user.dir=C:\Program Files\Java\jdk1.8.0_111\db
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\NikcQ\Documents\NetBeansProjects\CinemaTickets
 Database Class Loader started - derby.database.classpath=''
