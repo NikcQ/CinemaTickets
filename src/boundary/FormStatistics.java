@@ -6,13 +6,18 @@
 package boundary;
 
 import control.ManageMovie;
+import control.ManageProjection;
+import control.CinemApp;
+import entity.Movie;
+import entity.Projection;
+import java.util.ArrayList;
 
 /**
  *
  * @author user
  */
 public class FormStatistics extends javax.swing.JPanel {
-
+    ArrayList<Projection> filteredProj;
     /**
      * Creates new form statistics
      */
@@ -30,42 +35,57 @@ public class FormStatistics extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        smovieCBX = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        fdateBTN = new javax.swing.JButton();
+        movieCBX = new javax.swing.JComboBox<>();
+        loadBTN = new javax.swing.JButton();
+        filterbydateBTN = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        projectionCBX = new javax.swing.JComboBox<>();
+        generateBTN = new javax.swing.JButton();
+        filterbymovieBTN = new javax.swing.JButton();
+        selectBTN = new javax.swing.JToggleButton();
 
         setPreferredSize(new java.awt.Dimension(650, 400));
 
         jLabel1.setText("Movie Statistics:");
 
-        smovieCBX.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        smovieCBX.addActionListener(new java.awt.event.ActionListener() {
+        movieCBX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                smovieCBXActionPerformed(evt);
+                movieCBXActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Load");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        loadBTN.setText("Load");
+        loadBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loadBTNActionPerformed(evt);
             }
         });
 
-        fdateBTN.setText("Filter by Date");
+        filterbydateBTN.setText("Filter by Date");
 
         jLabel2.setText("Projection Statistics:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        generateBTN.setText("Generate Report");
+        generateBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generateBTNActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Generate Report");
+        filterbymovieBTN.setText("Filter by movie");
+        filterbymovieBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filterbymovieBTNActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Filter by movie");
+        selectBTN.setText("Select Projection");
+        selectBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -73,13 +93,13 @@ public class FormStatistics extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(loadBTN)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(selectBTN))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,64 +109,105 @@ public class FormStatistics extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(55, 55, 55)
-                                .addComponent(jButton3)
+                                .addComponent(filterbymovieBTN)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fdateBTN)
+                                .addComponent(filterbydateBTN)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
-                            .addComponent(smovieCBX, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
+                            .addComponent(movieCBX, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(projectionCBX, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(generateBTN)))
                 .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(jButton1)
+                .addComponent(loadBTN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(smovieCBX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(movieCBX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fdateBTN)
+                    .addComponent(filterbydateBTN)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(filterbymovieBTN))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                    .addComponent(projectionCBX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(selectBTN)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
+                .addComponent(generateBTN)
                 .addGap(36, 36, 36))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void loadBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadBTNActionPerformed
         // TODO add your handling code here:
-         smovieCBX.removeAllItems();
-         
-         for (String t : ManageMovie.getMovieTitles()) {
-            smovieCBX.addItem(t);
+          System.out.println("Loading...");
+        // Display all Projections
+        projectionCBX.removeAllItems();
+        filteredProj = ManageProjection.getAllProjections();
+        for (String d : ManageProjection.getProjectionDescriptions(filteredProj, true)) {
+            projectionCBX.addItem(d);
         }
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void smovieCBXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_smovieCBXActionPerformed
+        // Display all Movies
+        movieCBX.removeAllItems();
+        for (String t : ManageProjection.getProjectionTitles(filteredProj)) {
+            movieCBX.addItem(t);
+        }
+
+        System.out.println("Loaded");
+         
+    }//GEN-LAST:event_loadBTNActionPerformed
+
+    private void movieCBXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieCBXActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_smovieCBXActionPerformed
+    }//GEN-LAST:event_movieCBXActionPerformed
+
+    private void filterbymovieBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterbymovieBTNActionPerformed
+        // TODO add your handling code here:
+        System.out.println("Filtering by Movie... \"" + (String) movieCBX.getSelectedItem() + "\"");
+        // Filter and display projections of the selected movie
+        projectionCBX.removeAllItems();
+        filteredProj = ManageProjection.filterProjectionsByTitle(ManageProjection.getAllProjections(), (String) movieCBX.getSelectedItem());
+        for (String d : ManageProjection.getProjectionDescriptions(filteredProj, true)) {
+            projectionCBX.addItem(d);
+            //System.out.println(d);
+        }
+        System.out.println("Filtered by Movie.");
+    }//GEN-LAST:event_filterbymovieBTNActionPerformed
+
+    private void selectBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBTNActionPerformed
+        // TODO add your handling code here:
+        if (projectionCBX.getSelectedItem() != null) {
+            //setRowCBX(ManageProjection.getProjection((String) projectionCBX.getSelectedItem()), "GA");
+            System.out.println(ManageProjection.getReport(ManageProjection.getProjection((String) projectionCBX.getSelectedItem())));
+        }
+    }//GEN-LAST:event_selectBTNActionPerformed
+
+    private void generateBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateBTNActionPerformed
+        // TODO add your handling code here:
+        System.out.println(ManageProjection.getReport(filteredProj));
+    }//GEN-LAST:event_generateBTNActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton fdateBTN;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton filterbydateBTN;
+    private javax.swing.JButton filterbymovieBTN;
+    private javax.swing.JButton generateBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JComboBox<String> smovieCBX;
+    private javax.swing.JButton loadBTN;
+    private javax.swing.JComboBox<String> movieCBX;
+    private javax.swing.JComboBox<String> projectionCBX;
+    private javax.swing.JToggleButton selectBTN;
     // End of variables declaration//GEN-END:variables
 }

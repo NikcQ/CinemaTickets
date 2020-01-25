@@ -6,6 +6,7 @@
 package control;
 
 import DAO.ProjectionDAO;
+import static DAO.ScreenDAO.read;
 import boundary.mainFrame;
 import static boundary.mainFrame.cinemapp;
 import entity.Movie;
@@ -223,6 +224,19 @@ public class ManageProjection {
             return false;
         }
         return true;
+    }
+    
+    public static String getReport(ArrayList<Projection> filteredProj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public static String getReport(Projection proj) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Screen s = read(proj.getScreen());
+        int total = 0;
+        int sold = 0;
+        int empty = 0;
+        System.out.println(proj);
     }
 
 }
