@@ -15,6 +15,9 @@ import javax.persistence.Query;
  */
 public class ClientDAO {
 
+    private ClientDAO() {
+    }
+
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
 
     public static void create(Client client) {
@@ -64,7 +67,7 @@ public class ClientDAO {
             return cli;
         }
     }
-    
+
     public static Client read(String ic) {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
@@ -119,5 +122,5 @@ public class ClientDAO {
             return ret;
         }
     }
-    
+
 }

@@ -22,7 +22,7 @@ import java.util.ArrayList;
  */
 public class mainFrame extends javax.swing.JFrame {
 
-    public static CinemApp cinemapp = new CinemApp();
+    //public static CinemApp cinemapp = new CinemApp();
     private PanelMainMenu inicio = new PanelMainMenu();
     //public static Theater theater = new Theater();
     private FormMovie movie = new FormMovie();
@@ -35,10 +35,12 @@ public class mainFrame extends javax.swing.JFrame {
     private PanelDebug debugPNL = new PanelDebug();
 
     // DAO
-    public static MovieDAO movieDAO = new MovieDAO();
-    public static ProjectionDAO projDAO = new ProjectionDAO();
-    public static ScreenDAO screenDAO = new ScreenDAO();
-    public static TicketDAO ticketDAO = new TicketDAO();
+    // NO SINGLETON: DAO methods are static
+    
+    //public static MovieDAO movieDAO = new MovieDAO();
+    //public static ProjectionDAO projDAO = new ProjectionDAO();
+    //public static ScreenDAO screenDAO = new ScreenDAO();
+    //public static TicketDAO ticketDAO = new TicketDAO();
 
     /**
      * Creates new form MainFrame

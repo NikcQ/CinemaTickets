@@ -1,5 +1,6 @@
 package DAO;
 
+import entity.Projection;
 import entity.Ticket;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,10 @@ import javax.persistence.Query;
 /**
  * @author Edisson
  */
-public class TicketDAO {
+public final class TicketDAO {
+
+    private TicketDAO() {
+    }
 
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
 
@@ -70,6 +74,23 @@ public class TicketDAO {
         List<Ticket> listOfTickets = new ArrayList<Ticket>();
         ArrayList<Ticket> listofTix = new ArrayList<Ticket>();
         Query q = mo.createQuery("SELECT m FROM Ticket m ");
+        try {
+            listOfTickets = (List<Ticket>) q.getResultList();
+            listofTix = new ArrayList<Ticket>(listOfTickets);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            mo.close();
+            return listofTix;
+        }
+    }
+    
+    public static ArrayList<Ticket> readByProjection(Projection proj) {
+        EntityManager mo = efm.createEntityManager();
+        mo.getTransaction().begin();
+        List<Ticket> listOfTickets = new ArrayList<Ticket>();
+        ArrayList<Ticket> listofTix = new ArrayList<Ticket>();
+        Query q = mo.createQuery("SELECT t FROM Ticket t "+"WHERE t.projection = p").setParameter("p", proj);
         try {
             listOfTickets = (List<Ticket>) q.getResultList();
             listofTix = new ArrayList<Ticket>(listOfTickets);

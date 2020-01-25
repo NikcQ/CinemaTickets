@@ -20,6 +20,9 @@ import javax.persistence.Query;
  */
 public class MovieDAO {
 
+    private MovieDAO() {
+    }
+
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
 
     public static void create(Movie movie) {

@@ -4,13 +4,11 @@
  * and open the template in the editor.
  */
 package boundary;
-import static boundary.mainFrame.cinemapp;
 import control.ManageMovie;
 import entity.Movie;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import static boundary.mainFrame.movieDAO;
 /**
  *
  * @author Coordinacion
@@ -25,17 +23,17 @@ Movie movie1=new Movie();
     public FormMovie() {
         initComponents();
         
-        String[] arr = movie1.getMOVIE_GENRE();
+        String[] arr = Movie.getMOVIE_GENRE();
         for (int i = 0; i < arr.length; i++) {
             listGeneros.addItem(arr[i]);
 
         }
-        String[] arr1 = movie1.getMOVIE_LANGS();
+        String[] arr1 = Movie.getMOVIE_LANGS();
         for (int i = 0; i < arr1.length; i++) {
             lenguajesList.addItem(arr1[i]);
 
         }
-        String[] arr3 = movie1.getMOVIE_RATING();
+        String[] arr3 = Movie.getMOVIE_RATING();
         for (int i = 0; i < arr3.length; i++) {
             ratingList.addItem(arr3[i]);
 

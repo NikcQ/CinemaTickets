@@ -3,7 +3,6 @@ package control;
 import DAO.ClientDAO;
 import DAO.ProjectionDAO;
 import DAO.TicketDAO;
-import boundary.mainFrame;
 import entity.Projection;
 import entity.Ticket;
 import java.util.Arrays;
@@ -24,9 +23,9 @@ public class ManageTicket {
 
         int price;// Calculate price
         if (proj.isIs3D()) {
-            price = seats.length * mainFrame.cinemapp.getPrices3D()[Arrays.asList(Ticket.getCATEGORIES()).indexOf(cat)];
+            price = seats.length * CinemApp.getPrices3D()[Arrays.asList(Ticket.getCATEGORIES()).indexOf(cat)];
         } else {
-            price = seats.length * mainFrame.cinemapp.getPrices2D()[Arrays.asList(Ticket.getCATEGORIES()).indexOf(cat)];
+            price = seats.length * CinemApp.getPrices2D()[Arrays.asList(Ticket.getCATEGORIES()).indexOf(cat)];
         }
 
         // Add points to costumer if available
@@ -46,12 +45,18 @@ public class ManageTicket {
 
         // Update block in projection
         Projection neoproj = ProjectionDAO.read(proj);
-        if (cat.equals("GA")) {
-            neoproj.setBlockGA(block);
-        } else if (cat.equals("VIP")) {
-            neoproj.setBlockVIP(block);
-        } else if (cat.equals("4DX")) {
-            neoproj.setBlock4DX(block);
+        switch (cat) {
+            case "GA":
+                neoproj.setBlockGA(block);
+                break;
+            case "VIP":
+                neoproj.setBlockVIP(block);
+                break;
+            case "4DX":
+                neoproj.setBlock4DX(block);
+                break;
+            default:
+                break;
         }
 
         if (ProjectionDAO.update(proj, neoproj)) {
@@ -65,8 +70,8 @@ public class ManageTicket {
             // Build and persist ticket
             Ticket tick = new Ticket(proj, cat, row, seats, redeem ? 0 : price);
             //mainFrame.cinemapp.addTicket(tick);
-            TicketDAO tdao = new TicketDAO();
-            tdao.create(tick);
+            //TicketDAO tdao = new TicketDAO();
+            TicketDAO.create(tick);
 
             return "Ticket sale registered successfully.";
         } else {

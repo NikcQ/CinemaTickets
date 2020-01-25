@@ -6,9 +6,6 @@
 package control;
 
 import DAO.ProjectionDAO;
-import static DAO.ScreenDAO.read;
-import boundary.mainFrame;
-import static boundary.mainFrame.cinemapp;
 import entity.Movie;
 import entity.Projection;
 import entity.Screen;
@@ -16,8 +13,6 @@ import entity.Screen;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import static boundary.mainFrame.movieDAO;
-import static boundary.mainFrame.screenDAO;
 
 /**
  *
@@ -32,7 +27,7 @@ public class ManageProjection {
     public static Movie traerPeli(String titulo) {
         //cinemapp.setListings(movieDAO.readTable());
         Movie peli = new Movie();
-        for (Movie mov : mainFrame.cinemapp.getListings()) {
+        for (Movie mov : CinemApp.getListings()) {
             if (mov.getTitle().equals(titulo)) {
                 peli = mov;
             }
@@ -43,7 +38,7 @@ public class ManageProjection {
     public static Screen traerScreen(String nomScr) {
         Screen pant = new Screen();
         //cinemapp.getCinema().setScreens(screenDAO.readTable());
-        for (Screen scr : mainFrame.cinemapp.getScreens()) {
+        for (Screen scr : CinemApp.getScreens()) {
             if (scr.getName().equals(nomScr)) {
                 pant = scr;
             }
@@ -53,7 +48,7 @@ public class ManageProjection {
 
     // RETRIEVAL METHODS
     public static ArrayList<Projection> getAllProjections() {
-        return mainFrame.cinemapp.getProjections();
+        return CinemApp.getProjections();
     }
 
     public static Projection getProjection(int index) {
@@ -188,8 +183,8 @@ public class ManageProjection {
             return "This kind of projection is not allowed on this screen";
         }
         //mainFrame.cinemapp.getCinema().addProjection(proj);
-        ProjectionDAO pdao = new ProjectionDAO();
-        pdao.create(proj);
+        //ProjectionDAO pdao = new ProjectionDAO();
+        ProjectionDAO.create(proj);
         return PROJECTION_SUCCESS;
     }
 
@@ -200,7 +195,7 @@ public class ManageProjection {
         if (projectiontocheck.getTime().isBefore(initHour) || (projectiontocheck.getTime().isAfter(finHour))) {
             return true;
         }
-        for (Projection proj : mainFrame.cinemapp.getProjections()) {
+        for (Projection proj : CinemApp.getProjections()) {
             if ((projectiontocheck.getScreen().getName().equals(proj.getScreen().getName())) && (projectiontocheck.getDate().equals(proj.getDate()))) {
                 if (projectiontocheck.getTime().equals(proj.getTime()) || ((projectiontocheck.getTime().plusMinutes(projectiontocheck.getMovie().getRuntime())).isAfter(proj.getTime()) && (proj.getTime().isAfter(projectiontocheck.getTime())))) {
                     return true;
@@ -232,11 +227,13 @@ public class ManageProjection {
     
     public static String getReport(Projection proj) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        Screen s = read(proj.getScreen());
+        Screen s = proj.getScreen();
         int total = 0;
         int sold = 0;
         int empty = 0;
-        System.out.println(proj);
+        //System.out.println(proj);
+        
+        return "The projection was sold ";
     }
 
 }

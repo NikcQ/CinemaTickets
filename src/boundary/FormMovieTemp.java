@@ -5,13 +5,11 @@
  */
 package boundary;
 
-import static boundary.mainFrame.cinemapp;
 import control.ManageMovie;
 import entity.Movie;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import static boundary.mainFrame.movieDAO;
 
 /**
  *

@@ -21,6 +21,9 @@ import javax.persistence.Query;
  */
 public class ScreenDAO {
 
+    private ScreenDAO() {
+    }
+
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
 
     public static void create(Screen screen) {

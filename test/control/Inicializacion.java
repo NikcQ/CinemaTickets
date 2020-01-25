@@ -12,7 +12,6 @@ import DAO.MovieDAO;
 import DAO.ProjectionDAO;
 import DAO.ScreenDAO;
 //import DAO.TheaterDAO;
-import static boundary.mainFrame.cinemapp;
 import entity.Movie;
 import entity.Projection;
 import entity.Screen;
@@ -25,7 +24,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 //**
  //*
@@ -53,9 +51,10 @@ public class Inicializacion {
     }
     @Test
     public void InitData(){
-        MovieDAO daoM = new MovieDAO();
-        ScreenDAO daoS = new ScreenDAO();
-        ProjectionDAO daoP = new ProjectionDAO();
+        // NO DAO SINGLETON
+        //MovieDAO daoM = new MovieDAO();
+        //ScreenDAO daoS = new ScreenDAO();
+        //ProjectionDAO daoP = new ProjectionDAO();
         //TheaterDAO daoT = new TheaterDAO();
         ArrayList<Movie> peliculas = new ArrayList<Movie>();
         String ms = "2007-12-03";
@@ -97,7 +96,7 @@ public class Inicializacion {
         peliculas.add(c);
         //cinemapp.setListings(peliculas);
         for (Movie i:peliculas) {
-            daoM.create(i);
+            MovieDAO.create(i);
         }
         ArrayList<Screen> screen = new ArrayList<Screen>();
         Screen d = new Screen();
@@ -111,7 +110,7 @@ public class Inicializacion {
         d.setName("1");
         screen.add(d);
         //cinemapp.setScreens(screen);
-        daoS.create(d);
+        ScreenDAO.create(d);
         ArrayList<Projection> projection = new ArrayList<Projection>();
         Projection e = new Projection();
         e.setMovie(a);
@@ -121,7 +120,7 @@ public class Inicializacion {
         e.setIs3D(true);
         e.setIs4D(false);
         projection.add(e);
-        daoP.create(e);
+        ProjectionDAO.create(e);
 //        ArrayList<Theater> theater = new ArrayList<Theater>();
 //        Theater t = new Theater();
 //        t.setProjections(projection);

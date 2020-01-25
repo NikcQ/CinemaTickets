@@ -5,23 +5,22 @@ package control;
  * @author NikcQ
  */
 import DAO.ScreenDAO;
-import boundary.mainFrame;
 import entity.Screen;
 //import entity.Theater;
 import java.util.ArrayList;
 
 public class ManageScreen {
 
-    private static CinemApp cinemapp = mainFrame.cinemapp;
+    //private static CinemApp cinemapp = mainFrame.cinemapp;
     //private static Theater teatro = mainFrame.cinemapp.getCinema();
-    private static ScreenDAO screenDAO = mainFrame.screenDAO;
+    //private static final ScreenDAO screenDAO = mainFrame.screenDAO;
 
     // Control Strings
-    private static String EMPTY_SCREEN_NAME = "The screen name must not be blank.";
-    private static String BLOCK_DIMS = "Both dimensions of a block must be positive or zero.";
-    private static String BLOCK_DIMS_GAVIP = "A screen must have a valid seat block.";
-    private static String BLOCK_DIMS_4DX = "A 4DX screen must have a valid 4DX seat block.";
-    private static String SCREEN_SUCCESS = "The screen was registered successfully.";
+    private static final String EMPTY_SCREEN_NAME = "The screen name must not be blank.";
+    private static final String BLOCK_DIMS = "Both dimensions of a block must be positive or zero.";
+    private static final String BLOCK_DIMS_GAVIP = "A screen must have a valid seat block.";
+    private static final String BLOCK_DIMS_4DX = "A 4DX screen must have a valid 4DX seat block.";
+    private static final String SCREEN_SUCCESS = "The screen was registered successfully.";
 
     public static String verifyScreen(String name, boolean is4D, int rowGA, int colGA, int rowVIP, int colVIP, int row4DX, int col4DX, boolean is3D) {
         Screen s;
@@ -44,7 +43,7 @@ public class ManageScreen {
                 }
             }
             //teatro.addScreen(s);
-            screenDAO.create(s);
+            ScreenDAO.create(s);
             return SCREEN_SUCCESS;
         } else {
             return EMPTY_SCREEN_NAME;
@@ -76,8 +75,8 @@ public class ManageScreen {
     }
 
     public static ArrayList<String> getScreenNames() {
-        ArrayList<Screen> list = mainFrame.cinemapp.getScreens();
-        ArrayList<String> names = new ArrayList<String>();
+        ArrayList<Screen> list = CinemApp.getScreens();
+        ArrayList<String> names = new ArrayList<>();
         for (Screen s : list) {
             names.add(s.getName());
         }

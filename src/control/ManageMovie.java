@@ -6,10 +6,8 @@
 package control;
 
 import DAO.MovieDAO;
-import boundary.mainFrame;
 import entity.Movie;
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.ArrayList;
 
 /**
@@ -18,8 +16,8 @@ import java.util.ArrayList;
  */
 public class ManageMovie {
 
-    private static CinemApp cinemapp = mainFrame.cinemapp;
-    private static MovieDAO pelicula = mainFrame.movieDAO;
+    //private static CinemApp cinemapp = mainFrame.cinemapp;
+    //private static MovieDAO pelicula = mainFrame.movieDAO;
     public ArrayList<Movie> movies = new ArrayList<Movie>();
     String[] asx = {" ", "Documentary", "Historical", "Musical", "Comedy", "Children's", "Adventure/Action", "Science Fiction", "Thriller"};
     String[] len = {" ", "English", "Spanish", "French", "Portuguese", "German", "Doblada"};
@@ -52,13 +50,13 @@ public class ManageMovie {
 
 //        cinemapp.addMovie(nuevo);
 //        printUsers();
-        pelicula.create(nuevo);
+        MovieDAO.create(nuevo);
         return ("Registro Correcto");
 
     }
 
     public void printUsers() {
-        for (Movie movie : cinemapp.getListings()) {
+        for (Movie movie : CinemApp.getListings()) {
             System.out.println(movie.getTitle());
             System.out.println("---------------");
         }

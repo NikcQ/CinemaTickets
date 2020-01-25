@@ -20,6 +20,9 @@ import javax.persistence.Query;
  */
 public class ProjectionDAO {
 
+    private ProjectionDAO() {
+    }
+
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
 
     public static void create(Projection projection) {

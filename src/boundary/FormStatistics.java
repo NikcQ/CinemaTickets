@@ -17,7 +17,9 @@ import java.util.ArrayList;
  * @author user
  */
 public class FormStatistics extends javax.swing.JPanel {
+
     ArrayList<Projection> filteredProj;
+
     /**
      * Creates new form statistics
      */
@@ -149,7 +151,7 @@ public class FormStatistics extends javax.swing.JPanel {
 
     private void loadBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadBTNActionPerformed
         // TODO add your handling code here:
-          System.out.println("Loading...");
+        System.out.println("Loading...");
         // Display all Projections
         projectionCBX.removeAllItems();
         filteredProj = ManageProjection.getAllProjections();
@@ -164,7 +166,7 @@ public class FormStatistics extends javax.swing.JPanel {
         }
 
         System.out.println("Loaded");
-         
+
     }//GEN-LAST:event_loadBTNActionPerformed
 
     private void movieCBXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieCBXActionPerformed
