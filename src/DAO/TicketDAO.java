@@ -90,7 +90,7 @@ public final class TicketDAO {
         mo.getTransaction().begin();
         List<Ticket> listOfTickets = new ArrayList<Ticket>();
         ArrayList<Ticket> listofTix = new ArrayList<Ticket>();
-        Query q = mo.createQuery("SELECT t FROM Ticket t "+"WHERE t.projection LIKE p").setParameter("p", proj);
+        Query q = mo.createQuery("SELECT t FROM Ticket t "+"WHERE t.projection = :p").setParameter("p", proj);
         try {
             listOfTickets = (List<Ticket>) q.getResultList();
             listofTix = new ArrayList<Ticket>(listOfTickets);

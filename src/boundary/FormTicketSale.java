@@ -369,7 +369,7 @@ public class FormTicketSale extends javax.swing.JPanel {
         selCategory = cat;
         rowCBX.removeAllItems();
         rowCBX.setEnabled(true);
-        int blockRows = ManageProjection.getNumRowsFromBlock(ManageProjection.getSeatBlock(proj, cat));
+        int blockRows = ManageProjection.getSeatBlock(proj, cat).length;
         if (blockRows == 0) {
             rowCBX.addItem("No rows in " + cat);
             rowCBX.setEnabled(false);

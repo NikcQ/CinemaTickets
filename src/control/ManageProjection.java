@@ -15,6 +15,7 @@ import entity.Ticket;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -80,7 +81,6 @@ public class ManageProjection {
                 sameDate.add(p);
             }
         }
-
         return sameDate;
     }
 
@@ -93,7 +93,6 @@ public class ManageProjection {
                 validDate.add(p);
             }
         }
-
         return validDate;
     }
 
@@ -104,7 +103,6 @@ public class ManageProjection {
                 sameTitle.add(p);
             }
         }
-
         return sameTitle;
     }
 
@@ -125,19 +123,16 @@ public class ManageProjection {
     }
 
     public static boolean[][] getSeatBlock(Projection proj, String categ) {
-        if (categ.equals("GA")) {
-            return proj.getBlockGA();
-        } else if (categ.equals("VIP")) {
-            return proj.getBlockVIP();
-        } else if (categ.equals("4DX")) {
-            return proj.getBlock4DX();
-        } else {
-            return null;
+        switch (categ) {
+            case "GA":
+                return proj.getBlockGA();
+            case "VIP":
+                return proj.getBlockVIP();
+            case "4DX":
+                return proj.getBlock4DX();
+            default:
+                return null;
         }
-    }
-
-    public static int getNumRowsFromBlock(boolean[][] block) {
-        return block.length;
     }
 
     public static ArrayList<int[]> getEmptySeatsFromBlock(boolean[][] block, int row, int numSeats) {
@@ -203,8 +198,8 @@ public class ManageProjection {
         return PROJECTION_SUCCESS;
     }
 
-    //Verify if there is a projection in the same screen at the same time
     private static boolean checkProjectionOverlap(Projection projectiontocheck) {
+        //Verify if there is a projection in the same screen at the same time
         LocalTime initHour = LocalTime.parse("10:00");
         LocalTime finHour = LocalTime.parse("22:00");
         if (projectiontocheck.getTime().isBefore(initHour) || (projectiontocheck.getTime().isAfter(finHour))) {
@@ -223,9 +218,8 @@ public class ManageProjection {
         return false;
     }
 
-    //Verify if this kind of projection is allowed
     private static boolean checkScreen(Projection projectiontocheck) {
-
+        //Verify if this kind of projection is allowed
         if (projectiontocheck.isIs3D() && !projectiontocheck.getScreen().isIs3D()) {
             // If proj is 3D and Screen isn't 3D
             return false;
@@ -237,38 +231,39 @@ public class ManageProjection {
     }
 
     public static int[] fetchStats(Projection proj) {
-        // {sold, total, soldGA, totalGA, soldVIP, totalVIP, sold4DX, total4DX}
+        // Stats builder for a projection
         int[] stats = new int[8];
-
+        // {sold, total, soldGA, totalGA, soldVIP, totalVIP, sold4DX, total4DX}
         Screen s = proj.getScreen();
         stats[3] = s.getColGA() * s.getRowGA();
         stats[5] = s.getColVIP() * s.getRowVIP();
         stats[7] = s.getCol4DX() * s.getRow4DX();
         stats[1] = stats[3] + stats[5] + stats[7];
-        
 
         ArrayList<Ticket> tix = TicketDAO.readByProjection(proj);
         for (Ticket tick : tix) {
+            int l = tick.getSeats().length;
+            stats[0] += l;
             switch (tick.getCategory()) {
                 case "GA":
-                    stats[3] += tick.getSeats().length; 
+                    stats[2] += l;
                     break;
                 case "VIP":
-                    stats[5] += tick.getSeats().length;
+                    stats[4] += l;
                     break;
                 case "4DX":
-                    stats[7] += tick.getSeats().length;
+                    stats[6] += l;
                     break;
             }
         }
         return stats;
     }
-    
-    
+
     public static int[] fetchStats(ArrayList<Projection> projs) {
-        // {sold, total, soldGA, totalGA, soldVIP, totalVIP, sold4DX, total4DX}
+        // Stats builder for a projection list
         int[] totalStats = new int[8];
-        for (Projection p: projs) {
+        // {sold, total, soldGA, totalGA, soldVIP, totalVIP, sold4DX, total4DX}
+        for (Projection p : projs) {
             int[] stats = fetchStats(p);
             for (int i = 0; i < totalStats.length; i++) {
                 totalStats[i] += stats[i];
@@ -277,19 +272,38 @@ public class ManageProjection {
         return totalStats;
     }
 
-    public static String formatStats(int[] stats) {
-        return "";
-
-    }
-
     public static String getReport(ArrayList<Projection> filteredProj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // Report of a projection list
+        String projList = "";
+        for (Projection proj : filteredProj) {
+            projList += "\n" + proj;
+        }
+        return "\nSALES REPORT:\n"
+                + filteredProj.size() + " projections selected \n"
+                + projList + "\n"
+                + formatStats(fetchStats(filteredProj));
     }
 
     public static String getReport(Projection proj) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        int[] stats = fetchStats(proj);
-        return "\nSINGLE PROJECTION REPORT:\n\n" + formatStats(stats);
+        // Report of a projection
+        return "\nSINGLE PROJECTION REPORT:\n"
+                + proj + "\n"
+                + formatStats(fetchStats(proj));
+    }
+
+    public static String formatStats(int[] stats) {
+        // Statistics string printer
+        System.out.println(Arrays.toString(stats));
+        return "SOLD SEATS: " + (stats[1] == 0 ? "N/A" : trim(100.0 * stats[0] / stats[1]) + "%" + "\n"
+                + "GA : " + (stats[3] == 0 ? "N/A" : trim(100.0 * stats[2] / stats[3]) + "%") + "\n"
+                + "VIP: " + (stats[5] == 0 ? "N/A" : trim(100.0 * stats[4] / stats[5]) + "%") + "\n"
+                + "4DX: " + (stats[7] == 0 ? "N/A" : trim(100.0 * stats[6] / stats[7]) + "%") + "\n");
+
+    }
+
+    public static double trim(double value) {
+        // Trim to two decimal places
+        return ((double) ((int) (value * 100.0))) / 100.0;
     }
 
 }

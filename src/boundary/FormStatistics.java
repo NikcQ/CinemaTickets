@@ -46,10 +46,10 @@ public class FormStatistics extends javax.swing.JPanel {
         projectionCBX = new javax.swing.JComboBox<>();
         generateBTN = new javax.swing.JButton();
         filterbymovieBTN = new javax.swing.JButton();
-        selectBTN = new javax.swing.JToggleButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         endTXT = new javax.swing.JTextField();
+        singleReportBTN = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(650, 400));
 
@@ -91,16 +91,16 @@ public class FormStatistics extends javax.swing.JPanel {
             }
         });
 
-        selectBTN.setText("Single Projection Report");
-        selectBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectBTNActionPerformed(evt);
-            }
-        });
-
         jLabel3.setText("Start date:");
 
         jLabel4.setText("End date:");
+
+        singleReportBTN.setText("Single Projection Report");
+        singleReportBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                singleReportBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -137,7 +137,7 @@ public class FormStatistics extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(filterbymovieBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(selectBTN, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                            .addComponent(singleReportBTN, javax.swing.GroupLayout.Alignment.TRAILING)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +165,7 @@ public class FormStatistics extends javax.swing.JPanel {
                     .addComponent(projectionCBX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(selectBTN)
+                .addComponent(singleReportBTN)
                 .addContainerGap(68, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -206,14 +206,6 @@ public class FormStatistics extends javax.swing.JPanel {
         System.out.println("Filtered by Movie.");
     }//GEN-LAST:event_filterbymovieBTNActionPerformed
 
-    private void selectBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBTNActionPerformed
-        // TODO add your handling code here:
-        if (projectionCBX.getSelectedItem() != null) {
-            //setRowCBX(ManageProjection.getProjection((String) projectionCBX.getSelectedItem()), "GA");
-            System.out.println(ManageProjection.getReport(ManageProjection.getProjection((String) projectionCBX.getSelectedItem())));
-        }
-    }//GEN-LAST:event_selectBTNActionPerformed
-
     private void generateBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateBTNActionPerformed
         // TODO add your handling code here:
         System.out.println(ManageProjection.getReport(filteredProj));
@@ -244,6 +236,14 @@ public class FormStatistics extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_filterbydateBTNActionPerformed
 
+    private void singleReportBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singleReportBTNActionPerformed
+        // TODO add your handling code here:
+        if (projectionCBX.getSelectedItem() != null) {
+            //setRowCBX(ManageProjection.getProjection((String) projectionCBX.getSelectedItem()), "GA");
+            System.out.println(ManageProjection.getReport(ManageProjection.getProjection((String) projectionCBX.getSelectedItem())));
+        }
+    }//GEN-LAST:event_singleReportBTNActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField endTXT;
@@ -257,7 +257,7 @@ public class FormStatistics extends javax.swing.JPanel {
     private javax.swing.JButton loadBTN;
     private javax.swing.JComboBox<String> movieCBX;
     private javax.swing.JComboBox<String> projectionCBX;
-    private javax.swing.JToggleButton selectBTN;
+    private javax.swing.JButton singleReportBTN;
     private javax.swing.JTextField startTXT;
     // End of variables declaration//GEN-END:variables
 }

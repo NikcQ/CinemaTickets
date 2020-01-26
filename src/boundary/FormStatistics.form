@@ -60,7 +60,7 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="filterbymovieBTN" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="selectBTN" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="singleReportBTN" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -98,7 +98,7 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="selectBTN" min="-2" max="-2" attributes="0"/>
+              <Component id="singleReportBTN" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="68" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -172,14 +172,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="filterbymovieBTNActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="selectBTN">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Single Projection Report"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selectBTNActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Start date:"/>
@@ -191,6 +183,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="endTXT">
+    </Component>
+    <Component class="javax.swing.JButton" name="singleReportBTN">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Single Projection Report"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="singleReportBTNActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
