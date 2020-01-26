@@ -6,9 +6,11 @@
 package control;
 
 import DAO.ProjectionDAO;
+import DAO.TicketDAO;
 import entity.Movie;
 import entity.Projection;
 import entity.Screen;
+import entity.Ticket;
 //import entity.Theater;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -80,6 +82,19 @@ public class ManageProjection {
         }
 
         return sameDate;
+    }
+
+    public static ArrayList<Projection> filterProjectionsByDate(ArrayList<Projection> theProjections, LocalDate start, LocalDate end) {
+        ArrayList<Projection> validDate = new ArrayList<Projection>();
+        for (Projection p : theProjections) {
+            if (p.getDate().isEqual(start)
+                    || (p.getDate().isAfter(start) && p.getDate().isBefore(end))
+                    || p.getDate().isEqual(end)) {
+                validDate.add(p);
+            }
+        }
+
+        return validDate;
     }
 
     public static ArrayList<Projection> filterProjectionsByTitle(ArrayList<Projection> theProjections, String title) {
@@ -220,20 +235,61 @@ public class ManageProjection {
         }
         return true;
     }
+
+    public static int[] fetchStats(Projection proj) {
+        // {sold, total, soldGA, totalGA, soldVIP, totalVIP, sold4DX, total4DX}
+        int[] stats = new int[8];
+
+        Screen s = proj.getScreen();
+        stats[3] = s.getColGA() * s.getRowGA();
+        stats[5] = s.getColVIP() * s.getRowVIP();
+        stats[7] = s.getCol4DX() * s.getRow4DX();
+        stats[1] = stats[3] + stats[5] + stats[7];
+        
+
+        ArrayList<Ticket> tix = TicketDAO.readByProjection(proj);
+        for (Ticket tick : tix) {
+            switch (tick.getCategory()) {
+                case "GA":
+                    stats[3] += tick.getSeats().length; 
+                    break;
+                case "VIP":
+                    stats[5] += tick.getSeats().length;
+                    break;
+                case "4DX":
+                    stats[7] += tick.getSeats().length;
+                    break;
+            }
+        }
+        return stats;
+    }
     
+    
+    public static int[] fetchStats(ArrayList<Projection> projs) {
+        // {sold, total, soldGA, totalGA, soldVIP, totalVIP, sold4DX, total4DX}
+        int[] totalStats = new int[8];
+        for (Projection p: projs) {
+            int[] stats = fetchStats(p);
+            for (int i = 0; i < totalStats.length; i++) {
+                totalStats[i] += stats[i];
+            }
+        }
+        return totalStats;
+    }
+
+    public static String formatStats(int[] stats) {
+        return "";
+
+    }
+
     public static String getReport(ArrayList<Projection> filteredProj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     public static String getReport(Projection proj) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        Screen s = proj.getScreen();
-        int total = 0;
-        int sold = 0;
-        int empty = 0;
-        //System.out.println(proj);
-        
-        return "The projection was sold ";
+        int[] stats = fetchStats(proj);
+        return "\nSINGLE PROJECTION REPORT:\n\n" + formatStats(stats);
     }
 
 }
