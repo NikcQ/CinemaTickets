@@ -19,10 +19,7 @@ import javax.persistence.Query;
  *
  * @author Home
  */
-public class ScreenDAO {
-
-    private ScreenDAO() {
-    }
+public final class ScreenDAO {
 
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
 
@@ -118,6 +115,9 @@ public class ScreenDAO {
             sc.close();
             return ret;
         }
+    }
+
+    private ScreenDAO() {
     }
 
 }

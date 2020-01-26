@@ -5,17 +5,6 @@
  */
 package boundary;
 
-import DAO.MovieDAO;
-import DAO.ProjectionDAO;
-import DAO.ScreenDAO;
-import DAO.TicketDAO;
-import control.CinemApp;
-import entity.Movie;
-import entity.Screen;
-//import entity.Theater;
-import java.time.LocalDate;
-import java.util.ArrayList;
-
 /**
  *
  * @author Estudiante

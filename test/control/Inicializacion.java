@@ -1,6 +1,5 @@
 // DO NOT RUN - DO NOT MODIFY
 // DEPRECATED INITIALIZATION TEST
-
 ///*
 // * To change this license header, choose License Headers in Project Properties.
 // * To change this template file, choose Tools | Templates
@@ -8,9 +7,6 @@
 // */
 package control;
 
-import DAO.MovieDAO;
-import DAO.ProjectionDAO;
-import DAO.ScreenDAO;
 //import DAO.TheaterDAO;
 import entity.Movie;
 import entity.Projection;
@@ -26,36 +22,32 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 //**
- //*
+//*
 // * @author Coordinacion
 // */
 public class Inicializacion {
-    
+
     public Inicializacion() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
+
     @Test
-    public void InitData(){
-        // NO DAO SINGLETON
-        //MovieDAO daoM = new MovieDAO();
-        //ScreenDAO daoS = new ScreenDAO();
-        //ProjectionDAO daoP = new ProjectionDAO();
-        //TheaterDAO daoT = new TheaterDAO();
+    public void InitData() {
         ArrayList<Movie> peliculas = new ArrayList<Movie>();
         String ms = "2007-12-03";
         String[] asx = {" ", "Documentary", "Historical", "Musical", "Comedy", "Children's", "Adventure/Action", "Science Fiction", "Thriller"};
@@ -63,7 +55,7 @@ public class Inicializacion {
         Movie a = new Movie();
         Movie b = new Movie();
         Movie c = new Movie();
-        
+
         c.setTitle("asdf");
         c.setRuntime(3);
         c.setRating("ASD");
@@ -72,7 +64,7 @@ public class Inicializacion {
         c.setReleaseDate(LocalDate.parse(ms));
         c.setGenre(asx);
         c.setLanguages(len);
-        
+
         a.setTitle("el bromas");
         a.setRuntime(2);
         a.setRating("TP");
@@ -81,7 +73,7 @@ public class Inicializacion {
         a.setReleaseDate(LocalDate.parse(ms));
         a.setGenre(asx);
         a.setLanguages(len);
-        
+
         b.setTitle("asd");
         b.setRuntime(2);
         b.setRating("TP");
@@ -90,13 +82,13 @@ public class Inicializacion {
         b.setReleaseDate(LocalDate.parse(ms));
         b.setGenre(asx);
         c.setLanguages(len);
-        
+
         peliculas.add(a);
         peliculas.add(b);
         peliculas.add(c);
         //cinemapp.setListings(peliculas);
-        for (Movie i:peliculas) {
-            MovieDAO.create(i);
+        for (Movie i : peliculas) {
+            CinemApp.cMovie(i);
         }
         ArrayList<Screen> screen = new ArrayList<Screen>();
         Screen d = new Screen();
@@ -110,7 +102,7 @@ public class Inicializacion {
         d.setName("1");
         screen.add(d);
         //cinemapp.setScreens(screen);
-        ScreenDAO.create(d);
+        CinemApp.cScreen(d);
         ArrayList<Projection> projection = new ArrayList<Projection>();
         Projection e = new Projection();
         e.setMovie(a);
@@ -120,7 +112,7 @@ public class Inicializacion {
         e.setIs3D(true);
         e.setIs4D(false);
         projection.add(e);
-        ProjectionDAO.create(e);
+        CinemApp.cProjection(e);
 //        ArrayList<Theater> theater = new ArrayList<Theater>();
 //        Theater t = new Theater();
 //        t.setProjections(projection);
@@ -128,8 +120,8 @@ public class Inicializacion {
 //        t.setTheatreName("teatro_1");
 //        theater.add(t);
 //        daoT.create(t);
-   }
- //TODO add test methods here.
- //The methods must be annotated with annotation @Test. For example:
+    }
+    //TODO add test methods here.
+    //The methods must be annotated with annotation @Test. For example:
 
 }

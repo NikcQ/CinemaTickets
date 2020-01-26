@@ -20,7 +20,6 @@ import java.time.LocalDate;
  */
 public class TestMovie {
 
-    private static ManageMovie managemovie = new ManageMovie();
     private String NO_HAY_TITULO = "Titulo invalido";
     private String DURACION_INVALIDA = "Duracion invalida";
     private String NO_HAY_RATING = "No hay rating";
@@ -56,43 +55,43 @@ public class TestMovie {
     @Test
     public void testTitulo() {
         assertEquals(ManageMovie.verifyMovie("", 20, MOVIE_RATING[0], true, true, LocalDate.now(), asx, len), NO_HAY_TITULO);
-        assertEquals(managemovie.verifyMovie("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", 20, MOVIE_RATING[0], true, true, LocalDate.now(), asx, len), NO_HAY_TITULO);
+        assertEquals(ManageMovie.verifyMovie("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", 20, MOVIE_RATING[0], true, true, LocalDate.now(), asx, len), NO_HAY_TITULO);
 
     }
 
     @Test
     public void testDuracion() {
-        assertEquals(managemovie.verifyMovie("prueba", 14, MOVIE_RATING[0], true, true, LocalDate.now(), asx, len), DURACION_INVALIDA);
-        assertEquals(managemovie.verifyMovie("prueba", 481, MOVIE_RATING[0], true, true, LocalDate.now(), asx, len), DURACION_INVALIDA);
+        assertEquals(ManageMovie.verifyMovie("prueba", 14, MOVIE_RATING[0], true, true, LocalDate.now(), asx, len), DURACION_INVALIDA);
+        assertEquals(ManageMovie.verifyMovie("prueba", 481, MOVIE_RATING[0], true, true, LocalDate.now(), asx, len), DURACION_INVALIDA);
 
     }
 
     @Test
     public void testRating() {
-        assertEquals(managemovie.verifyMovie("prueba", 30, "", true, true, LocalDate.now(), asx, len), NO_HAY_RATING);
+        assertEquals(ManageMovie.verifyMovie("prueba", 30, "", true, true, LocalDate.now(), asx, len), NO_HAY_RATING);
 
     }
 
     @Test
     public void testFecha() {
-        assertEquals(managemovie.verifyMovie("prueba", 30, MOVIE_RATING[0], true, true, LocalDate.of(1979, 12, 31), asx, len), FECHA_INVALIDA);
+        assertEquals(ManageMovie.verifyMovie("prueba", 30, MOVIE_RATING[0], true, true, LocalDate.of(1979, 12, 31), asx, len), FECHA_INVALIDA);
 
     }
 
     @Test
 
     public void testGenero() {
-        assertEquals(managemovie.verifyMovie("prueba", 30, MOVIE_RATING[0], true, true, LocalDate.now(), prueba, len), NO_HAY_GENERO);
+        assertEquals(ManageMovie.verifyMovie("prueba", 30, MOVIE_RATING[0], true, true, LocalDate.now(), prueba, len), NO_HAY_GENERO);
     }
 
     @Test
 
     public void testLenguajes() {
-        assertEquals(managemovie.verifyMovie("prueba", 30, MOVIE_RATING[0], true, true, LocalDate.now(), asx, prueba), NO_HAY_LENGUAJES);
+        assertEquals(ManageMovie.verifyMovie("prueba", 30, MOVIE_RATING[0], true, true, LocalDate.now(), asx, prueba), NO_HAY_LENGUAJES);
     }
 
     @Test
     public void testOk() {
-        assertEquals(managemovie.verifyMovie("prueba", 30, MOVIE_RATING[0], true, true, LocalDate.now(), asx, len), MOVIE_SUCCESS);
+        assertEquals(ManageMovie.verifyMovie("prueba", 30, MOVIE_RATING[0], true, true, LocalDate.now(), asx, len), MOVIE_SUCCESS);
     }
 }

@@ -5,17 +5,13 @@
  */
 package control;
 
-import DAO.ProjectionDAO;
-import DAO.TicketDAO;
 import entity.Movie;
 import entity.Projection;
 import entity.Screen;
 import entity.Ticket;
-//import entity.Theater;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  *
@@ -192,9 +188,7 @@ public class ManageProjection {
         if (!checkScreen(proj)) {
             return "This kind of projection is not allowed on this screen";
         }
-        //mainFrame.cinemapp.getCinema().addProjection(proj);
-        //ProjectionDAO pdao = new ProjectionDAO();
-        ProjectionDAO.create(proj);
+        CinemApp.cProjection(proj);
         return PROJECTION_SUCCESS;
     }
 
@@ -240,7 +234,7 @@ public class ManageProjection {
         stats[7] = s.getCol4DX() * s.getRow4DX();
         stats[1] = stats[3] + stats[5] + stats[7];
 
-        ArrayList<Ticket> tix = TicketDAO.readByProjection(proj);
+        ArrayList<Ticket> tix = CinemApp.rTicket(proj);
         for (Ticket tick : tix) {
             int l = tick.getSeats().length;
             stats[0] += l;

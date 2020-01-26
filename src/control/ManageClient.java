@@ -1,7 +1,5 @@
 package control;
 
-import DAO.ClientDAO;
-import DAO.ProjectionDAO;
 import entity.Client;
 import java.time.LocalDate;
 
@@ -11,9 +9,9 @@ import java.time.LocalDate;
  */
 public class ManageClient {
 
-    public static String verifyClient(String name, String lastName, LocalDate birthDate,String ic,  String phone, String mail, String address) {
+    public static String verifyClient(String name, String lastName, LocalDate birthDate, String ic, String phone, String mail, String address) {
 
-        Client newClient = new Client(name, lastName,birthDate, ic,  phone, mail, address);
+        Client newClient = new Client(name, lastName, birthDate, ic, phone, mail, address);
 
         if (name.length() > 35 || name.length() < 2 || name.isEmpty()) {
             return "Invalid Name";
@@ -21,7 +19,7 @@ public class ManageClient {
         if (lastName.length() > 35 || lastName.length() < 2 || lastName.isEmpty()) {
             return "Invalid Lastname";
         }
-        if (checkExistingId(ic)){
+        if (checkExistingId(ic)) {
             return "existing user";
         }
 
@@ -42,28 +40,28 @@ public class ManageClient {
         }
 
         //ClientDAO cdao = new ClientDAO();
-        ClientDAO.create(newClient);
+        CinemApp.cClient(newClient);
         return "Client successfully registered.";
     }
 
     //Metodo que agrega el puntaje al cliente
     public static void addScore(String ic, int points) {
-        Client c = ClientDAO.read(ic);
-        Client d = ClientDAO.read(ic);
+        Client c = CinemApp.rClient(ic);
+        Client d = CinemApp.rClient(ic);
         d.setScoreBalance(c.getScoreBalance() + points);
-        ClientDAO.update(c, d);
+        CinemApp.uClient(c, d);
     }
-    
+
     // Check if client has enough points
     public static boolean checkScore(String ic, int points) {
-        return ClientDAO.read(ic).getScoreBalance() >= points ? true : false;
+        return CinemApp.rClient(ic).getScoreBalance() >= points ? true : false;
     }
 
     // Función que verifica si el cliente existe
-    private static boolean checkExistingId( String ic) {
-        Client a = ClientDAO.read(ic);
-        if (a==null){
-        return false;
+    private static boolean checkExistingId(String ic) {
+        Client a = CinemApp.rClient(ic);
+        if (a == null) {
+            return false;
         }
         return true;
     }

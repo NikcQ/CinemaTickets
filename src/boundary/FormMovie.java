@@ -4,25 +4,29 @@
  * and open the template in the editor.
  */
 package boundary;
+
 import control.ManageMovie;
 import entity.Movie;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Coordinacion
  */
 public class FormMovie extends javax.swing.JPanel {
-Movie movie1=new Movie();
+
+    Movie movie1 = new Movie();
     ArrayList lenguajes = new ArrayList();
-            ArrayList genero = new ArrayList();
+    ArrayList genero = new ArrayList();
+
     /**
      * Creates new form FormMoviebueno
      */
     public FormMovie() {
         initComponents();
-        
+
         String[] arr = Movie.getMOVIE_GENRE();
         for (int i = 0; i < arr.length; i++) {
             listGeneros.addItem(arr[i]);
@@ -232,74 +236,59 @@ Movie movie1=new Movie();
         // TODO add your handling code here:
     }//GEN-LAST:event_fechaActionPerformed
 
-    private void crearActionPerformed(java.awt.event.ActionEvent evt) {                                      
+    private void crearActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here://GEN-FIRST:event_crearActionPerformed
 
 //        movie1.setTitle(titulo.getText());
-        
-        String tituloo=titulo.getText();
-        
+        String tituloo = titulo.getText();
+
 //        movie1.setRuntime(Integer.parseInt(jTextField1.getText()));
-        
-        int runtimee=Integer.parseInt(jTextField1.getText());
-        
+        int runtimee = Integer.parseInt(jTextField1.getText());
+
 //        movie1.setRating((String) ratingList.getSelectedItem());
-        
-        String rating=(String) ratingList.getSelectedItem();
-        
+        String rating = (String) ratingList.getSelectedItem();
+
 //        movie1.setIs3D(is3d.isSelected());
-        
-        boolean iS3d=is3d.isSelected();
-                boolean iS4d=is4d.isSelected();
+        boolean iS3d = is3d.isSelected();
+        boolean iS4d = is4d.isSelected();
 
 //        movie1.setIs4D(is4d.isSelected());
-        
         String f = fecha.getText();
-        
-        LocalDate dat=LocalDate.parse(f);
-        
-        ManageMovie Mov = new ManageMovie();
+
+        LocalDate dat = LocalDate.parse(f);
+
         System.out.println("-----------");
-        String resultadoReg = Mov.verifyMovie(tituloo, runtimee, rating, iS3d, iS4d, dat,Mov.arrayToList(genero),Mov.arrayToList(lenguajes));
-        
-        
+        String resultadoReg = ManageMovie.verifyMovie(tituloo, runtimee, rating, iS3d, iS4d, dat, ManageMovie.arrayToList(genero), ManageMovie.arrayToList(lenguajes));
+
         System.out.println(resultadoReg);
         //cinemapp.setListings(movieDAO.readTable());
-        Mov.printUsers();
-        if (resultadoReg=="Registro Correcto") {
+        ManageMovie.printUsers();
+        if (resultadoReg == "Registro Correcto") {
             JOptionPane.showMessageDialog(null, "Ok", "Usuario creado correctamente", JOptionPane.INFORMATION_MESSAGE);
         }
-       
-
-      
 
         titulo.setText(null);
 
         genero.clear();
         jLabel6.setText(null);
 
-
         jTextField1.setText(null);
-
 
         lenguajes.clear();
         jLabel7.setText(null);
-
 
         fecha.setText(null);
         is3d.setSelected(false);
         is4d.setSelected(false);
 
 
-    
     }//GEN-LAST:event_crearActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here://GEN-FIRST:event_jButton1ActionPerformed
-        
 
         lenguajes.add(lenguajesList.getSelectedItem());
-       String[] array = (String[]) lenguajes.toArray(new String[lenguajes.size()]);
+        String[] array = (String[]) lenguajes.toArray(new String[lenguajes.size()]);
         movie1.setLanguages(array);
         String[] array3 = movie1.getLanguages();
 
@@ -309,9 +298,9 @@ Movie movie1=new Movie();
         }
         String cad = cadena.toString();
         jLabel7.setText(cad);
-                String[] lenguaje = (String[]) lenguajes.toArray(new String[lenguajes.size()]);
+        String[] lenguaje = (String[]) lenguajes.toArray(new String[lenguajes.size()]);
         movie1.setLanguages(lenguaje);
-    
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ratingListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ratingListActionPerformed
@@ -320,9 +309,8 @@ Movie movie1=new Movie();
         movie1.setRating(arr);
     }//GEN-LAST:event_ratingListActionPerformed
 
-    private void añadirActionPerformed(java.awt.event.ActionEvent evt) {                                       
+    private void añadirActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here://GEN-FIRST:event_añadirActionPerformed
-
 
         genero.add(listGeneros.getSelectedItem());
 
@@ -335,9 +323,9 @@ Movie movie1=new Movie();
         String cad = cadena.toString();
         jLabel6.setText(cad);
         System.out.println(cadena);
-                String[] gene = (String[]) genero.toArray(new String[genero.size()]);
+        String[] gene = (String[]) genero.toArray(new String[genero.size()]);
         movie1.setGenre(gene);
-    
+
     }//GEN-LAST:event_añadirActionPerformed
 
 

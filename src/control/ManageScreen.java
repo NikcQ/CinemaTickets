@@ -4,17 +4,13 @@ package control;
  *
  * @author NikcQ
  */
-import DAO.ScreenDAO;
 import entity.Screen;
 //import entity.Theater;
 import java.util.ArrayList;
 
 public class ManageScreen {
 
-    //private static CinemApp cinemapp = mainFrame.cinemapp;
-    //private static Theater teatro = mainFrame.cinemapp.getCinema();
-    //private static final ScreenDAO screenDAO = mainFrame.screenDAO;
-
+    
     // Control Strings
     private static final String EMPTY_SCREEN_NAME = "The screen name must not be blank.";
     private static final String BLOCK_DIMS = "Both dimensions of a block must be positive or zero.";
@@ -43,7 +39,7 @@ public class ManageScreen {
                 }
             }
             //teatro.addScreen(s);
-            ScreenDAO.create(s);
+            CinemApp.cScreen(s);
             return SCREEN_SUCCESS;
         } else {
             return EMPTY_SCREEN_NAME;

@@ -5,7 +5,6 @@
  */
 package control;
 
-import DAO.MovieDAO;
 import entity.Movie;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,16 +13,7 @@ import java.util.ArrayList;
  *
  * @author user
  */
-public class ManageMovie {
-
-    //private static CinemApp cinemapp = mainFrame.cinemapp;
-    //private static MovieDAO pelicula = mainFrame.movieDAO;
-    public ArrayList<Movie> movies = new ArrayList<Movie>();
-    String[] asx = {" ", "Documentary", "Historical", "Musical", "Comedy", "Children's", "Adventure/Action", "Science Fiction", "Thriller"};
-    String[] len = {" ", "English", "Spanish", "French", "Portuguese", "German", "Doblada"};
-
-    public ManageMovie() {
-    }
+public abstract class ManageMovie {
 
     public static String verifyMovie(String title, int runtime, String rating, boolean is3D, boolean is4D, LocalDate date, String[] genre, String[] languages) {
 
@@ -50,12 +40,12 @@ public class ManageMovie {
 
 //        cinemapp.addMovie(nuevo);
 //        printUsers();
-        MovieDAO.create(nuevo);
+        CinemApp.cMovie(nuevo);
         return ("Registro Correcto");
 
     }
 
-    public void printUsers() {
+    public static void printUsers() {
         for (Movie movie : CinemApp.getListings()) {
             System.out.println(movie.getTitle());
             System.out.println("---------------");
@@ -63,7 +53,7 @@ public class ManageMovie {
 
     }
 
-    public String[] arrayToList(ArrayList list) {
+    public static String[] arrayToList(ArrayList list) {
         String[] array = (String[]) list.toArray(new String[list.size()]);
         return array;
     }

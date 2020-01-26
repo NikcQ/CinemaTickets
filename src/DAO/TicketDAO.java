@@ -15,9 +15,6 @@ import javax.persistence.Query;
  */
 public final class TicketDAO {
 
-    private TicketDAO() {
-    }
-
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
 
     public static void create(Ticket ticket) {
@@ -68,6 +65,43 @@ public final class TicketDAO {
         }
     }
 
+    public static ArrayList<Ticket> read(Projection proj) {
+        EntityManager mo = efm.createEntityManager();
+        mo.getTransaction().begin();
+        List<Ticket> listOfTickets = new ArrayList<Ticket>();
+        ArrayList<Ticket> listofTix = new ArrayList<Ticket>();
+        Query q = mo.createQuery("SELECT t FROM Ticket t " + "WHERE t.projection = :p").setParameter("p", proj);
+        try {
+            listOfTickets = (List<Ticket>) q.getResultList();
+            listofTix = new ArrayList<Ticket>(listOfTickets);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            mo.close();
+            return listofTix;
+        }
+    }
+
+    /*
+    public boolean update(Ticket ticket,Ticket neoticket){
+    EntityManager pr = efm.createEntityManager();
+    pr.getTransaction().begin();
+    boolean ret = false;
+    try{
+    ticket = read(neoticket);
+    ticket.setMovie(neoticket.getMovie());
+    ticket.setScreen(neoticket.getScreen());
+    pr.merge(ticket);
+    pr.getTransaction().commit();
+    ret = true;
+    }catch(Exception e){
+    e.printStackTrace();
+    pr.getTransaction().rollback();
+    }finally{
+    pr.close();
+    return ret;
+    }
+    }*/
     public static ArrayList<Ticket> readTable() {
         EntityManager mo = efm.createEntityManager();
         mo.getTransaction().begin();
@@ -84,42 +118,7 @@ public final class TicketDAO {
             return listofTix;
         }
     }
-    
-    public static ArrayList<Ticket> readByProjection(Projection proj) {
-        EntityManager mo = efm.createEntityManager();
-        mo.getTransaction().begin();
-        List<Ticket> listOfTickets = new ArrayList<Ticket>();
-        ArrayList<Ticket> listofTix = new ArrayList<Ticket>();
-        Query q = mo.createQuery("SELECT t FROM Ticket t "+"WHERE t.projection = :p").setParameter("p", proj);
-        try {
-            listOfTickets = (List<Ticket>) q.getResultList();
-            listofTix = new ArrayList<Ticket>(listOfTickets);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            mo.close();
-            return listofTix;
-        }
-    }
 
-    /*
-    public boolean update(Ticket ticket,Ticket neoticket){
-        EntityManager pr = efm.createEntityManager();
-        pr.getTransaction().begin();
-        boolean ret = false;
-        try{
-            ticket = read(neoticket);
-            ticket.setMovie(neoticket.getMovie());
-            ticket.setScreen(neoticket.getScreen());
-            pr.merge(ticket);
-            pr.getTransaction().commit();
-            ret = true;
-        }catch(Exception e){
-            e.printStackTrace();
-            pr.getTransaction().rollback();
-        }finally{
-            pr.close();
-            return ret;
-        }
-    }*/
+    private TicketDAO() {
+    }
 }

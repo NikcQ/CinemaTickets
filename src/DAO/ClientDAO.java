@@ -13,10 +13,7 @@ import javax.persistence.Query;
  *
  * @author Edisson
  */
-public class ClientDAO {
-
-    private ClientDAO() {
-    }
+public final class ClientDAO {
 
     private static EntityManagerFactory efm = Persistence.createEntityManagerFactory("CinemAppPU");
 
@@ -121,6 +118,9 @@ public class ClientDAO {
             mo.close();
             return ret;
         }
+    }
+
+    private ClientDAO() {
     }
 
 }
