@@ -273,10 +273,13 @@ public class ManageProjection {
     }
 
     public static String getReport(ArrayList<Projection> filteredProj) {
+        if(filteredProj.size() == 1){
+            return getReport(filteredProj.get(0));
+        }
         // Report of a projection list
         String projList = "";
         for (Projection proj : filteredProj) {
-            projList += "\n" + proj;
+            projList += proj + "\n";
         }
         return "\nSALES REPORT:\n"
                 + filteredProj.size() + " projections selected \n"
@@ -293,11 +296,15 @@ public class ManageProjection {
 
     public static String formatStats(int[] stats) {
         // Statistics string printer
-        System.out.println(Arrays.toString(stats));
-        return "SOLD SEATS: " + (stats[1] == 0 ? "N/A" : trim(100.0 * stats[0] / stats[1]) + "%" + "\n"
-                + "GA : " + (stats[3] == 0 ? "N/A" : trim(100.0 * stats[2] / stats[3]) + "%") + "\n"
-                + "VIP: " + (stats[5] == 0 ? "N/A" : trim(100.0 * stats[4] / stats[5]) + "%") + "\n"
-                + "4DX: " + (stats[7] == 0 ? "N/A" : trim(100.0 * stats[6] / stats[7]) + "%") + "\n");
+        //System.out.println(Arrays.toString(stats));
+        return "SOLD SEATS: " + (stats[1] == 0 ? "N/A"
+                : trim(100.0 * stats[0] / stats[1]) + "%" + " (" + stats[0] + "/" + stats[1] + ")" + "\n"
+                + "GA : " + (stats[3] == 0 ? "N/A"
+                        : trim(100.0 * stats[2] / stats[3]) + "%" + " (" + stats[2] + "/" + stats[3] + ")") + "\n"
+                + "VIP: " + (stats[5] == 0 ? "N/A"
+                        : trim(100.0 * stats[4] / stats[5]) + "%" + " (" + stats[4] + "/" + stats[5] + ")") + "\n"
+                + "4DX: " + (stats[7] == 0 ? "N/A"
+                        : trim(100.0 * stats[6] / stats[7]) + "%" + " (" + stats[6] + "/" + stats[7] + ")") + "\n");
 
     }
 

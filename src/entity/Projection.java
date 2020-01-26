@@ -138,7 +138,7 @@ public class Projection implements Serializable {
 
     @Override
     public String toString() {
-        return "Projection{" + "movie=" + movie.getId() + ", screen=" + screen.getId() + ", date=" + date + ", time=" + time + ", is3D=" + is3D + ", is4D=" + is4D + ", id=" + id + '}';
+        return "Projection{" + "movie=" + movie.getTitle()+ ", screen=" + screen.getName()+ ", date=" + date + ", time=" + time + ", is3D=" + is3D + ", is4D=" + is4D + ", id=" + id + '}';
     }
 
     public String getDescription(boolean withDate) {
