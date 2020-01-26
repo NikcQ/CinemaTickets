@@ -261,7 +261,6 @@ public class FormMovie extends javax.swing.JPanel {
         String resultadoReg = ManageMovie.verifyMovie(tituloo, runtimee, rating, iS3d, iS4d, dat, ManageMovie.arrayToList(genero), ManageMovie.arrayToList(lenguajes));
 
         System.out.println(resultadoReg);
-        //cinemapp.setListings(movieDAO.readTable());
         ManageMovie.printUsers();
         if (resultadoReg == "Registro Correcto") {
             JOptionPane.showMessageDialog(null, "Ok", "Usuario creado correctamente", JOptionPane.INFORMATION_MESSAGE);

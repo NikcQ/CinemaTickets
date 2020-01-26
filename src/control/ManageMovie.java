@@ -13,7 +13,29 @@ import java.util.ArrayList;
  *
  * @author user
  */
-public abstract class ManageMovie {
+public final class ManageMovie {
+
+    public static String[] arrayToList(ArrayList list) {
+        String[] array = (String[]) list.toArray(new String[list.size()]);
+        return array;
+    }
+
+    public static ArrayList<String> getMovieTitles() {
+        ArrayList<Movie> list = CinemApp.getListings();
+        ArrayList<String> titles = new ArrayList<String>();
+        for (Movie m : list) {
+            titles.add(m.getTitle());
+        }
+        return titles;
+    }
+
+    public static void printUsers() {
+        for (Movie movie : CinemApp.getListings()) {
+            System.out.println(movie.getTitle());
+            System.out.println("---------------");
+        }
+
+    }
 
     public static String verifyMovie(String title, int runtime, String rating, boolean is3D, boolean is4D, LocalDate date, String[] genre, String[] languages) {
 
@@ -45,26 +67,7 @@ public abstract class ManageMovie {
 
     }
 
-    public static void printUsers() {
-        for (Movie movie : CinemApp.getListings()) {
-            System.out.println(movie.getTitle());
-            System.out.println("---------------");
-        }
-
-    }
-
-    public static String[] arrayToList(ArrayList list) {
-        String[] array = (String[]) list.toArray(new String[list.size()]);
-        return array;
-    }
-
-    public static ArrayList<String> getMovieTitles() {
-        ArrayList<Movie> list = CinemApp.getListings();
-        ArrayList<String> titles = new ArrayList<String>();
-        for (Movie m : list) {
-            titles.add(m.getTitle());
-        }
-        return titles;
+    private ManageMovie() {
     }
 
 }

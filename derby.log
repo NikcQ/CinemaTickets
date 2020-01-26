@@ -12,3 +12,9 @@ os.arch=x86_64
 os.version=10.14.6
 derby.system.home=/Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sun Jan 26 04:12:14 COT 2020: Shutting down Derby engine
+----------------------------------------------------------------
+Sun Jan 26 04:12:14 COT 2020:
+Shutting down instance a816c00e-016f-e098-583d-00003cb073c0 on database directory /Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets/cinemappDB_JPA with class loader sun.misc.Launcher$AppClassLoader@66d3c617 
+----------------------------------------------------------------

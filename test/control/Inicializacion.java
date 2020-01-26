@@ -7,11 +7,10 @@
 // */
 package control;
 
-//import DAO.TheaterDAO;
 import entity.Movie;
 import entity.Projection;
 import entity.Screen;
-//import entity.Theater;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -119,7 +118,7 @@ public class Inicializacion {
 //        t.setScreens(screen);
 //        t.setTheatreName("teatro_1");
 //        theater.add(t);
-//        daoT.create(t);
+
     }
     //TODO add test methods here.
     //The methods must be annotated with annotation @Test. For example:

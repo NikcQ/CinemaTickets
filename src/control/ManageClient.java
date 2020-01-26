@@ -7,7 +7,35 @@ import java.time.LocalDate;
  *
  * @author Edisson
  */
-public class ManageClient {
+public final class ManageClient {
+
+    //Metodo que agrega el puntaje al cliente
+    public static void addScore(String ic, int points) {
+        Client c = CinemApp.rClient(ic);
+        Client d = CinemApp.rClient(ic);
+        d.setScoreBalance(c.getScoreBalance() + points);
+        CinemApp.uClient(c, d);
+    }
+
+    // Función que verifica si el cliente existe
+    private static boolean checkExistingId(String ic) {
+        Client a = CinemApp.rClient(ic);
+        if (a == null) {
+            return false;
+        }
+        return true;
+    }
+
+    //Metodo que verifica si se debe ascender de categoria el cliente
+    // Check if client has enough points
+    public static boolean checkScore(String ic, int points) {
+        return CinemApp.rClient(ic).getScoreBalance() >= points ? true : false;
+    }
+
+    public static boolean upgrade(int points, char m) {
+
+        return false;
+    }
 
     public static String verifyClient(String name, String lastName, LocalDate birthDate, String ic, String phone, String mail, String address) {
 
@@ -39,37 +67,11 @@ public class ManageClient {
             return "Invalid address length";
         }
 
-        //ClientDAO cdao = new ClientDAO();
         CinemApp.cClient(newClient);
         return "Client successfully registered.";
     }
 
-    //Metodo que agrega el puntaje al cliente
-    public static void addScore(String ic, int points) {
-        Client c = CinemApp.rClient(ic);
-        Client d = CinemApp.rClient(ic);
-        d.setScoreBalance(c.getScoreBalance() + points);
-        CinemApp.uClient(c, d);
-    }
-
-    // Check if client has enough points
-    public static boolean checkScore(String ic, int points) {
-        return CinemApp.rClient(ic).getScoreBalance() >= points ? true : false;
-    }
-
-    // Función que verifica si el cliente existe
-    private static boolean checkExistingId(String ic) {
-        Client a = CinemApp.rClient(ic);
-        if (a == null) {
-            return false;
-        }
-        return true;
-    }
-    //Metodo que verifica si se debe ascender de categoria el cliente
-
-    public static boolean upgrade(int points, char m) {
-
-        return false;
+    private ManageClient() {
     }
 
 }

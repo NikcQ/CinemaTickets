@@ -5,18 +5,45 @@ package control;
  * @author NikcQ
  */
 import entity.Screen;
-//import entity.Theater;
 import java.util.ArrayList;
 
-public class ManageScreen {
+public final class ManageScreen {
 
-    
+    private static final String BLOCK_DIMS = "Both dimensions of a block must be positive or zero.";
+    private static final String BLOCK_DIMS_4DX = "A 4DX screen must have a valid 4DX seat block.";
+    private static final String BLOCK_DIMS_GAVIP = "A screen must have a valid seat block.";
     // Control Strings
     private static final String EMPTY_SCREEN_NAME = "The screen name must not be blank.";
-    private static final String BLOCK_DIMS = "Both dimensions of a block must be positive or zero.";
-    private static final String BLOCK_DIMS_GAVIP = "A screen must have a valid seat block.";
-    private static final String BLOCK_DIMS_4DX = "A 4DX screen must have a valid 4DX seat block.";
     private static final String SCREEN_SUCCESS = "The screen was registered successfully.";
+
+    public static boolean checkPositiveDim(int row, int col) {
+        return (col > 0 && row > 0);
+    }
+
+    public static boolean checkScreenName(String name) {
+        return name.isEmpty() ? false : true;
+    }
+
+    public static boolean checkValidDim(int row, int col) {
+        return (col > 0 && row > 0 || col == 0 && row == 0);
+    }
+
+    public static ArrayList<String> getScreenNames() {
+        ArrayList<Screen> list = CinemApp.getScreens();
+        ArrayList<String> names = new ArrayList<>();
+        for (Screen s : list) {
+            names.add(s.getName());
+        }
+        return names;
+    }
+
+    public static void printScreen() {
+        for (Screen screen : CinemApp.getScreens()) {
+            System.out.println(screen.getName());
+            System.out.println("---------------");
+        }
+
+    }
 
     public static String verifyScreen(String name, boolean is4D, int rowGA, int colGA, int rowVIP, int colVIP, int row4DX, int col4DX, boolean is3D) {
         Screen s;
@@ -47,36 +74,7 @@ public class ManageScreen {
 
     }
 
-    public ManageScreen() {
-    }
-
-    public static boolean checkValidDim(int row, int col) {
-        return (col > 0 && row > 0 || col == 0 && row == 0);
-    }
-
-    public static boolean checkPositiveDim(int row, int col) {
-        return (col > 0 && row > 0);
-    }
-
-    public static boolean checkScreenName(String name) {
-        return name.isEmpty() ? false : true;
-    }
-
-    public static void printScreen() {
-        for (Screen screen : CinemApp.getScreens()) {
-            System.out.println(screen.getName());
-            System.out.println("---------------");
-        }
-
-    }
-
-    public static ArrayList<String> getScreenNames() {
-        ArrayList<Screen> list = CinemApp.getScreens();
-        ArrayList<String> names = new ArrayList<>();
-        for (Screen s : list) {
-            names.add(s.getName());
-        }
-        return names;
+    private ManageScreen() {
     }
 
 }

@@ -5,7 +5,6 @@
  */
 package DAO;
 
-import entity.Movie;
 import entity.Screen;
 import java.util.ArrayList;
 import java.util.List;

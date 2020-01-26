@@ -8,7 +8,7 @@ import java.util.Arrays;
  *
  * @author
  */
-public class ManageTicket {
+public final class ManageTicket {
 
     public static String verifySeats(Projection proj, String cat, int row, int[] seats, String cid, boolean redeem) {
         // Check for client id
@@ -72,6 +72,9 @@ public class ManageTicket {
         } else {
             return "Ticket sale failed, please try again.";
         }
+    }
+
+    private ManageTicket() {
     }
 
 }

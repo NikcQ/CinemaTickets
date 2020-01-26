@@ -16,7 +16,7 @@ import java.util.ArrayList;
  *
  * @author juanc
  */
-public class CinemApp {
+public final class CinemApp {
 
     // {PRICE_GA, PRICE_VIP, PRICE_4DX}
     private final static int[] prices2D = {10000, 12500, 15000};
@@ -73,11 +73,11 @@ public class CinemApp {
     public static Client rClient(String ic) {
         return ClientDAO.read(ic);
     }
-    
+
     public static Projection rProjection(Projection p) {
         return ProjectionDAO.read(p);
     }
-    
+
     public static ArrayList<Ticket> rTicket(Projection p) {
         return TicketDAO.read(p);
     }
@@ -85,7 +85,7 @@ public class CinemApp {
     public static boolean uClient(Client c, Client d) {
         return ClientDAO.update(c, d);
     }
-    
+
     public static boolean uProjection(Projection p, Projection q) {
         return ProjectionDAO.update(p, q);
     }
