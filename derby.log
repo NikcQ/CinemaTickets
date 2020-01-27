@@ -1,20 +1,14 @@
-Sun Jan 26 01:44:38 COT 2020 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
+Mon Jan 27 05:49:17 COT 2020 : Servidor de red Apache Derby: Se ha iniciado 10.11.1.2 - (1629631) y está listo para aceptar las conexiones en el puerto 1527
 ----------------------------------------------------------------
-Sun Jan 26 01:44:38 COT 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-016f-e098-583d-00003cb073c0 
-on database directory /Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets/cinemappDB_JPA with class loader sun.misc.Launcher$AppClassLoader@66d3c617 
-Loaded from file:/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/db/lib/derby.jar
+Mon Jan 27 05:49:17 COT 2020:
+ Iniciando instancia a816c00e-016f-e69e-b0ee-000006820875 de Derby, versión The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): 
+en el directorio de base de datos C:\Users\DNIA-B-19\Documents\NetBeansProjects\CinemaTickets\cinemappDB_JPA con el cargador de clases sun.misc.Launcher$AppClassLoader@6f94fa3e
+Cargado desde file:/C:/Program%20Files/Java/jdk1.8.0_111/db/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_111-b14
-user.dir=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/db
-os.name=Mac OS X
-os.arch=x86_64
-os.version=10.14.6
-derby.system.home=/Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets
-Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Sun Jan 26 04:12:14 COT 2020: Shutting down Derby engine
-----------------------------------------------------------------
-Sun Jan 26 04:12:14 COT 2020:
-Shutting down instance a816c00e-016f-e098-583d-00003cb073c0 on database directory /Users/juanc/Downloads/UNal/2019-3/Software/ProjectsCode/CinemaTickets/cinemappDB_JPA with class loader sun.misc.Launcher$AppClassLoader@66d3c617 
-----------------------------------------------------------------
+user.dir=C:\Program Files\Java\jdk1.8.0_111\db
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=C:\Users\DNIA-B-19\Documents\NetBeansProjects\CinemaTickets
+Cargador de clases de base de datos iniciado - derby.database.classpath=''

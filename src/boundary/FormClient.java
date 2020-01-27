@@ -46,8 +46,6 @@ public class FormClient extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        updateBTN = new javax.swing.JButton();
-        checkBTN = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(650, 400));
 
@@ -72,30 +70,10 @@ public class FormClient extends javax.swing.JPanel {
 
         jLabel9.setText("ID");
 
-        updateBTN.setText("Update Customer");
-        updateBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateBTNActionPerformed(evt);
-            }
-        });
-
-        checkBTN.setText("Check Customer");
-        checkBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBTNActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(checkBTN)
-                .addGap(26, 26, 26)
-                .addComponent(updateBTN)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -134,17 +112,12 @@ public class FormClient extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkBTN)
-                    .addComponent(updateBTN))
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(6, 6, 6)
                         .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(nameFLD, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)))
+                    .addComponent(nameFLD, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -201,20 +174,11 @@ public class FormClient extends javax.swing.JPanel {
 
     }//GEN-LAST:event_submitBTNActionPerformed
 
-    private void updateBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBTNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateBTNActionPerformed
-
-    private void checkBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBTNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkBTNActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField LnameFLD;
     private javax.swing.JTextField addressFLD;
     private javax.swing.JTextField birthDateFLD;
-    private javax.swing.JButton checkBTN;
     private javax.swing.JTextField icFLD;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -228,6 +192,5 @@ public class FormClient extends javax.swing.JPanel {
     private javax.swing.JTextField nameFLD;
     private javax.swing.JTextField phoneFLD;
     private javax.swing.JButton submitBTN;
-    private javax.swing.JButton updateBTN;
     // End of variables declaration//GEN-END:variables
 }

@@ -54,49 +54,51 @@ public class TestProjection {
     // public void hello() {}
     @Test
     public void testMovie3D() {
-        assertEquals(ManageProjection.verifyProjection("15:00", "2020-01-01", true, false, "hoi", "1"), MOVIE_NOT_AVAILABLE_3D);
+        assertEquals(ManageProjection.verifyProjection("15:00", "2020-01-30", true, false, "Parasite", "Sala 2D GA"), MOVIE_NOT_AVAILABLE_3D);
 
     }
 
     @Test
     public void testMovie4D() {
-        assertEquals(ManageProjection.verifyProjection("15:00", "2020-01-01", true, true, "el bromas", "Sala Mayor"), MOVIE_NOT_AVAILABLE_4D);
+        assertEquals(ManageProjection.verifyProjection("15:00", "2020-01-30", true, true, "Parasite", "Sala 2D GA"), MOVIE_NOT_AVAILABLE_4D);
 
     }
 
     @Test
     public void testSeats4D() {
-        assertEquals(ManageProjection.verifyProjection("15:00", "2020-01-01", true, true, "asdf", "1"), SEATS_4D);
+        assertEquals(ManageProjection.verifyProjection("15:00", "2020-01-30", true, true, "The Voyage of Doctor Dolittle", "Sala 3D GA"), SEATS_4D);
 
     }
 
     @Test
     public void testDateBeforeNow() {
-        assertEquals(ManageProjection.verifyProjection("15:00", "2010-01-01", false, false, "el bromas", "1"), DATE_PASSED);
+        assertEquals(ManageProjection.verifyProjection("15:00", "2020-01-01", true, true, "The Voyage of Doctor Dolittle", "Sala 3D GA"), DATE_PASSED);
 
     }
 
     @Test
     public void testTimeBeforeNow() {
-        assertEquals(ManageProjection.verifyProjection("01:00", "2019-12-03", false, false, "el bromas", "1"), TIME_PASSED);
+        assertEquals(ManageProjection.verifyProjection("12:00", "2020-01-27", false, false, "Parasite", "Sala 2D GA"), TIME_PASSED);
 
     }
 
     @Test
     public void testDateBeforeRelease() {
-        assertEquals(ManageProjection.verifyProjection("10:00", "2019-12-29", false, false, "hd", "1"), DATE_BEFORE_RELEASE);
+        assertEquals(ManageProjection.verifyProjection("15:00", "2020-01-30", false, false, "Sonic the Hedgehog", "Sala 2D GA"), DATE_BEFORE_RELEASE);
 
     }
 
     @Test
     public void testoverlapping() {
-        assertEquals(ManageProjection.verifyProjection("08:00", "2019-12-12", false, false, "el bromas", "1"), OVERLAPPING);
+        assertEquals(ManageProjection.verifyProjection("12:00", "2020-01-30", false, false, "Parasite", "Sala 2D GA"), OVERLAPPING);
 
     }
 
     @Test
     public void testOk() {
-        assertEquals(ManageProjection.verifyProjection("18:00", "2019-12-12", false, false, "el bromas", "Normal"), ALLOWED);
+        assertEquals(ManageProjection.verifyProjection("18:00", "2020-02-10", false, false, "Jojo Rabbit", "Sala 2D GA"), ALLOWED);
+        assertEquals(ManageProjection.verifyProjection("15:00", "2020-01-30", false, false, "Parasite", "Sala 2D GA"), ALLOWED);
+        assertEquals(ManageProjection.verifyProjection("18:00", "2020-03-10", true, true, "Sonic the Hedgehog", "Sala 4DX"), ALLOWED);
 
     }
 }
