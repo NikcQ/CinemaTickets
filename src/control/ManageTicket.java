@@ -1,8 +1,17 @@
 package control;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import entity.Client;
 import entity.Projection;
 import entity.Ticket;
+import java.io.FileOutputStream;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,6 +21,8 @@ public final class ManageTicket {
 
     public static String verifySeats(Projection proj, String cat, int row, int[] seats, String cid, boolean redeem) {
         // Check for client id
+        Client cli = new Client();
+        cli = CinemApp.rClient(cid);
         if (!cid.isEmpty() && CinemApp.rClient(cid) == null) {
             return "Client ID not found in records";
         } else if (cid.isEmpty() && redeem) {
@@ -67,14 +78,46 @@ public final class ManageTicket {
             // Build and persist ticket
             Ticket tick = new Ticket(proj, cat, row, seats, redeem ? 0 : price);
             CinemApp.cTicket(tick);
-
+            generarFactura(tick.getId(), cid, cli.getFname(), proj.getTime(), proj.getScreen().getName(), price, cat);
             return "Ticket sale registered successfully.";
         } else {
             return "Ticket sale failed, please try again.";
         }
     }
 
-    private ManageTicket() {
+    public static void generarFactura(int id, String cid, String name, LocalTime sTime, String sName, int price, String category) {
+        String rut = "C:\\Users\\Johan_Prieto\\Downloads\\Factura";
+        String separador = "----------------------------------------------";
+        String cuadro = "****************************************";
+        try {
+            FileOutputStream archivo = new FileOutputStream(rut + String.valueOf(id) + ".pdf");
+            Document doc = new Document();
+            PdfWriter.getInstance(doc, archivo);
+            doc.open();
+            doc.add(new Paragraph("             CINEMAPP"));
+            doc.add(new Paragraph("           Nit 00000000-0"));
+            doc.add(new Paragraph("        Universidad Nacional"));
+            doc.add(new Paragraph("              Sede Bogota"));
+            doc.add(new Paragraph("Fecha: " + LocalDate.now() + " Hora: " + Time.valueOf(LocalTime.now())));
+            doc.add(new Paragraph(separador));
+            doc.add(new Paragraph("FACTURA DE VENTA No. " + id));
+            doc.add(new Paragraph("Cliente: " + name));
+            doc.add(new Paragraph("C.C: " + cid));
+            doc.add(new Paragraph(separador));
+            doc.add(new Paragraph("Hora de función: " + sTime));
+            doc.add(new Paragraph("Sala: " + sName));
+            doc.add(new Paragraph("Categoria: " + category));
+            doc.add(new Paragraph("Total: " + price));
+            doc.add(new Paragraph(cuadro));
+            doc.add(new Paragraph("*         Gracias por preferirnos       *"));
+            doc.add(new Paragraph(cuadro));
+            doc.close();
+            JOptionPane.showMessageDialog(null, "Factura de venta creada");
+        } catch (Exception e) {
+            System.out.println("error" + e);
+        }
     }
 
+    private ManageTicket() {
+    }
 }
