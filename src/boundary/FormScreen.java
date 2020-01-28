@@ -65,7 +65,7 @@ public class FormScreen extends javax.swing.JPanel {
 
         jLabel8.setText("4DX Cols");
 
-        submitBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/entity/comprobado.png"))); // NOI18N
+        submitBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/comprobado.png"))); // NOI18N
         submitBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitBTNActionPerformed(evt);
@@ -183,7 +183,7 @@ public class FormScreen extends javax.swing.JPanel {
                             .addComponent(col4DXspinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(submitBTN)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

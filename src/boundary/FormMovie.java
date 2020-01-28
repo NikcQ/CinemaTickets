@@ -124,7 +124,7 @@ public class FormMovie extends javax.swing.JPanel {
 
         is4d.setText("IS 4D");
 
-        crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/entity/comprobado.png"))); // NOI18N
+        crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/comprobado.png"))); // NOI18N
         crear.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         crear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

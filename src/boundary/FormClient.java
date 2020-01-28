@@ -53,7 +53,7 @@ public class FormClient extends javax.swing.JPanel {
 
         jLabel3.setText("LastName");
 
-        submitBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/entity/comprobado.png"))); // NOI18N
+        submitBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/comprobado.png"))); // NOI18N
         submitBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitBTNActionPerformed(evt);
@@ -78,7 +78,7 @@ public class FormClient extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(344, 344, 344)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
                         .addGap(84, 84, 84)
                         .addComponent(submitBTN)
                         .addGap(8, 8, 8))

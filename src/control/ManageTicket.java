@@ -86,7 +86,7 @@ public final class ManageTicket {
     }
 
     public static void generarFactura(int id, String cid, String name, LocalTime sTime, String sName, int price, String category) {
-        String rut = "C:\\Users\\Johan_Prieto\\Downloads\\Factura";
+        String rut = "C:\\Users\\user\\Documents\\NetBeansProjects\\CinemaTickets\\Factura";
         String separador = "----------------------------------------------";
         String cuadro = "****************************************";
         try {

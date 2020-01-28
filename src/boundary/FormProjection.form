@@ -101,7 +101,7 @@
                   <Component id="is3DCHK" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="is4DCHK" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
               <Component id="submitBTN" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
           </Group>
@@ -181,7 +181,7 @@
     <Component class="javax.swing.JButton" name="submitBTN">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/entity/comprobado.png"/>
+          <Image iconType="3" name="/Icons/comprobado.png"/>
         </Property>
       </Properties>
       <Events>

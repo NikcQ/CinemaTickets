@@ -5,6 +5,8 @@
  */
 package boundary;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Estudiante
@@ -27,6 +29,7 @@ public class mainFrame extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public mainFrame() {
+        setIconImage(new ImageIcon(getClass().getResource("../Icons/cine.png")).getImage());
         initComponents();
         setLocationRelativeTo(null);
         containerMain.add(inicio);
@@ -54,7 +57,7 @@ public class mainFrame extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/entity/pagina-de-inicio.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/pagina-de-inicio.png"))); // NOI18N
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);

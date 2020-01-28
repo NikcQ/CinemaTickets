@@ -88,7 +88,7 @@ public class FormProjection extends javax.swing.JPanel {
             }
         });
 
-        submitBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/entity/comprobado.png"))); // NOI18N
+        submitBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/comprobado.png"))); // NOI18N
         submitBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitBTNActionPerformed(evt);
@@ -167,7 +167,7 @@ public class FormProjection extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(is3DCHK)
                     .addComponent(is4DCHK))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(submitBTN)
                 .addGap(55, 55, 55))
         );
